@@ -10,9 +10,9 @@
     </author>
     <updated>2021-12-04T07:53:41.000Z</updated>
     <entry>
-        <id>https://songlinlife.github.io/2021/12/04/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</id>
+        <id>https://songlinlife.github.io/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</id>
         <title>linux 开启代理</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/12/04/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/"/>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/"/>
         <content type="html">&lt;h1 id=&#34;linux开启代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux开启代理&#34;&gt;#&lt;/a&gt; Linux 开启代理&lt;/h1&gt;
 &lt;p&gt;今天折腾了几个小时终于把 linux 上的代理给搞好的了，真的无语啊。。。&lt;/p&gt;
 &lt;h3 id=&#34;下载v2ray&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载v2ray&#34;&gt;#&lt;/a&gt; 下载 v2ray&lt;/h3&gt;
