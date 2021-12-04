@@ -3,20 +3,23 @@
     <channel>
         <title>Life</title>
         <subtitle></subtitle>
-        <icon>http://example.com/images/favicon.ico</icon>
-        <link>http://example.com</link>
+        <icon>https://songlinlife.github.io/images/favicon.ico</icon>
+        <link>https://songlinlife.github.io</link>
         <author>
           <name>Kalice</name>
         </author>
         <description>Life is not about lifestyle, it means Lithium and iron.</description>
         <language>chinese</language>
-        <pubDate>Sat, 04 Dec 2021 15:31:38 +0800</pubDate>
-        <lastBuildDate>Sat, 04 Dec 2021 15:31:38 +0800</lastBuildDate>
+        <pubDate>Sat, 04 Dec 2021 15:53:41 +0800</pubDate>
+        <lastBuildDate>Sat, 04 Dec 2021 15:53:41 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://example.com/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</guid>
-            <title></title>
-            <link>http://example.com/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</link>
-            <pubDate>Sat, 04 Dec 2021 15:31:38 +0800</pubDate>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</guid>
+            <title>linux 开启代理</title>
+            <link>https://songlinlife.github.io/2021/12/04/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</link>
+            <category term="琐事" scheme="https://songlinlife.github.io/categories/%E7%90%90%E4%BA%8B/" />
+            <category term="v2ray" scheme="https://songlinlife.github.io/tags/v2ray/" />
+            <category term="代理， kuharo" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86%EF%BC%8C-kuharo/" />
+            <pubDate>Sat, 04 Dec 2021 15:53:41 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;linux开启代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux开启代理&#34;&gt;#&lt;/a&gt; Linux 开启代理&lt;/h1&gt;
 &lt;p&gt;今天折腾了几个小时终于把 linux 上的代理给搞好的了，真的无语啊。。。&lt;/p&gt;
 &lt;h3 id=&#34;下载v2ray&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载v2ray&#34;&gt;#&lt;/a&gt; 下载 v2ray&lt;/h3&gt;
@@ -67,10 +70,22 @@ socks5 127.0.0.1 1080
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211201140937663.png&#34; alt=&#34;image-20211201140937663&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;但是可以用 proxychains 来强制执行。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211201140955595.png&#34; alt=&#34;image-20211201140955595&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;将开启代理配置成命令sh脚本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#将开启代理配置成命令sh脚本&#34;&gt;#&lt;/a&gt; 将开启代理配置成命令（sh 脚本）&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/bin/bash
+nohup /mnt/d/wsl/v2ray/v2ray -config /mnt/d/wsl/v2ray/config.json &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;           
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;/dev/null&lt;/code&gt;  表示将标准输出扔到 null 里，&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt;  表示将标准错误重定向为标准输出&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;  表示后台执行&lt;/p&gt;
+&lt;p&gt;将这个命令命名为 &lt;code&gt;v2&lt;/code&gt; ， 并移动到 &lt;code&gt;/usr/local/bin&lt;/code&gt;  再加个权限 &lt;code&gt;chmod 777 v2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ok&lt;/p&gt;
+&lt;p&gt;直接终端可用&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211204160859836.png&#34; alt=&#34;image-20211204160859836&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;参考链接：&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92MnJheXRlY2guY29tL2xpbnV4LWNtZC1zZXQtcHJveHkv&#34;&gt;Linux 终端设置代理&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kYWU4N2U0ZDc2OTE=&#34;&gt;记录：Linux 下 V2Ray 原生客户端配置&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuanVuei5vcmcvcG9zdC92Ml9pbl9saW51eC8=&#34;&gt;Linux 下使用 v2ray&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9jYjkwYTA0MDM4Mjk=&#34;&gt;将一个 shell 脚本文件注册为一个全局命令&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
