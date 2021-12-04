@@ -31,10 +31,8 @@
   margin: 0;
   float: right;
   opacity: 0.75;
-  -webkit-transition: opacity 0.2s;
-          transition: opacity 0.2s;
-  -webkit-box-shadow: none;
-          box-shadow: none; }
+  transition: opacity 0.2s;
+  box-shadow: none; }
   .pswp__button:focus, .pswp__button:hover {
     opacity: 1; }
   .pswp__button:active {
@@ -155,8 +153,7 @@
   position: absolute;
   z-index: 1600;
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-out;
-          transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
   -webkit-backface-visibility: hidden;
   will-change: opacity; }
 
@@ -172,13 +169,9 @@
   display: block;
   width: auto;
   right: 44px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -webkit-transform: translateY(6px);
-      -ms-transform: translateY(6px);
-          transform: translateY(6px);
-  -webkit-transition: -webkit-transform 0.25s;
-          transition: transform 0.25s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transform: translateY(6px);
+  transition: transform 0.25s;
   -webkit-backface-visibility: hidden;
   will-change: transform; }
   .pswp__share-tooltip a {
@@ -200,9 +193,7 @@
 .pswp__share-modal--fade-in {
   opacity: 1; }
   .pswp__share-modal--fade-in .pswp__share-tooltip {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0); }
+    transform: translateY(0); }
 
 /* increase size of share links on touch devices */
 .pswp--touch .pswp__share-tooltip a {
@@ -301,8 +292,7 @@ a.pswp__share--download:hover {
   left: 50%;
   margin-left: -22px;
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-out;
-          transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
   will-change: opacity;
   direction: ltr; }
 
@@ -347,8 +337,7 @@ a.pswp__share--download:hover {
   overflow: hidden; }
 
 .pswp--css_animation .pswp__preloader__donut {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 14px;
   height: 14px;
   border: 2px solid #FFF;
@@ -371,41 +360,31 @@ a.pswp__share--download:hover {
 
 @-webkit-keyframes clockwise {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 @keyframes clockwise {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 @-webkit-keyframes donut-rotate {
   0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); }
+    transform: rotate(0); }
   50% {
-    -webkit-transform: rotate(-140deg);
-            transform: rotate(-140deg); }
+    transform: rotate(-140deg); }
   100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); } }
+    transform: rotate(0); } }
 
 @keyframes donut-rotate {
   0% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); }
+    transform: rotate(0); }
   50% {
-    -webkit-transform: rotate(-140deg);
-            transform: rotate(-140deg); }
+    transform: rotate(-140deg); }
   100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); } }
+    transform: rotate(0); } }
 
 /*
 	
@@ -433,8 +412,7 @@ a.pswp__share--download:hover {
 .pswp--has_mouse .pswp__button--arrow--right {
   -webkit-backface-visibility: hidden;
   will-change: opacity;
-  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
-          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+  transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
 
 /* pswp--has_mouse class is added only when two subsequent mousemove events occur */
 .pswp--has_mouse .pswp__button--arrow--left,
