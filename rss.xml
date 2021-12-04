@@ -10,8 +10,49 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Sat, 04 Dec 2021 15:53:41 +0800</pubDate>
-        <lastBuildDate>Sat, 04 Dec 2021 15:53:41 +0800</lastBuildDate>
+        <pubDate>Sat, 04 Dec 2021 21:05:48 +0800</pubDate>
+        <lastBuildDate>Sat, 04 Dec 2021 21:05:48 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/1/</guid>
+            <title>1</title>
+            <link>https://songlinlife.github.io/2021/1/</link>
+            <pubDate>Sat, 04 Dec 2021 21:05:48 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/d/</guid>
+            <title>d</title>
+            <link>https://songlinlife.github.io/2021/d/</link>
+            <pubDate>Sat, 04 Dec 2021 21:05:07 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</guid>
+            <title>Hexo+Shoka主题+git托管，持续优化ing</title>
+            <link>https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</link>
+            <category term="hexo" scheme="https://songlinlife.github.io/tags/hexo/" />
+            <category term="typora" scheme="https://songlinlife.github.io/tags/typora/" />
+            <category term="github" scheme="https://songlinlife.github.io/tags/github/" />
+            <category term="shoka" scheme="https://songlinlife.github.io/tags/shoka/" />
+            <pubDate>Sat, 04 Dec 2021 20:42:47 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;设置分类&lt;/p&gt;
+&lt;p&gt;在设置 config 时，有两个 &lt;code&gt;config.json&lt;/code&gt; ，一个是 hexo 自带的，另一个则是配置主题 shoka 的。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/test/</guid>
+            <title>test</title>
+            <link>https://songlinlife.github.io/2021/test/</link>
+            <pubDate>Sat, 04 Dec 2021 20:42:28 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96%E4%B8%AD/</guid>
+            <title>Hexo+Shoka主题+git托管，持续优化中...</title>
+            <link>https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96%E4%B8%AD/</link>
+            <pubDate>Sat, 04 Dec 2021 20:41:23 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.github.io/2021/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</guid>
             <title>linux 开启代理</title>

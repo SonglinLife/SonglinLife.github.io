@@ -8,7 +8,48 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2021-12-04T07:53:41.000Z</updated>
+    <updated>2021-12-04T13:05:48.000Z</updated>
+    <entry>
+        <id>https://songlinlife.github.io/2021/1/</id>
+        <title>1</title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/1/"/>
+        <content type="html"></content>
+        <updated>2021-12-04T13:05:48.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.github.io/2021/d/</id>
+        <title>d</title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/d/"/>
+        <content type="html"></content>
+        <updated>2021-12-04T13:05:07.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</id>
+        <title>Hexo+Shoka主题+git托管，持续优化ing</title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/"/>
+        <content type="html">&lt;p&gt;设置分类&lt;/p&gt;
+&lt;p&gt;在设置 config 时，有两个 &lt;code&gt;config.json&lt;/code&gt; ，一个是 hexo 自带的，另一个则是配置主题 shoka 的。&lt;/p&gt;
+</content>
+        <category term="hexo" scheme="https://songlinlife.github.io/tags/hexo/" />
+        <category term="typora" scheme="https://songlinlife.github.io/tags/typora/" />
+        <category term="github" scheme="https://songlinlife.github.io/tags/github/" />
+        <category term="shoka" scheme="https://songlinlife.github.io/tags/shoka/" />
+        <updated>2021-12-04T12:42:47.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.github.io/2021/test/</id>
+        <title>test</title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/test/"/>
+        <content type="html"></content>
+        <updated>2021-12-04T12:42:28.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96%E4%B8%AD/</id>
+        <title>Hexo+Shoka主题+git托管，持续优化中...</title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96%E4%B8%AD/"/>
+        <content type="html"></content>
+        <updated>2021-12-04T12:41:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.github.io/2021/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</id>
         <title>linux 开启代理</title>
