@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "SonglinLife • All posts by \"分类2\" category",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2016/10/12/test01/",
+            "url": "http://example.com/2016/10/12/test01/",
+            "title": "My awesome title",
+            "date_published": "2016-10-12T10:38:45.000Z",
+            "content_html": "",
+            "tags": [
+                "标签1",
+                "标签2"
+            ]
+        }
+    ]
+}
