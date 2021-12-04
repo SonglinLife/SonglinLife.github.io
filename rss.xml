@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>SonglinLife</title>
-        <subtitle></subtitle>
+        <title>Life</title>
+        <subtitle>松林</subtitle>
         <icon>http://example.com/images/favicon.ico</icon>
         <link>http://example.com</link>
         <author>
-          <name>John Doe</name>
+          <name>Kalice</name>
         </author>
-        <description></description>
-        <language>en</language>
+        <description>Life is not about lifestyle, it means Lithium and iron.</description>
+        <language>cn</language>
         <pubDate>Sat, 04 Dec 2021 11:10:09 +0800</pubDate>
         <lastBuildDate>Sat, 04 Dec 2021 11:10:09 +0800</lastBuildDate>
         <item>
