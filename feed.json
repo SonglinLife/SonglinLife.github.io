@@ -1,6 +1,8 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "SonglinLife",
+    "subtitle": "",
+    "icon": "http://example.com/images/favicon.ico",
     "description": "",
     "home_page_url": "http://example.com",
     "items": [
@@ -27,6 +29,8 @@
             "date_published": "2016-10-12T10:38:45.000Z",
             "content_html": "",
             "tags": [
+                "分类1",
+                "分类2",
                 "标签1",
                 "标签2"
             ]
