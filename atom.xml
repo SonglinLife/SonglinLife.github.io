@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://example.com</id>
     <title>Life</title>
-    <subtitle>松林</subtitle>
+    <subtitle></subtitle>
     <icon>http://example.com/images/favicon.ico</icon>
     <link href="http://example.com" />
     <author>

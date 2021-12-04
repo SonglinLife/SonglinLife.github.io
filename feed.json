@@ -1,7 +1,7 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "Life",
-    "subtitle": "松林",
+    "subtitle": null,
     "icon": "http://example.com/images/favicon.ico",
     "description": "Life is not about lifestyle, it means Lithium and iron.",
     "home_page_url": "http://example.com",

@@ -2,14 +2,14 @@
 <rss version="2.0">
     <channel>
         <title>Life</title>
-        <subtitle>松林</subtitle>
+        <subtitle></subtitle>
         <icon>http://example.com/images/favicon.ico</icon>
         <link>http://example.com</link>
         <author>
           <name>Kalice</name>
         </author>
         <description>Life is not about lifestyle, it means Lithium and iron.</description>
-        <language>cn</language>
+        <language>chinese</language>
         <pubDate>Sat, 04 Dec 2021 11:10:09 +0800</pubDate>
         <lastBuildDate>Sat, 04 Dec 2021 11:10:09 +0800</lastBuildDate>
         <item>
