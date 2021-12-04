@@ -69,7 +69,8 @@ nohup /mnt/d/wsl/v2ray/v2ray -config /mnt/d/wsl/v2ray/config.json &amp;gt;/dev/n
 </content>
         <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
         <category term="v2ray" scheme="https://songlinlife.github.io/tags/v2ray/" />
-        <category term="代理， kuharo" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86%EF%BC%8C-kuharo/" />
+        <category term="代理" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86/" />
+        <category term="kuharo" scheme="https://songlinlife.github.io/tags/kuharo/" />
         <updated>2021-12-04T07:53:41.000Z</updated>
     </entry>
 </feed>

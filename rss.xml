@@ -18,7 +18,8 @@
             <link>https://songlinlife.github.io/2021/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</link>
             <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
             <category term="v2ray" scheme="https://songlinlife.github.io/tags/v2ray/" />
-            <category term="代理， kuharo" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86%EF%BC%8C-kuharo/" />
+            <category term="代理" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86/" />
+            <category term="kuharo" scheme="https://songlinlife.github.io/tags/kuharo/" />
             <pubDate>Sat, 04 Dec 2021 15:53:41 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;linux开启代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux开启代理&#34;&gt;#&lt;/a&gt; Linux 开启代理&lt;/h1&gt;
 &lt;p&gt;今天折腾了几个小时终于把 linux 上的代理给搞好的了，真的无语啊。。。&lt;/p&gt;
