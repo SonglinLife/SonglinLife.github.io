@@ -29,7 +29,7 @@
 &lt;p&gt;&lt;code&gt;hexo init blog_name(你的博客名称)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;我的 blog 名称是 &lt;code&gt;SonglinLife&lt;/code&gt; ，所以会生成一个 &lt;code&gt;SonglinLife&lt;/code&gt;  的文件夹，这个文件夹就是博客的 root 文件夹。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;cd SonglinLife&lt;/code&gt;&lt;/p&gt;
-&lt;h5 id=&#34;配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置&#34;&gt;#&lt;/a&gt; 配置&lt;/h5&gt;
+&lt;h4 id=&#34;配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置&#34;&gt;#&lt;/a&gt; 配置&lt;/h4&gt;
 &lt;p&gt;因为我的 blog 是托管在 github 上的，所以需要设置 github 仓库地址（请确认你的 github 账号和你的 ssh key 已经进行了绑定）&lt;/p&gt;
 &lt;p&gt;`vim _config.yml&lt;/p&gt;
 &lt;p&gt;在设置 config 时，有两个 &lt;code&gt;_config.yml&lt;/code&gt; ，一个是 hexo 自带的，另一个则是配置主题 shoka 的。这两个 config.json 位于不同的文件夹下，不要搞混了。&lt;/p&gt;
