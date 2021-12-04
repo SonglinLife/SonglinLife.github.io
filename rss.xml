@@ -50,12 +50,12 @@
 &lt;p&gt;安装顺序：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;[依赖插件](&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;依赖插件&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9jb25maWcv&#34;&gt;基本功能&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9kaXNwbGF5Lw==&#34;&gt;界面显示&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9kaXNwbGF5Lw==&#34;&gt;特殊功能&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;一个个看过去，选择直接想要的功能，关闭直接不想要的功能。&lt;/p&gt;
+&lt;p&gt;一个个看过去，选择自己想要的功能，关闭直接不想要的功能。&lt;/p&gt;
 &lt;p&gt;这里有几个点，头像，赞赏码之类的图片在 &#39;SonglinLife\themes\shoka\source\images&#39; 这个文件夹下，所以安装完了，记得换头像和赞赏码。&lt;/p&gt;
 &lt;p&gt;还有一个值得注意的点，即使你开启了 about 功能，也是不会显示的，因为要生成一个 about 界面。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;hexo n page &amp;quot;about&amp;quot;&lt;/code&gt;&lt;/p&gt;
