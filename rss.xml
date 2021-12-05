@@ -17,7 +17,9 @@
             <title>zsh美化</title>
             <link>https://songlinlife.github.io/2021/zsh%E7%BE%8E%E5%8C%96/</link>
             <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-            <category term="zsh, wsl, theme" scheme="https://songlinlife.github.io/tags/zsh-wsl-theme/" />
+            <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
+            <category term="wsl" scheme="https://songlinlife.github.io/tags/wsl/" />
+            <category term="theme" scheme="https://songlinlife.github.io/tags/theme/" />
             <pubDate>Sun, 05 Dec 2021 10:27:47 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;最近得空一点，给我的 terminal 进行了一点装修。&lt;/p&gt;
 &lt;p&gt;主要还是按照了 zsh，配置了主题和插件。&lt;/p&gt;

@@ -39,7 +39,9 @@
 &lt;/ul&gt;
 </content>
         <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-        <category term="zsh, wsl, theme" scheme="https://songlinlife.github.io/tags/zsh-wsl-theme/" />
+        <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
+        <category term="wsl" scheme="https://songlinlife.github.io/tags/wsl/" />
+        <category term="theme" scheme="https://songlinlife.github.io/tags/theme/" />
         <updated>2021-12-05T02:27:47.000Z</updated>
     </entry>
     <entry>
