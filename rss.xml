@@ -164,6 +164,43 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;p&gt;Dependencies you only need during development or releasing, like compilers that take your code and compile it into javascript, test frameworks or documentation generators.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;project 只在开发或测试阶段使用的依赖，不具有传递性。&lt;/p&gt;
+&lt;h3 id=&#34;关于npm包依赖关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于npm包依赖关系&#34;&gt;#&lt;/a&gt; 关于 npm 包依赖关系&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY2FybHJpcHBvbi5jb20vdXBncmFkaW5nLW5wbS1kZXBlbmRlbmNpZXMv&#34;&gt;Upgrading npm dependencies&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章写得真的好。&lt;/p&gt;
+&lt;h5 id=&#34;so-npm-install-installs-the-latest-safe-version-of-the-dependencies&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#so-npm-install-installs-the-latest-safe-version-of-the-dependencies&#34;&gt;#&lt;/a&gt; So,  &lt;code&gt;npm install&lt;/code&gt;  installs the latest safe version of the dependencies？&lt;/h5&gt;
+&lt;p&gt;如果 package 已经安装在  &lt;code&gt;node_modules&lt;/code&gt;  中，那么就不会更新任何包。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the packages haven’t been installed and a  &lt;code&gt;package-lock.json&lt;/code&gt;  file exists, then  &lt;code&gt;npm install&lt;/code&gt;  will install the exact dependency versions specified in  &lt;code&gt;package-lock.json&lt;/code&gt; .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果没有，就按  &lt;code&gt;package-lock.json&lt;/code&gt;  安装指定的依赖。这个指定的依赖&lt;/p&gt;
+&lt;p&gt;关于  &lt;code&gt;package-lock.json&lt;/code&gt; ，这里有几篇很好的文章， 说明白了 package-lock.json       👉&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tZWRpdW0uY29tL2NvaW5tb25rcy9ldmVyeXRoaW5nLXlvdS13YW50ZWQtdG8ta25vdy1hYm91dC1wYWNrYWdlLWxvY2stanNvbi1iODE5MTFhYThhYjg=&#34;&gt;Everything You Wanted To Know About package-lock.json But Were Too Afraid To Ask&lt;/span&gt;  &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9uZXh1c2lubm8uY29tL2VuL3doYXQtdGhlLWhlY2stYXJlLXBhY2thZ2UtbG9ja3MtYW5kLXdoeS1hcmUtdGhleS15b3VyLWZyaWVuZHMv&#34;&gt;What the heck are package-locks, and why are they your friends?&lt;/span&gt; 博客园的这篇也不错&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vY2FuZ3FpbmdsYW5nL3AvODMzNjc1NC5odG1s&#34;&gt; package-lock.json 的作用&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;我没有使用过 nodejs，但我大致知道了，这玩意就是锁定依赖用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;npm install&lt;/code&gt;  will install the latest safe version of the dependencies if they don’t exist in the  &lt;code&gt;node_modules&lt;/code&gt;  folder and, there is no  &lt;code&gt;package-lock.json&lt;/code&gt;  file. However, you may think the latest safe version &lt;strong&gt;hasn’t&lt;/strong&gt; been installed because  &lt;code&gt;package.json&lt;/code&gt;  is unchanged, but if you check the packages in the  &lt;code&gt;node_modules&lt;/code&gt;  folder, the latest safe version will have been installed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只有没有 package-lock.json，并且本地没已存在的依赖，npm 才会安装最新的依赖。&lt;/p&gt;
+&lt;h4 id=&#34;更新依赖策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新依赖策略&#34;&gt;#&lt;/a&gt; 更新依赖策略&lt;/h4&gt;
+&lt;p&gt;执行 &lt;code&gt;npm outdated&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesnpm-outdated.png&#34; alt=&#34;npm-outdated&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm update&lt;/code&gt;  更新依赖到 wanted。&lt;/p&gt;
+&lt;p&gt;注意这个 &lt;code&gt;want&lt;/code&gt;  指的是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;strong&gt;wanted&lt;/strong&gt; version is the latest safe version that can be taken (according to the semantic version and the  &lt;code&gt;^&lt;/code&gt;  or  &lt;code&gt;~&lt;/code&gt;  prefix). The &lt;strong&gt;latest&lt;/strong&gt; version is the latest version available in the npm registry.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为 npm 的版本策略是不会涉及到 major 的更新的，只会更新  &lt;code&gt;the latest safe version that can be taken (according to the semantic version and the &lt;/code&gt; ^ &lt;code&gt;or&lt;/code&gt; ~ &lt;code&gt; prefix).&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;也就是说，只会更新到 package.json 中设置的版本策略中的最新。&lt;/p&gt;
+&lt;p&gt;更新之后，会同时更新， package.json 和 package-lock.json&lt;/p&gt;
+&lt;h4 id=&#34;updating-all-dependencies-with-major-changes&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#updating-all-dependencies-with-major-changes&#34;&gt;#&lt;/a&gt; Updating all dependencies with major changes&lt;/h4&gt;
+&lt;p&gt;例如： &lt;code&gt;npm install react@latest react-dom@latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;也可以：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npx npm-check-updates -u&lt;/code&gt;  注：这条命令用于更新 package.json&lt;/p&gt;
+&lt;p&gt;然后再  &lt;code&gt;npm install&lt;/code&gt;  就可以更新大版本了。&lt;/p&gt;
+&lt;h4 id=&#34;依赖网络&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#依赖网络&#34;&gt;#&lt;/a&gt; 依赖网络&lt;/h4&gt;
+&lt;p&gt;一个在线查看 npm 依赖图的网站：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ucG0uYW52YWthLmNvbS8jLw==&#34;&gt;https://npm.anvaka.com/#/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211205163705871.png&#34; alt=&#34;image-20211205163705871&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;npm-remote-ls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#npm-remote-ls&#34;&gt;#&lt;/a&gt; npm-remote-ls&lt;/h5&gt;
+&lt;p&gt;一个已经废弃的依赖查询工具。&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25wbS9ucG0tcmVtb3RlLWxz&#34;&gt;https://github.com/npm/npm-remote-ls&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
