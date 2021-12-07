@@ -142,6 +142,10 @@ r = \beta Mr +\frac{1-\beta}{N} 1
             <category term="指标" scheme="https://songlinlife.github.io/tags/%E6%8C%87%E6%A0%87/" />
             <pubDate>Sun, 05 Dec 2021 12:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;mttu代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mttu代码实现&#34;&gt;#&lt;/a&gt; MTTU 代码实现&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;we defined a time to update(TTU) attribute for all components in our dataset.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TTU 就是组件更新时间。&lt;/p&gt;
 &lt;p&gt;苦逼😩的打工人，开始做指标了，虽然我对做指标没啥兴趣，但不妨碍大家都喜欢看指标，第一个小目标，实现 MTTU。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211202221540094.png&#34; alt=&#34;image-20211202221540094&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这个 MTTU 也好理解，说白了就是平均依赖更新时间，但是我觉得这里有个问题，直觉来说对于大型项目来说，它的 MTTU 应该是不低的，这可能会导致多依赖项目具有天然的劣势。而且我觉得它也没有考虑版本稳定性的问题，以及大版本和小版本之间的差异性。&lt;/p&gt;
@@ -201,6 +205,22 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;h5 id=&#34;npm-remote-ls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#npm-remote-ls&#34;&gt;#&lt;/a&gt; npm-remote-ls&lt;/h5&gt;
 &lt;p&gt;一个已经废弃的依赖查询工具。&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25wbS9ucG0tcmVtb3RlLWxz&#34;&gt;https://github.com/npm/npm-remote-ls&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mttu分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mttu分析&#34;&gt;#&lt;/a&gt; MTTU 分析&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211206154306358.png&#34; alt=&#34;image-20211206154306358&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211206155343705.png&#34; alt=&#34;image-20211206155343705&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;逻辑上存在的问题：&lt;/p&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 采用落后版本问题：不是每个依赖用的都是最新版本，这个毫无疑问，有可能出现这种情况，比如 C 虽然将依赖 A 从 2.2 更新到 A2.4 但是 A2.4 也不是 A 的最新版本，可能依赖 A 现在都更新到 10.9 了，但是利用 TTU 直接进行计算就会导致数值过大。逻辑上 bug：虽然更新了，但我的 TUU 反而变大了？&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;解决思路：如果 TTU 要大于组件更新时间，那么就采用 组件更新时间 -（两个依赖版本相差时间）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 如果组件长时间不更新依赖，但这一次更新刚好将依赖提升到最近版本，那么它的这一次更新的 TTU 就会很小，这显然是不合理的。&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 比如组件用的依赖虽然都是最新版本，但这个最新版本都是很久之前的了，根据 TTU 计算规则，它的 TTU 一直会是 0，这显然也是不合理的。&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
  ]]></description>
         </item>
         <item>
