@@ -10,8 +10,15 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 08 Dec 2021 09:28:19 +0800</pubDate>
-        <lastBuildDate>Wed, 08 Dec 2021 09:28:19 +0800</lastBuildDate>
+        <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
+        <lastBuildDate>Wed, 08 Dec 2021 18:43:22 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
+            <title>pymongo复杂查询（嵌套、范围、aggregate）</title>
+            <link>https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
+            <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
             <title></title>

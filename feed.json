@@ -7,6 +7,14 @@
     "home_page_url": "https://songlinlife.github.io",
     "items": [
         {
+            "id": "https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/",
+            "url": "https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/",
+            "title": "pymongo复杂查询（嵌套、范围、aggregate）",
+            "date_published": "2021-12-08T10:43:22.000Z",
+            "content_html": "",
+            "tags": []
+        },
+        {
             "id": "https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/",
             "url": "https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/",
             "title": "",
