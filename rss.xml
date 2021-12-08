@@ -13,17 +13,11 @@
         <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
         <lastBuildDate>Wed, 08 Dec 2021 18:43:22 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
-            <title>pymongo复杂查询（嵌套、范围、aggregate）</title>
-            <link>https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
-            <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
-            <title></title>
+            <title>pip 相关问题</title>
             <link>https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</link>
-            <pubDate>Wed, 08 Dec 2021 09:28:19 +0800</pubDate>
+            <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
+            <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;pip-相关问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pip-相关问题&#34;&gt;#&lt;/a&gt; pip 相关问题&lt;/h1&gt;
 &lt;h5 id=&#34;安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装依赖&#34;&gt;#&lt;/a&gt; 安装依赖&lt;/h5&gt;
 &lt;p&gt;&lt;code&gt;pip install xxx&lt;/code&gt;&lt;/p&gt;
@@ -39,6 +33,13 @@
 &lt;p&gt;&lt;code&gt;cd xxx/anaconda/lib/pythonxxx/site-packages&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm -rf $(ls | grep &amp;quot;^~&amp;quot;)&lt;/code&gt;&lt;/p&gt;
  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
+            <title>pymongo复杂查询（嵌套、范围、aggregate）</title>
+            <link>https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
+            <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/</guid>
