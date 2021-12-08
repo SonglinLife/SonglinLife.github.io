@@ -8,7 +8,28 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2021-12-05T06:31:42.000Z</updated>
+    <updated>2021-12-08T01:28:19.218Z</updated>
+    <entry>
+        <id>https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</id>
+        <title></title>
+        <link rel="alternate" href="https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+        <content type="html">&lt;h1 id=&#34;pip-相关问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pip-相关问题&#34;&gt;#&lt;/a&gt; pip 相关问题&lt;/h1&gt;
+&lt;h5 id=&#34;安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装依赖&#34;&gt;#&lt;/a&gt; 安装依赖&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;pip install xxx&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;移除依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#移除依赖&#34;&gt;#&lt;/a&gt; 移除依赖&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;pip uninstall xxx&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;列出依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列出依赖&#34;&gt;#&lt;/a&gt; 列出依赖&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;pip list&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;生成requirementstxt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成requirementstxt&#34;&gt;#&lt;/a&gt; 生成 &lt;code&gt;requirements.txt&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;pip freeze &amp;gt; requirements.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;安装requirementstxt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装requirementstxt&#34;&gt;#&lt;/a&gt; 安装 &lt;code&gt;requirements.txt&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;清除未安装成功包warning-ignoring-invalid-distribution-&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#清除未安装成功包warning-ignoring-invalid-distribution-&#34;&gt;#&lt;/a&gt; 清除未安装成功包 (WARNING: Ignoring invalid distribution -)&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;cd xxx/anaconda/lib/pythonxxx/site-packages&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rm -rf $(ls | grep &amp;quot;^~&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+</content>
+        <updated>2021-12-08T01:28:19.218Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/</id>
         <title>待办</title>

@@ -7,6 +7,14 @@
     "home_page_url": "https://songlinlife.github.io",
     "items": [
         {
+            "id": "https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/",
+            "url": "https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/",
+            "title": "",
+            "date_published": "2021-12-08T01:28:19.218Z",
+            "content_html": "<h1 id=\"pip-相关问题\"><a class=\"anchor\" href=\"#pip-相关问题\">#</a> pip 相关问题</h1>\n<h5 id=\"安装依赖\"><a class=\"anchor\" href=\"#安装依赖\">#</a> 安装依赖</h5>\n<p><code>pip install xxx</code></p>\n<h5 id=\"移除依赖\"><a class=\"anchor\" href=\"#移除依赖\">#</a> 移除依赖</h5>\n<p><code>pip uninstall xxx</code></p>\n<h5 id=\"列出依赖\"><a class=\"anchor\" href=\"#列出依赖\">#</a> 列出依赖</h5>\n<p><code>pip list</code></p>\n<h5 id=\"生成requirementstxt\"><a class=\"anchor\" href=\"#生成requirementstxt\">#</a> 生成 <code>requirements.txt</code></h5>\n<p><code>pip freeze &gt; requirements.txt</code></p>\n<h5 id=\"安装requirementstxt\"><a class=\"anchor\" href=\"#安装requirementstxt\">#</a> 安装 <code>requirements.txt</code></h5>\n<p><code>pip install -r requirements.txt</code></p>\n<h5 id=\"清除未安装成功包warning-ignoring-invalid-distribution-\"><a class=\"anchor\" href=\"#清除未安装成功包warning-ignoring-invalid-distribution-\">#</a> 清除未安装成功包 (WARNING: Ignoring invalid distribution -)</h5>\n<p><code>cd xxx/anaconda/lib/pythonxxx/site-packages</code></p>\n<p><code>rm -rf $(ls | grep &quot;^~&quot;)</code></p>\n",
+            "tags": []
+        },
+        {
             "id": "https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/",
             "url": "https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/",
             "title": "待办",
