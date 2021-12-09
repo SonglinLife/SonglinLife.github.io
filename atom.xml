@@ -99,13 +99,14 @@
         <title>待办</title>
         <link rel="alternate" href="https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/"/>
         <content type="html">&lt;ul class=&#34;task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 用 python 实现一个 MTTU 查询脚本&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 用 python 实现一个 MTTU 查询脚本&lt;/label&gt;&lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 学习 Vim 的使用&lt;/label&gt;&lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 学习 CSS 和 js 的使用&lt;/label&gt;&lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 学习 GNN 和 ML&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_4&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_4&#34;&gt; 实现动漫角色人脸识别&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="js" scheme="https://songlinlife.github.io/categories/js/" />
+        <category term="记事" scheme="https://songlinlife.github.io/categories/js/" />
         <updated>2021-12-05T06:31:42.000Z</updated>
     </entry>
     <entry>
@@ -210,7 +211,7 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;h2 id=&#34;matrix-factorization&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#matrix-factorization&#34;&gt;#&lt;/a&gt; matrix factorization&lt;/h2&gt;
 &lt;p&gt;这一块不怎么熟悉，有待进一步学习。&lt;/p&gt;
 </content>
-        <category term="ai" scheme="https://songlinlife.github.io/categories/ai/" />
+        <category term="AI" scheme="https://songlinlife.github.io/categories/ai/" />
         <category term="图算法" scheme="https://songlinlife.github.io/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/" />
         <category term="PageRank" scheme="https://songlinlife.github.io/tags/PageRank/" />
         <updated>2021-12-05T04:00:00.000Z</updated>
