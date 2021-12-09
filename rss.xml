@@ -10,8 +10,29 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
-        <lastBuildDate>Wed, 08 Dec 2021 18:43:22 +0800</lastBuildDate>
+        <pubDate>Thu, 09 Dec 2021 11:07:10 +0800</pubDate>
+        <lastBuildDate>Thu, 09 Dec 2021 11:07:10 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/Anime-Face-Recognize%EF%BC%88%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%EF%BC%89/</guid>
+            <title>Anime Face Recognize（动漫人物人脸识别）</title>
+            <link>https://songlinlife.github.io/2021/Anime-Face-Recognize%EF%BC%88%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%EF%BC%89/</link>
+            <category term="AI" scheme="https://songlinlife.github.io/categories/ai/" />
+            <category term="CV、人脸识别、Anime、课设" scheme="https://songlinlife.github.io/tags/CV%E3%80%81%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E3%80%81Anime%E3%80%81%E8%AF%BE%E8%AE%BE/" />
+            <pubDate>Thu, 09 Dec 2021 11:07:10 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;打算整个活&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打算整个活&#34;&gt;#&lt;/a&gt; 打算整个活&lt;/h3&gt;
+&lt;p&gt;因为自己对 CV&lt;s&gt; 不是很熟&lt;/s&gt;（完全不了解），但是最近要交一个机械的课设（鬼知道，为啥我计算机专业的要去选个机械相关课程，麻了😅）。于是就打算搞个有噱头，而且难度不算很大的项目，刚好可以整个动漫角色的人脸识别。&lt;/p&gt;
+&lt;p&gt;预计使用到的项目：&lt;/p&gt;
+&lt;p&gt;[&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3FoZ3oyMDEzL2FuaW1lLWZhY2UtZGV0ZWN0b3I=&#34;&gt;anime-face-detector&lt;/span&gt;]&lt;/p&gt;
+&lt;p&gt;参考资料 :&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2ZhY2UtcmVjb2duaXRpb24tZm9yLWJlZ2lubmVycy1hN2E5YmQ1ZWI1YzI=&#34;&gt;Face Recognition for Beginners&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2EtZ3VpZGUtdG8tZmFjZS1kZXRlY3Rpb24taW4tcHl0aG9uLTNlYWIwZjZiOWZjMQ==&#34;&gt;A guide to Face Detection in Python (With Code)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2J1aWxkaW5nLWEtZmFjZS1yZWNvZ25pemVyLWluLXB5dGhvbi03ZmQ2NjMwYzYzNDA=&#34;&gt;Building a Face Recognizer in Python&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lYXN5YWl0ZWNoLm1lZGl1bS5jb20vJUU0JUI4JTgwJUU2JTk2JTg3JUU3JTlDJThCJUU2JTg3JTgyJUU0JUJBJUJBJUU4JTg0JUI4JUU4JUFGJTg2JUU1JTg4JUFCLTQlRTQlQjglQUElRTclODklQjklRTclODIlQjktNCVFNCVCOCVBQSVFNSVBRSU5RSVFNyU4RSVCMCVFNiVBRCVBNSVFOSVBQSVBNC01JUU0JUI4JUFBJUU5JTlBJUJFJUU3JTgyJUI5LSVFNyVBRSU5NyVFNiVCMyU5NSVFNSU4RiU5MSVFNSVCMSU5NSVFOCVCRCVBOCVFOCVCRiVCOS0yNjYxMDc4Mzg2YWQ=&#34;&gt;一文看懂人脸识别（4 个特点 + 4 个实现步骤 + 5 个难点 + 算法发展轨迹）&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;相关论文：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50Lzc5NjE4MDM=&#34;&gt;Face Detection with the Faster R-CNN&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuc2NpZW5jZWRpcmVjdC5jb20vc2NpZW5jZS9hcnRpY2xlL2Ficy9waWkvUzA5MjUyMzEyMTgzMDMyMjk=&#34;&gt;Face detection using deep learning: An improved faster RCNN approach&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
             <title>pip 相关问题</title>
@@ -38,7 +59,7 @@
             <guid isPermalink="true">https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
             <title>MTTU代码实现思路</title>
             <link>https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
-            <category term="python" scheme="https://songlinlife.github.io/categories/python/" />
+            <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
             <category term="pymongo" scheme="https://songlinlife.github.io/tags/pymongo/" />
             <category term="MongoDB" scheme="https://songlinlife.github.io/tags/MongoDB/" />
             <category term="xlab" scheme="https://songlinlife.github.io/tags/xlab/" />
@@ -201,7 +222,7 @@ r = \beta Mr +\frac{1-\beta}{N} 1
             <guid isPermalink="true">https://songlinlife.github.io/2021/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</guid>
             <title>MTTU</title>
             <link>https://songlinlife.github.io/2021/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</link>
-            <category term="xlab" scheme="https://songlinlife.github.io/categories/xlab/" />
+            <category term="Xlab" scheme="https://songlinlife.github.io/categories/xlab/" />
             <category term="mttu" scheme="https://songlinlife.github.io/tags/mttu/" />
             <category term="指标" scheme="https://songlinlife.github.io/tags/%E6%8C%87%E6%A0%87/" />
             <pubDate>Sun, 05 Dec 2021 12:00:00 +0800</pubDate>
