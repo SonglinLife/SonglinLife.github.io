@@ -80,6 +80,7 @@
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; my_test &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sub02&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;sub02fc&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;sub02_sub01_sub01&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210180441518.png&#34; alt=&#34;image-20211210180441518&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;可以看到成功打印了 sub01_sub01fc&lt;/p&gt;
 &lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;模板的工作路径   &lt;code&gt;os.getcwd()&lt;/code&gt;  就是当前执行文件的工作路径，所以当确定好了模块后，就不要 run 了。&lt;/p&gt;
 &lt;p&gt;这个模块有点搞，如果不注意，会有很多很多错误问题，这个绝对路径和相对路径还有一堆有待解决的问题，先这样了。&lt;/p&gt;
  ]]></description>
         </item>
