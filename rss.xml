@@ -19,8 +19,15 @@
             <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
             <category term="python" scheme="https://songlinlife.github.io/tags/python/" />
             <category term="pip" scheme="https://songlinlife.github.io/tags/pip/" />
+            <category term="模块" scheme="https://songlinlife.github.io/tags/%E6%A8%A1%E5%9D%97/" />
+            <category term="工程目录" scheme="https://songlinlife.github.io/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/" />
             <pubDate>Fri, 10 Dec 2021 16:50:26 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;测试结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试结构&#34;&gt;#&lt;/a&gt; 测试结构：&lt;/h3&gt;
+            <description><![CDATA[ &lt;h3 id=&#34;一般的python工程目录结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一般的python工程目录结构&#34;&gt;#&lt;/a&gt; 一般的 Python 工程目录结构&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210180853081.png&#34; alt=&#34;image-20211210180853081&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210181004740.png&#34; alt=&#34;image-20211210181004740&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个参考👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iMTZhOWJmYzI5YjY=&#34;&gt;Python 工程目录结构，目录之间自定义包模块文件的引用&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;对于这种模块依赖我做了以下实验：&lt;/p&gt;
+&lt;h3 id=&#34;测试结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试结构&#34;&gt;#&lt;/a&gt; 测试结构：&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210171407310.png&#34; alt=&#34;image-20211210171407310&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;my_test 作为主模块， 里面有 sub01 和 sub02 两个子模块，其中 sub01 还有 sub01_sub01 这个子模块。&lt;/p&gt;
 &lt;p&gt;对于这些 &lt;code&gt;sub*fc.py&lt;/code&gt;  的 python 文件，全部内容都是：&lt;/p&gt;
