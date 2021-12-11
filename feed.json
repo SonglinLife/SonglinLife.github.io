@@ -7,6 +7,18 @@
     "home_page_url": "https://songlinlife.github.io",
     "items": [
         {
+            "id": "https://songlinlife.github.io/2021/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/",
+            "url": "https://songlinlife.github.io/2021/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/",
+            "title": "vscode 远程终端不能打开zsh",
+            "date_published": "2021-12-11T02:57:05.000Z",
+            "content_html": "<h3 id=\"vscode-远程终端不能打开zsh\"><a class=\"anchor\" href=\"#vscode-远程终端不能打开zsh\">#</a> vscode 远程终端不能打开 zsh</h3>\n<p>远程终端打开 zsh 报错 <code>The terminal process failed to launch: Path to shell executable &quot;zsh&quot; is not a file or a symlink</code></p>\n<p>问题原因：没有配置好 zsh 路径</p>\n<p>解决：打开 vscode  <code>首选项.设置</code> ，输入  <code>terminal.integrated.profiles.linux</code></p>\n<p>。打开 setting.json，将以下代码添加上：</p>\n<figure class=\"highlight json\"><figcaption data-lang=\"JSON\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token property\">\"terminal.integrated.profiles.linux\"</span><span class=\"token operator\">:</span> <span class=\"token punctuation\">&#123;</span> </pre></td></tr><tr><td data-num=\"2\"></td><td><pre>        <span class=\"token property\">\"bash\"</span><span class=\"token operator\">:</span> <span class=\"token punctuation\">&#123;</span></pre></td></tr><tr><td data-num=\"3\"></td><td><pre>          <span class=\"token property\">\"path\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"bash\"</span></pre></td></tr><tr><td data-num=\"4\"></td><td><pre>        <span class=\"token punctuation\">&#125;</span><span class=\"token punctuation\">,</span></pre></td></tr><tr><td data-num=\"5\"></td><td><pre>        <span class=\"token property\">\"zsh\"</span><span class=\"token operator\">:</span> <span class=\"token punctuation\">&#123;</span></pre></td></tr><tr><td data-num=\"6\"></td><td><pre>          <span class=\"token property\">\"path\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"/usr/bin/zsh\"</span></pre></td></tr><tr><td data-num=\"7\"></td><td><pre>        <span class=\"token punctuation\">&#125;</span></pre></td></tr><tr><td data-num=\"8\"></td><td><pre>    <span class=\"token punctuation\">&#125;</span><span class=\"token punctuation\">,</span></pre></td></tr></table></figure><p>ok，搞定！</p>\n<h3 id=\"vscode终端zsh乱码\"><a class=\"anchor\" href=\"#vscode终端zsh乱码\">#</a> vscode 终端 zsh 乱码</h3>\n<p>打开设置，输入  <code>terminal.integrated.font</code> ，修改字体，这里我用的是 Powerline 字体，下载地址：<span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL3Bvd2VybGluZS9mb250cyVFMyU4MCU4Mg==\">https://github.com/powerline/fonts。</span></p>\n<p>选择想要的字体进行安装，这里我选择  <code>Space Mono For Powerline</code>  进行安装。设置 vscode 的字体：</p>\n<p><img data-src=\"https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211211110317510.png\" alt=\"image-20211211110317510\" /></p>\n<p>最终效果：</p>\n<p><img data-src=\"https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211211110644151.png\" alt=\"image-20211211110644151\" /></p>\n",
+            "tags": [
+                "琐事",
+                "zsh",
+                "vscode"
+            ]
+        },
+        {
             "id": "https://songlinlife.github.io/2021/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/",
             "url": "https://songlinlife.github.io/2021/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/",
             "title": "python不同级模块导入",
