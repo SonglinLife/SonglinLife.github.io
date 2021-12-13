@@ -10,12 +10,31 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Sat, 11 Dec 2021 10:57:05 +0800</pubDate>
-        <lastBuildDate>Sat, 11 Dec 2021 10:57:05 +0800</lastBuildDate>
+        <pubDate>Mon, 13 Dec 2021 12:18:10 +0800</pubDate>
+        <lastBuildDate>Mon, 13 Dec 2021 12:18:10 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</guid>
+            <title>VScode 远程登录免密码</title>
+            <link>https://songlinlife.github.io/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</link>
+            <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
+            <category term="vscode" scheme="https://songlinlife.github.io/tags/vscode/" />
+            <category term="ssh" scheme="https://songlinlife.github.io/tags/ssh/" />
+            <pubDate>Mon, 13 Dec 2021 12:18:10 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;这个 VScode 免密码登录有点搞，参考了好几个文章，发现都没写全。&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAyMDk1Mzc4Mw==&#34;&gt;VSCode 远程开发 (带免密)&lt;/span&gt; 这篇文章大致写的还可以&lt;/p&gt;
+&lt;h3 id=&#34;remote机生成ssh-keys&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#remote机生成ssh-keys&#34;&gt;#&lt;/a&gt; remote 机生成 ssh keys&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ssh-keygen&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;local机生成ssh-keys&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#local机生成ssh-keys&#34;&gt;#&lt;/a&gt; local 机生成 ssh keys&lt;/h3&gt;
+&lt;p&gt;同样，这里，拷贝 local 机的 id_rsa.pub 秘钥内容&lt;/p&gt;
+&lt;h3 id=&#34;登录remote机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#登录remote机&#34;&gt;#&lt;/a&gt; 登录 remote 机&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;local机的pub秘钥&amp;quot; &amp;gt;&amp;gt;authorized_keys&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chmod 600 authorized_keys&lt;/code&gt;  （没加这个命令死活登录不上）&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</guid>
             <title>vscode 远程终端不能打开zsh</title>
-            <link>https://songlinlife.github.io/2021/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</link>
+            <link>https://songlinlife.github.io/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</link>
             <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
             <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
             <category term="vscode" scheme="https://songlinlife.github.io/tags/vscode/" />
@@ -35,9 +54,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</guid>
             <title>python不同级模块导入</title>
-            <link>https://songlinlife.github.io/2021/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</link>
+            <link>https://songlinlife.github.io/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</link>
             <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
             <category term="python" scheme="https://songlinlife.github.io/tags/python/" />
             <category term="pip" scheme="https://songlinlife.github.io/tags/pip/" />
@@ -107,9 +126,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
             <title>pip 相关问题</title>
-            <link>https://songlinlife.github.io/2021/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</link>
+            <link>https://songlinlife.github.io/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</link>
             <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
             <pubDate>Wed, 08 Dec 2021 18:43:22 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;pip-相关问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pip-相关问题&#34;&gt;#&lt;/a&gt; pip 相关问题&lt;/h1&gt;
@@ -129,9 +148,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</guid>
             <title>MTTU代码实现思路</title>
-            <link>https://songlinlife.github.io/2021/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
+            <link>https://songlinlife.github.io/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</link>
             <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
             <category term="pymongo" scheme="https://songlinlife.github.io/tags/pymongo/" />
             <category term="MongoDB" scheme="https://songlinlife.github.io/tags/MongoDB/" />
@@ -186,9 +205,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/PageRank/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/ai/PageRank/</guid>
             <title>PageRank算法</title>
-            <link>https://songlinlife.github.io/2021/PageRank/</link>
+            <link>https://songlinlife.github.io/2021/ai/PageRank/</link>
             <category term="AI" scheme="https://songlinlife.github.io/categories/ai/" />
             <category term="图算法" scheme="https://songlinlife.github.io/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/" />
             <category term="PageRank" scheme="https://songlinlife.github.io/tags/PageRank/" />
@@ -293,9 +312,9 @@ r = \beta Mr +\frac{1-\beta}{N} 1
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</guid>
             <title>MTTU</title>
-            <link>https://songlinlife.github.io/2021/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</link>
+            <link>https://songlinlife.github.io/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</link>
             <category term="Xlab" scheme="https://songlinlife.github.io/categories/xlab/" />
             <category term="mttu" scheme="https://songlinlife.github.io/tags/mttu/" />
             <category term="指标" scheme="https://songlinlife.github.io/tags/%E6%8C%87%E6%A0%87/" />
@@ -411,9 +430,9 @@ r = \beta Mr +\frac{1-\beta}{N} 1
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/zsh%E7%BE%8E%E5%8C%96/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/ss/zsh%E7%BE%8E%E5%8C%96/</guid>
             <title>zsh美化</title>
-            <link>https://songlinlife.github.io/2021/zsh%E7%BE%8E%E5%8C%96/</link>
+            <link>https://songlinlife.github.io/2021/ss/zsh%E7%BE%8E%E5%8C%96/</link>
             <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
             <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
             <category term="wsl" scheme="https://songlinlife.github.io/tags/wsl/" />
@@ -441,9 +460,9 @@ r = \beta Mr +\frac{1-\beta}{N} 1
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</guid>
             <title>Hexo+Shoka主题+git托管，持续优化中</title>
-            <link>https://songlinlife.github.io/2021/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</link>
+            <link>https://songlinlife.github.io/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</link>
             <category term="blog" scheme="https://songlinlife.github.io/categories/blog/" />
             <category term="hexo" scheme="https://songlinlife.github.io/tags/hexo/" />
             <category term="typora" scheme="https://songlinlife.github.io/tags/typora/" />
@@ -521,9 +540,9 @@ r = \beta Mr +\frac{1-\beta}{N} 1
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.github.io/2021/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</guid>
+            <guid isPermalink="true">https://songlinlife.github.io/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</guid>
             <title>linux 开启代理</title>
-            <link>https://songlinlife.github.io/2021/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</link>
+            <link>https://songlinlife.github.io/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</link>
             <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
             <category term="v2ray" scheme="https://songlinlife.github.io/tags/v2ray/" />
             <category term="代理" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86/" />
@@ -538,6 +557,9 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;p&gt;主要是对 config.json 进行配置&lt;/p&gt;
 &lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;inbounds&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;port&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1080&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;protocol&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;socks&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;sniffing&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token property&#34;&gt;&#34;enabled&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token property&#34;&gt;&#34;destOverride&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;http&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;tls&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;settings&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token property&#34;&gt;&#34;auth&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;noauth&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;outbounds&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;protocol&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;vmess&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;settings&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token property&#34;&gt;&#34;vnext&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token property&#34;&gt;&#34;address&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;服务器IP&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token property&#34;&gt;&#34;port&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; 端口&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token property&#34;&gt;&#34;users&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;              &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token property&#34;&gt;&#34;id&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;UUID&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token property&#34;&gt;&#34;alterId&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; alterID&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;              &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token property&#34;&gt;&#34;streamSettings&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token property&#34;&gt;&#34;network&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;tcp&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这玩意有点搞啊，Json 文件不能有注释，之前因为写了注释所以服务启动不起来。&lt;/p&gt;
 &lt;p&gt;这里我用的是香港 A IEPL &amp;lt; 广州移动节点，希望它能坚挺点，不至于很快挂掉。哪天有空写一个定时命令，定时更新节点。&lt;/p&gt;
+&lt;p&gt;开启代理： &lt;code&gt;/home/wu/v2ray-cli/v2ray -config /home/wu/v2ray-cli/config.json&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;测试本地 IP： &lt;code&gt;curl -4 ip.sb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;测试代理 IP:  &lt;code&gt;proxychains curl -4 ip.sb&lt;/code&gt;&lt;/p&gt;
 &lt;h4 id=&#34;添加服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加服务&#34;&gt;#&lt;/a&gt; 添加服务&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;vim /usr/lib/systemd/system/v2ray.service&lt;/code&gt;&lt;/p&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Unit&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Description&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;V2Ray Service&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Documentation&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;https&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;//&lt;/span&gt;www&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;v2fly&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;org&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;After&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;network&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;target nss&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;lookup&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;target&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Service&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ExecStart&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;home&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;wu&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;v2ray&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;cli&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;v2ray &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;config &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;home&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;wu&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;v2ray&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;cli&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;json&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Restart&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;on&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;failure&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;RestartPreventExitStatus&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;23&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Install&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;WantedBy&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;multi&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;user&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;target&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;启动服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动服务&#34;&gt;#&lt;/a&gt; 启动服务&lt;/h3&gt;
