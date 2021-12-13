@@ -8,7 +8,15 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2021-12-13T04:18:10.000Z</updated>
+    <updated>2021-12-13T09:13:27.000Z</updated>
+    <entry>
+        <id>https://songlinlife.top/2021/test/</id>
+        <title>test</title>
+        <link rel="alternate" href="https://songlinlife.top/2021/test/"/>
+        <content type="html">&lt;p&gt;just for test&lt;/p&gt;
+</content>
+        <updated>2021-12-13T09:13:27.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.top/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</id>
         <title>VScode 远程登录免密码</title>
