@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://songlinlife.github.io</id>
+    <id>https://songlinlife.top</id>
     <title>Life</title>
     <subtitle></subtitle>
-    <icon>https://songlinlife.github.io/images/favicon.ico</icon>
-    <link href="https://songlinlife.github.io" />
+    <icon>https://songlinlife.top/images/favicon.ico</icon>
+    <link href="https://songlinlife.top" />
     <author>
       <name>Kalice</name>
     </author>
     <updated>2021-12-13T04:18:10.000Z</updated>
     <entry>
-        <id>https://songlinlife.github.io/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</id>
+        <id>https://songlinlife.top/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</id>
         <title>VScode 远程登录免密码</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/"/>
         <content type="html">&lt;p&gt;这个 VScode 免密码登录有点搞，参考了好几个文章，发现都没写全。&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAyMDk1Mzc4Mw==&#34;&gt;VSCode 远程开发 (带免密)&lt;/span&gt; 这篇文章大致写的还可以&lt;/p&gt;
 &lt;h3 id=&#34;remote机生成ssh-keys&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#remote机生成ssh-keys&#34;&gt;#&lt;/a&gt; remote 机生成 ssh keys&lt;/h3&gt;
@@ -23,15 +23,15 @@
 &lt;p&gt;&lt;code&gt;echo &amp;quot;local机的pub秘钥&amp;quot; &amp;gt;&amp;gt;authorized_keys&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;chmod 600 authorized_keys&lt;/code&gt;  （没加这个命令死活登录不上）&lt;/p&gt;
 </content>
-        <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-        <category term="vscode" scheme="https://songlinlife.github.io/tags/vscode/" />
-        <category term="ssh" scheme="https://songlinlife.github.io/tags/ssh/" />
+        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
+        <category term="vscode" scheme="https://songlinlife.top/tags/vscode/" />
+        <category term="ssh" scheme="https://songlinlife.top/tags/ssh/" />
         <updated>2021-12-13T04:18:10.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</id>
+        <id>https://songlinlife.top/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</id>
         <title>vscode 远程终端不能打开zsh</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/"/>
         <content type="html">&lt;h3 id=&#34;vscode-远程终端不能打开zsh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vscode-远程终端不能打开zsh&#34;&gt;#&lt;/a&gt; vscode 远程终端不能打开 zsh&lt;/h3&gt;
 &lt;p&gt;远程终端打开 zsh 报错 &lt;code&gt;The terminal process failed to launch: Path to shell executable &amp;quot;zsh&amp;quot; is not a file or a symlink&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;问题原因：没有配置好 zsh 路径&lt;/p&gt;
@@ -45,15 +45,15 @@
 &lt;p&gt;最终效果：&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211211110644151.png&#34; alt=&#34;image-20211211110644151&#34; /&gt;&lt;/p&gt;
 </content>
-        <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-        <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
-        <category term="vscode" scheme="https://songlinlife.github.io/tags/vscode/" />
+        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
+        <category term="zsh" scheme="https://songlinlife.top/tags/zsh/" />
+        <category term="vscode" scheme="https://songlinlife.top/tags/vscode/" />
         <updated>2021-12-11T02:57:05.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</id>
+        <id>https://songlinlife.top/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</id>
         <title>python不同级模块导入</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/"/>
         <content type="html">&lt;h3 id=&#34;一般的python工程目录结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一般的python工程目录结构&#34;&gt;#&lt;/a&gt; 一般的 Python 工程目录结构&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210180853081.png&#34; alt=&#34;image-20211210180853081&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211210181004740.png&#34; alt=&#34;image-20211210181004740&#34; /&gt;&lt;/p&gt;
@@ -115,17 +115,17 @@
 &lt;p&gt;模板的工作路径   &lt;code&gt;os.getcwd()&lt;/code&gt;  就是当前执行文件的工作路径，所以当确定好了模块后，就不要 run 了。&lt;/p&gt;
 &lt;p&gt;这个模块有点搞，如果不注意，会有很多很多错误问题，这个绝对路径和相对路径还有一堆有待解决的问题，先这样了。&lt;/p&gt;
 </content>
-        <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
-        <category term="python" scheme="https://songlinlife.github.io/tags/python/" />
-        <category term="pip" scheme="https://songlinlife.github.io/tags/pip/" />
-        <category term="模块" scheme="https://songlinlife.github.io/tags/%E6%A8%A1%E5%9D%97/" />
-        <category term="工程目录" scheme="https://songlinlife.github.io/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/" />
+        <category term="Python" scheme="https://songlinlife.top/categories/python/" />
+        <category term="python" scheme="https://songlinlife.top/tags/python/" />
+        <category term="pip" scheme="https://songlinlife.top/tags/pip/" />
+        <category term="模块" scheme="https://songlinlife.top/tags/%E6%A8%A1%E5%9D%97/" />
+        <category term="工程目录" scheme="https://songlinlife.top/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/" />
         <updated>2021-12-10T08:50:26.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</id>
+        <id>https://songlinlife.top/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</id>
         <title>pip 相关问题</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
         <content type="html">&lt;h1 id=&#34;pip-相关问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pip-相关问题&#34;&gt;#&lt;/a&gt; pip 相关问题&lt;/h1&gt;
 &lt;h5 id=&#34;安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装依赖&#34;&gt;#&lt;/a&gt; 安装依赖&lt;/h5&gt;
 &lt;p&gt;&lt;code&gt;pip install xxx&lt;/code&gt;&lt;/p&gt;
@@ -141,13 +141,13 @@
 &lt;p&gt;&lt;code&gt;cd xxx/anaconda/lib/pythonxxx/site-packages&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm -rf $(ls | grep &amp;quot;^~&amp;quot;)&lt;/code&gt;&lt;/p&gt;
 </content>
-        <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
+        <category term="Python" scheme="https://songlinlife.top/categories/python/" />
         <updated>2021-12-08T10:43:22.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</id>
+        <id>https://songlinlife.top/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</id>
         <title>MTTU代码实现思路</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/"/>
         <content type="html">&lt;h3 id=&#34;pymongo连接阿里云mongodb服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pymongo连接阿里云mongodb服务器&#34;&gt;#&lt;/a&gt; pymongo 连接阿里云 MongoDB 服务器&lt;/h3&gt;
 &lt;p&gt;这里我用了 &lt;code&gt;pymongo&lt;/code&gt;   &lt;code&gt;3.6&lt;/code&gt;  版本，不知道为什么，pymongo 4.0 不能连上阿里云的 MongoDB 服务器，怎么改也没有。。。😅&lt;/p&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_db&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    username &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; urllib&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;parse&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;quote_plus&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;数据库name&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    password &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; urllib&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;parse&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;quote_plus&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;数据库password&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    tunnel &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; SSHTunnelForwarder&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                            &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;跳板机ip&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                            ssh_username&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;跳板机名称&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                            ssh_password&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;跳板机密码&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                            remote_bind_address&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;r&#34;阿里云MongoDB服务器地址&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3717&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    tunnel&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;start&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;tunnel&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;local_bind_port&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    client &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; MongoClient&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;mongodb://%s:%s@127.0.0.1&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;username&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; password&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; tunnel&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;local_bind_port&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    db &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; client&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;admin&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    npm_records &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; db&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;npm_records&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    npm_metas &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; db&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;npm_metas&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; npm_records&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; npm_metas&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;mttu查询&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mttu查询&#34;&gt;#&lt;/a&gt; MTTU 查询&lt;/h3&gt;
@@ -178,18 +178,18 @@
 &lt;h3 id=&#34;代码实现思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码实现思考&#34;&gt;#&lt;/a&gt; 代码实现思考&lt;/h3&gt;
 &lt;p&gt;这个代码写的我很混乱，我现在都不知道我是咋实现的。。。&lt;/p&gt;
 </content>
-        <category term="Python" scheme="https://songlinlife.github.io/categories/python/" />
-        <category term="pymongo" scheme="https://songlinlife.github.io/tags/pymongo/" />
-        <category term="MongoDB" scheme="https://songlinlife.github.io/tags/MongoDB/" />
-        <category term="xlab" scheme="https://songlinlife.github.io/tags/xlab/" />
-        <category term="npm" scheme="https://songlinlife.github.io/tags/npm/" />
-        <category term="python" scheme="https://songlinlife.github.io/tags/python/" />
+        <category term="Python" scheme="https://songlinlife.top/categories/python/" />
+        <category term="pymongo" scheme="https://songlinlife.top/tags/pymongo/" />
+        <category term="MongoDB" scheme="https://songlinlife.top/tags/MongoDB/" />
+        <category term="xlab" scheme="https://songlinlife.top/tags/xlab/" />
+        <category term="npm" scheme="https://songlinlife.top/tags/npm/" />
+        <category term="python" scheme="https://songlinlife.top/tags/python/" />
         <updated>2021-12-08T10:43:22.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/</id>
+        <id>https://songlinlife.top/2021/js/%E4%BB%A3%E5%8A%9E/</id>
         <title>待办</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/js/%E4%BB%A3%E5%8A%9E/"/>
         <content type="html">&lt;ul class=&#34;task-list&#34;&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 用 python 实现一个 MTTU 查询脚本&lt;/label&gt;&lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 学习 Vim 的使用&lt;/label&gt;&lt;/li&gt;
@@ -198,13 +198,13 @@
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_4&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_4&#34;&gt; 实现动漫角色人脸识别&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="记事" scheme="https://songlinlife.github.io/categories/js/" />
+        <category term="记事" scheme="https://songlinlife.top/categories/js/" />
         <updated>2021-12-05T06:31:42.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/ai/PageRank/</id>
+        <id>https://songlinlife.top/2021/ai/PageRank/</id>
         <title>PageRank算法</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/ai/PageRank/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ai/PageRank/"/>
         <content type="html">&lt;h1 id=&#34;pagerank&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pagerank&#34;&gt;#&lt;/a&gt; PageRank&lt;/h1&gt;
 &lt;p&gt;在理解 pagerank 算法之前需要理解 Markov chain。可以说 PageRank 的核心就是 Markov 算法，PageRank 的执行过程、收敛条件都可以从 Markov 中得到答案。&lt;/p&gt;
 &lt;h2 id=&#34;markov-chain&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#markov-chain&#34;&gt;#&lt;/a&gt; Markov chain&lt;/h2&gt;
@@ -303,15 +303,15 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;h2 id=&#34;matrix-factorization&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#matrix-factorization&#34;&gt;#&lt;/a&gt; matrix factorization&lt;/h2&gt;
 &lt;p&gt;这一块不怎么熟悉，有待进一步学习。&lt;/p&gt;
 </content>
-        <category term="AI" scheme="https://songlinlife.github.io/categories/ai/" />
-        <category term="图算法" scheme="https://songlinlife.github.io/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/" />
-        <category term="PageRank" scheme="https://songlinlife.github.io/tags/PageRank/" />
+        <category term="AI" scheme="https://songlinlife.top/categories/ai/" />
+        <category term="图算法" scheme="https://songlinlife.top/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/" />
+        <category term="PageRank" scheme="https://songlinlife.top/tags/PageRank/" />
         <updated>2021-12-05T04:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</id>
+        <id>https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</id>
         <title>MTTU</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
         <content type="html">&lt;h1 id=&#34;mttu代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mttu代码实现&#34;&gt;#&lt;/a&gt; MTTU 代码实现&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;we defined a time to update(TTU) attribute for all components in our dataset.&lt;/p&gt;
@@ -421,15 +421,15 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;/ul&gt;
 &lt;p&gt;MTTU 反应的是更新依赖的能力，对于很多没有依赖的组件，MTTU 不能很好描述。&lt;/p&gt;
 </content>
-        <category term="Xlab" scheme="https://songlinlife.github.io/categories/xlab/" />
-        <category term="mttu" scheme="https://songlinlife.github.io/tags/mttu/" />
-        <category term="指标" scheme="https://songlinlife.github.io/tags/%E6%8C%87%E6%A0%87/" />
+        <category term="Xlab" scheme="https://songlinlife.top/categories/xlab/" />
+        <category term="mttu" scheme="https://songlinlife.top/tags/mttu/" />
+        <category term="指标" scheme="https://songlinlife.top/tags/%E6%8C%87%E6%A0%87/" />
         <updated>2021-12-05T04:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/ss/zsh%E7%BE%8E%E5%8C%96/</id>
+        <id>https://songlinlife.top/2021/ss/zsh%E7%BE%8E%E5%8C%96/</id>
         <title>zsh美化</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/ss/zsh%E7%BE%8E%E5%8C%96/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ss/zsh%E7%BE%8E%E5%8C%96/"/>
         <content type="html">&lt;p&gt;最近得空一点，给我的 terminal 进行了一点装修。&lt;/p&gt;
 &lt;p&gt;主要还是按照了 zsh，配置了主题和插件。&lt;/p&gt;
 &lt;h2 id=&#34;zsh配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#zsh配置&#34;&gt;#&lt;/a&gt; zsh 配置&lt;/h2&gt;
@@ -450,16 +450,16 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211205110501278.png&#34; alt=&#34;image-20211205110501278&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;​	ok，成功搞定！&lt;/p&gt;
 </content>
-        <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-        <category term="zsh" scheme="https://songlinlife.github.io/tags/zsh/" />
-        <category term="wsl" scheme="https://songlinlife.github.io/tags/wsl/" />
-        <category term="theme" scheme="https://songlinlife.github.io/tags/theme/" />
+        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
+        <category term="zsh" scheme="https://songlinlife.top/tags/zsh/" />
+        <category term="wsl" scheme="https://songlinlife.top/tags/wsl/" />
+        <category term="theme" scheme="https://songlinlife.top/tags/theme/" />
         <updated>2021-12-05T02:27:47.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</id>
+        <id>https://songlinlife.top/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</id>
         <title>Hexo+Shoka主题+git托管，持续优化中</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/"/>
         <content type="html">&lt;h3 id=&#34;动机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#动机&#34;&gt;#&lt;/a&gt; 动机&lt;/h3&gt;
 &lt;p&gt;每个故事都会有一个开头，为什么我放着 cnblog 这样的傻瓜式的 blog 不用，非要自己折腾一个 blog。我想还是羡慕，每当看到 dalao 们各种或花式或简约的个人博客，就有自己创建一个 blog 的冲动，刚好周六花了一天时间把这个事情完成了。&lt;/p&gt;
 &lt;h3 id=&#34;基础环境搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基础环境搭建&#34;&gt;#&lt;/a&gt; 基础环境搭建&lt;/h3&gt;
@@ -528,18 +528,18 @@ r = \beta Mr +\frac{1-\beta}{N} 1
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="blog" scheme="https://songlinlife.github.io/categories/blog/" />
-        <category term="hexo" scheme="https://songlinlife.github.io/tags/hexo/" />
-        <category term="typora" scheme="https://songlinlife.github.io/tags/typora/" />
-        <category term="github" scheme="https://songlinlife.github.io/tags/github/" />
-        <category term="shoka" scheme="https://songlinlife.github.io/tags/shoka/" />
-        <category term="sh" scheme="https://songlinlife.github.io/tags/sh/" />
+        <category term="blog" scheme="https://songlinlife.top/categories/blog/" />
+        <category term="hexo" scheme="https://songlinlife.top/tags/hexo/" />
+        <category term="typora" scheme="https://songlinlife.top/tags/typora/" />
+        <category term="github" scheme="https://songlinlife.top/tags/github/" />
+        <category term="shoka" scheme="https://songlinlife.top/tags/shoka/" />
+        <category term="sh" scheme="https://songlinlife.top/tags/sh/" />
         <updated>2021-12-04T12:42:47.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.github.io/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</id>
+        <id>https://songlinlife.top/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</id>
         <title>linux 开启代理</title>
-        <link rel="alternate" href="https://songlinlife.github.io/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/"/>
         <content type="html">&lt;h1 id=&#34;linux开启代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux开启代理&#34;&gt;#&lt;/a&gt; Linux 开启代理&lt;/h1&gt;
 &lt;p&gt;今天折腾了几个小时终于把 linux 上的代理给搞好的了，真的无语啊。。。&lt;/p&gt;
 &lt;h3 id=&#34;下载v2ray&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载v2ray&#34;&gt;#&lt;/a&gt; 下载 v2ray&lt;/h3&gt;
@@ -598,10 +598,10 @@ nohup /mnt/d/wsl/v2ray/v2ray -config /mnt/d/wsl/v2ray/config.json &amp;gt;/dev/n
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuanVuei5vcmcvcG9zdC92Ml9pbl9saW51eC8=&#34;&gt;Linux 下使用 v2ray&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9jYjkwYTA0MDM4Mjk=&#34;&gt;将一个 shell 脚本文件注册为一个全局命令&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="琐事" scheme="https://songlinlife.github.io/categories/ss/" />
-        <category term="v2ray" scheme="https://songlinlife.github.io/tags/v2ray/" />
-        <category term="代理" scheme="https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86/" />
-        <category term="kuharo" scheme="https://songlinlife.github.io/tags/kuharo/" />
+        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
+        <category term="v2ray" scheme="https://songlinlife.top/tags/v2ray/" />
+        <category term="代理" scheme="https://songlinlife.top/tags/%E4%BB%A3%E7%90%86/" />
+        <category term="kuharo" scheme="https://songlinlife.top/tags/kuharo/" />
         <updated>2021-12-04T07:53:41.000Z</updated>
     </entry>
 </feed>
