@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/ss/Linux%E5%BC%80%E5%90%AF%E4%BB%A3%E7%90%86/</loc>
+    
+    <lastmod>2021-12-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/ss/VScode-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%85%8D%E5%AF%86%E7%A0%81/</loc>
+    
+    <lastmod>2021-12-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/ss/vscode-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80zsh/</loc>
+    
+    <lastmod>2021-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/python/python%E4%B8%8D%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</loc>
+    
+    <lastmod>2021-12-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/js/%E4%BB%A3%E5%8A%9E/</loc>
+    
+    <lastmod>2021-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/ai/PageRank/</loc>
+    
+    <lastmod>2021-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</loc>
+    
+    <lastmod>2021-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2021-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2021-12-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/about/index.html</loc>
+    
+    <lastmod>2021-12-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</loc>
+    
+    <lastmod>2021-12-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/2021/ss/zsh%E7%BE%8E%E5%8C%96/</loc>
+    
+    <lastmod>2021-12-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/languages.json</loc>
+    
+    <lastmod>2021-12-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-12-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://songlinlife.github.io/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/v2ray/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/kuharo/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/hexo/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/typora/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/github/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/shoka/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/sh/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/zsh/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/wsl/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/theme/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/PageRank/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/mttu/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/%E6%8C%87%E6%A0%87/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/pymongo/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/MongoDB/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/xlab/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/npm/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/python/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/pip/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/%E6%A8%A1%E5%9D%97/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/vscode/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/tags/ssh/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/ss/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/blog/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/python/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/ai/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/xlab/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.github.io/categories/js/</loc>
+    <lastmod>2021-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>
