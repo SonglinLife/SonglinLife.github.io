@@ -8,11 +8,118 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2021-12-16T03:38:27.000Z</updated>
+    <updated>2021-12-18T02:54:08.000Z</updated>
     <entry>
-        <id>https://songlinlife.top/2021/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
+        <id>https://songlinlife.top/2021/GNN-02-HAN-Heterogeneous-Graph-Attention-Network-%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/</id>
+        <title>GNN(02): HAN(Heterogeneous Graph Attention Network)代码复现</title>
+        <link rel="alternate" href="https://songlinlife.top/2021/GNN-02-HAN-Heterogeneous-Graph-Attention-Network-%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/"/>
+        <content type="html">&lt;h1 id=&#34;han算法复现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#han算法复现&#34;&gt;#&lt;/a&gt; HAN 算法复现&lt;/h1&gt;
+&lt;h3 id=&#34;异构图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异构图&#34;&gt;#&lt;/a&gt; 异构图&lt;/h3&gt;
+&lt;p&gt;异构图可以表示为图&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image002.png&#34; alt=&#34;img&#34; /&gt;，有节点类型映射&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image004.png&#34; alt=&#34;img&#34; /&gt;，边类型映射&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image006.png&#34; alt=&#34;img&#34; /&gt;。其中 V 是节点集合，E 是边集合，A 是节点类型集合，R 是关系型集合，有&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image008.png&#34; alt=&#34;img&#34; /&gt; 成立。&lt;/p&gt;
+&lt;p&gt;​    因为异构图的节点和边类型不一致，一个常用的方法就是引入元路径（meta-path），将异构图转换为同构图。 &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image010.png&#34; alt=&#34;img&#34; /&gt;。其中&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image012.png&#34; alt=&#34;img&#34; /&gt; 代表了路径的长度。通过元路径就可以对相邻节点进行分类，进而将异构图转换为一组同构图，因此异构图也被称为多通道网络。&lt;/p&gt;
+&lt;p&gt;​    例如，如图 2.4 所示，IMDB 图是一个典型的异构图，有三种节点类型，演员、电影、导员。可以定义两个元路径，电影 - 演员 - 电影（MAM）和电影 - 导演 - 电影（MDM）。通过元路径就可以就可以将该网络转换为基于不同元路径的电影网络。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image014.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;节点级别的attention&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#节点级别的attention&#34;&gt;#&lt;/a&gt; 节点级别的 attention&lt;/h3&gt;
+&lt;p&gt;AN 模型可以划分为两个主要的部分，一个节点级别的 Attention 另一个是语义级别的 Attention。&lt;/p&gt;
+&lt;p&gt;​    节点级别的 Attention 和 GAT 的原理相一致。首先 HAN 会根据定义的元路径生成元路径个数的同构图，在这些同构图上使用 GAT 算法，就是是节点级别的 Attention。但值得注意的是，因为异质图的节点特征维度可能不一致，在论文中是采用了映射方法，将所有不同类型的节点的特征映射到同一向量空间。&lt;/p&gt;
+&lt;p&gt;​    由于基于相同元路径&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image002.png&#34; alt=&#34;img&#34; /&gt; 的节点邻居的类型都是一致的，所以可以直接采用 GAT 计算 Attention 系数的方法，但这里在经过 softmax 层之前还使用了激活函数：&lt;/p&gt;
+&lt;p&gt;​               &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image004.png&#34; alt=&#34;img&#34; /&gt;         （2.9）&lt;/p&gt;
+&lt;p&gt;​    于是，节点 i 基于元路径&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image002.png&#34; alt=&#34;img&#34; /&gt; 的 embedding 向量可以有临域节点的向量聚合得到：&lt;/p&gt;
+&lt;p&gt;​                           &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image007.png&#34; alt=&#34;img&#34; /&gt;                    （2.10）&lt;/p&gt;
+&lt;p&gt;​    同理，如果使用了多头 Attention 机制，需要将所有输入的 embedding 结果拼接起来：&lt;/p&gt;
+&lt;p&gt;​                         &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image009.png&#34; alt=&#34;img&#34; /&gt;                  （2.11）&lt;/p&gt;
+&lt;p&gt;​    &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image011.png&#34; alt=&#34;img&#34; /&gt; 就是特定元路径下的 embedding 向量，在给定 P 条元路径&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image013.png&#34; alt=&#34;img&#34; /&gt; 下，经过节点级别的 Attention 之后，会得到 P 个特定元路径下节点的 embedding，可以表示为&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image015.png&#34; alt=&#34;img&#34; /&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;语义级别的attention&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#语义级别的attention&#34;&gt;#&lt;/a&gt; 语义级别的 attention&lt;/h3&gt;
+&lt;p&gt;​    通常，每个节点在异质图中都会包含多种语言的信息，特定语义下的 node embedding 只能反映节点某个方面的性质。为了学习到更全面的 node embedding，需要将多个元路径下的语义混合起来。HAN 使用了通过一个语义级别的 Attention 可以自动学习不同元路径的中重要性。假设要 P 条元路径，就有 P 个特定语义下的 node embedding，学习到的不同元路径权重可以表示为：&lt;/p&gt;
+&lt;p&gt;​                 		   &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image002.png&#34; alt=&#34;img&#34; /&gt;             （2.12)&lt;/p&gt;
+&lt;p&gt;​    HAN 算法首先将输入的向量&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image004.png&#34; alt=&#34;img&#34; /&gt; 经过一层全连接层，再和语义级别的 Attention 向量&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image006.png&#34; alt=&#34;img&#34; /&gt; 做点积，并且将该元路径下的所有节点&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image008.png&#34; alt=&#34;img&#34; /&gt; 得到的值做平均，得到最终的重要系数&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image010.png&#34; alt=&#34;img&#34; /&gt;：&lt;/p&gt;
+&lt;p&gt;​                     &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image012.png&#34; alt=&#34;img&#34; /&gt;              （2.13）&lt;/p&gt;
+&lt;p&gt;​    再通过一层 softmax 归一化层，输出语义级别的 Attention 值：&lt;/p&gt;
+&lt;p&gt;​                           &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image014.png&#34; alt=&#34;img&#34; /&gt;                    （2.14）&lt;/p&gt;
+&lt;p&gt;​    最终，混合所有的语义信息得到整个 node embedding 矩阵&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image016.png&#34; alt=&#34;img&#34; /&gt;：&lt;/p&gt;
+&lt;p&gt;​    &lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesclip_image018.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211222204146489.png&#34; alt=&#34;image-20211222204146489&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;acm数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#acm数据集&#34;&gt;#&lt;/a&gt; ACM 数据集&lt;/h3&gt;
+&lt;p&gt;ACM：Han 算法使用了 ACM 引文数据集，作者从 KDD，SIGMOD，SIGCOMM，MobICOMM 和 VLDB 上抽取了 3025 篇 paper，这些 paper 可以可以划分到 3 个领域（Database，Wireless Communication，Data Mining）。一共包括 3025 份 papers（P），5835 个 authors（A），56 个 subjects（S），包括两条元路径 {PAP，PSP}。&lt;/p&gt;
+&lt;h3 id=&#34;复现结果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现结果&#34;&gt;#&lt;/a&gt; 复现结果&lt;/h3&gt;
+&lt;p&gt;HAN 模型搭建完毕之后，在 ACM 数据集上做了测试。一样，我使用了对照组对模型效果进行验证。对于 GCN、GAT 这两个网络由于它们是同构图网络模型，因此无法直接运用在异构图上。采取的做法是，将异构图使用 metapath 进行转换，提取出两个同构图并分别进行使用 GCN 模型和 GAT 模型进行预测。&lt;/p&gt;
+&lt;p&gt;​    因为 HAN 的 Attention 分为节点级别和语义级别，因此分别抽取了没有节点级别和没有语义级别的 Attention 网络，即 HAN_sem 和 HAN_ed。&lt;/p&gt;
+&lt;p&gt;​    从最终的复现结果中可以看出，GAT 的效果要优于 GCN 的效果。而 HAN 的预测效果要优于 GAT 和 GCN 模型。并且，即使是只有单个级别的 Attention 的 HAN 模型，其预测效果也要好于 HAN 模型和 GCN 模型。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;GCN&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;GAT&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;HAN_sem&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;HAN_nd&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;HAN&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Micro  F1&lt;/td&gt;
+&lt;td&gt;0.8442/0.6687&lt;/td&gt;
+&lt;td&gt;0.8508/0.6664&lt;/td&gt;
+&lt;td&gt;0.8673&lt;/td&gt;
+&lt;td&gt;0.8640&lt;/td&gt;
+&lt;td&gt;0.8819&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Macro  F1&lt;/td&gt;
+&lt;td&gt;0.8430/0.66709&lt;/td&gt;
+&lt;td&gt;0.8503/0.6743&lt;/td&gt;
+&lt;td&gt;0.8673&lt;/td&gt;
+&lt;td&gt;0.8651&lt;/td&gt;
+&lt;td&gt;0.8820&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;表 4.4 实验复现结果&lt;/p&gt;
+&lt;h3 id=&#34;attention分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#attention分析&#34;&gt;#&lt;/a&gt; Attention 分析&lt;/h3&gt;
+&lt;p&gt;​    HAN 模型除了预测准确度高，它的可解释性也很强。经过训练之后的模型，对于两条元路径 paper-author-paper 和 paper-subject-paper 给出不同的 Attention 值。可以看到模型认为 PAP 元路径，即同一作者下的 paper 之间的形成的 graph，它的重要性要高于 PSP 元路径。这和我们的直觉相一致，即同一作者下的 paper 之间的关联更加紧密。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211222204300258.png&#34; alt=&#34;image-20211222204300258&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;422-聚类效果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#422-聚类效果&#34;&gt;#&lt;/a&gt; 4.2.2 聚类效果&lt;/h3&gt;
+&lt;p&gt;​    因为上述提到的模型可以用来提取 node embedding，因此我也做了聚类分析。对于 GAT 和 GCN 模型，选择最优的那条元路径子图训练得到的模型生成 embedding。对于所有模型，embedding 的维度都设置为 64。&lt;/p&gt;
+&lt;p&gt;​    在得到了节点的 embedding 之后，使用 kmeans 无监督聚类方式进行聚类，kmeans 的 K 值设置为节点的标签种类数即 3。使用 NMI 和 ARI 两个指标进行分析，结果如表 4.5 所示。可以看到 HAN 的聚类效果要比 GCN 和 GAT 模型好不少&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;GCN&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;GAT&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;HAN&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NMI&lt;/td&gt;
+&lt;td&gt;0.5557&lt;/td&gt;
+&lt;td&gt;0.5289&lt;/td&gt;
+&lt;td&gt;0.6413&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ARI&lt;/td&gt;
+&lt;td&gt;0.5553&lt;/td&gt;
+&lt;td&gt;0.5286&lt;/td&gt;
+&lt;td&gt;0.6411&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;423-可视化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#423-可视化&#34;&gt;#&lt;/a&gt; 4.2.3 可视化&lt;/h3&gt;
+&lt;p&gt;​    为了进一步地给出比较，使用了 t-SNE 方法对于 embedding 进行降维到 2D 进行可视化分析。可以看到 HAN 算法给在 wireless Communication 的论文里，给出了两个比较分离的簇。可能是 HAN 算法能够找个更加多的信息，从而使得其效果优于 GCN 和 GAT。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211222204328470.png&#34; alt=&#34;image-20211222204328470&#34; /&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211222204332270.png&#34; alt=&#34;image-20211222204332270&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211222204336878.png&#34; alt=&#34;image-20211222204336878&#34; /&gt;&lt;/p&gt;
+</content>
+        <category term="AI" scheme="https://songlinlife.top/categories/ai/" />
+        <category term="GNN" scheme="https://songlinlife.top/tags/GNN/" />
+        <category term="HAN" scheme="https://songlinlife.top/tags/HAN/" />
+        <updated>2021-12-18T02:54:08.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.top/2021/ai/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
         <title>DGL(04): 训练图神经网络</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ai/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
         <content type="html">&lt;h3 id=&#34;训练图神经网络&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#训练图神经网络&#34;&gt;#&lt;/a&gt; 训练图神经网络&lt;/h3&gt;
 &lt;h4 id=&#34;节点分类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#节点分类&#34;&gt;#&lt;/a&gt; 节点分类&lt;/h4&gt;
 &lt;h5 id=&#34;网络模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络模型&#34;&gt;#&lt;/a&gt; 网络模型&lt;/h5&gt;
@@ -36,9 +143,9 @@
         <updated>2021-12-16T03:38:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2021/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/</id>
+        <id>https://songlinlife.top/2021/ai/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/</id>
         <title>DGL(03): 图数据处理管道</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ai/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/"/>
         <content type="html">&lt;h1 id=&#34;图数据处理管道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图数据处理管道&#34;&gt;#&lt;/a&gt; 图数据处理管道&lt;/h1&gt;
 &lt;h3 id=&#34;dgldataset类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dgldataset类&#34;&gt;#&lt;/a&gt; DGLDataset 类&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211216095935092.png&#34; alt=&#34;image-20211216095935092&#34; /&gt;&lt;/p&gt;
@@ -86,9 +193,9 @@
         <updated>2021-12-16T01:56:12.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2021/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
+        <id>https://songlinlife.top/2021/ai/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
         <title>DGL(02): 构建图神经网络</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ai/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
         <content type="html">&lt;h3 id=&#34;dgl-搭建gnn模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dgl-搭建gnn模型&#34;&gt;#&lt;/a&gt; DGL 搭建 GNN 模型&lt;/h3&gt;
 &lt;h5 id=&#34;init&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#init&#34;&gt;#&lt;/a&gt; init&lt;/h5&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; torch&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;nn &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; nn&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; dgl&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;utils &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; expand_as_pair &lt;span class=&#34;token comment&#34;&gt;# 如果不是 pair 就复制 object 变成 pair&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;SAGEConv&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;nn&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Module&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 in_feats&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 out_feats&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 aggregator_type&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 bias&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 norm&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                 activation&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token builtin&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;SAGEConv&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__init__&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;_in_src_feats&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;_in_dst_feats &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; expand_as_pair&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;in_feats&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;_out_feats &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; out_feats&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;_aggre_type &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; aggregator_type&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;norm &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; norm&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;activation &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; activation&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;sageconv&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sageconv&#34;&gt;#&lt;/a&gt; SageConv&lt;/h4&gt;
@@ -112,9 +219,9 @@
         <updated>2021-12-15T14:17:21.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2021/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/</id>
+        <id>https://songlinlife.top/2021/ai/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/</id>
         <title>DGL(01): 信息传递范式</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/"/>
+        <link rel="alternate" href="https://songlinlife.top/2021/ai/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/"/>
         <content type="html">&lt;h1 id=&#34;消息传递范式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#消息传递范式&#34;&gt;#&lt;/a&gt; 消息传递范式&lt;/h1&gt;
 &lt;h3 id=&#34;消息传递范式定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#消息传递范式定义&#34;&gt;#&lt;/a&gt; 消息传递范式定义&lt;/h3&gt;
 &lt;p&gt;边上计算: &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;ϕ&lt;/mi&gt;&lt;mrow&gt;&lt;mo fence=&#34;true&#34;&gt;(&lt;/mo&gt;&lt;msubsup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;msubsup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;msubsup&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo fence=&#34;true&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;∈&lt;/mo&gt;&lt;mi mathvariant=&#34;script&#34;&gt;E&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;m_{e}^{(t+1)}=\phi\left(x_{v}^{(t)}, x_{u}^{(t)}, w_{e}^{(t)}\right),(u, v, e) \in \mathcal{E}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.161392em;vertical-align:-0.11659199999999997em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:1.0448em;&#34;&gt;&lt;span style=&#34;top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.2198em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mopen mtight&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mbin mtight&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mord mtight&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mclose mtight&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.11659199999999997em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.80002em;vertical-align:-0.65002em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;ϕ&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;minner&#34;&gt;&lt;span class=&#34;mopen delimcenter&#34; style=&#34;top:0em;&#34;&gt;&lt;span class=&#34;delimsizing size2&#34;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:1.0448em;&#34;&gt;&lt;span style=&#34;top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.2198em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mopen mtight&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mclose mtight&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.11659199999999997em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:1.0448em;&#34;&gt;&lt;span style=&#34;top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;u&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.2198em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mopen mtight&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mclose mtight&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.11659199999999997em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:1.0448em;&#34;&gt;&lt;span style=&#34;top:-2.5834080000000004em;margin-left:-0.02691em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.2198em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mopen mtight&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mclose mtight&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.11659199999999997em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mclose delimcenter&#34; style=&#34;top:0em;&#34;&gt;&lt;span class=&#34;delimsizing size2&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;∈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathcal&#34; style=&#34;margin-right:0.08944em;&#34;&gt;E&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;.&lt;br /&gt;

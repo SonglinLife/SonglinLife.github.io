@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://songlinlife.top/2021/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://songlinlife.top/2021/GNN-02-HAN-Heterogeneous-Graph-Attention-Network-%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/</loc>
+    
+    <lastmod>2021-12-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2021-12-16</lastmod>
     
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2021/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/</loc>
+    <loc>https://songlinlife.top/2021/ai/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/</loc>
     
     <lastmod>2021-12-16</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2021/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://songlinlife.top/2021/ai/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2021-12-16</lastmod>
     
@@ -29,9 +38,9 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2021/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/</loc>
+    <loc>https://songlinlife.top/2021/ai/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/</loc>
     
-    <lastmod>2021-12-15</lastmod>
+    <lastmod>2021-12-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -166,7 +175,7 @@
 
   <url>
     <loc>https://songlinlife.top/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -174,189 +183,196 @@
   
   <url>
     <loc>https://songlinlife.top/tags/v2ray/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/kuharo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/hexo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/typora/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/github/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/shoka/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/sh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/zsh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/wsl/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/theme/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/PageRank/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/mttu/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E6%8C%87%E6%A0%87/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/pymongo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/MongoDB/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/xlab/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/npm/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/python/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/pip/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/vscode/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/ssh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/GNN/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/DGL/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/HAN/</loc>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -365,42 +381,42 @@
   
   <url>
     <loc>https://songlinlife.top/categories/ss/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/blog/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/python/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/ai/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/xlab/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/js/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2021-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
