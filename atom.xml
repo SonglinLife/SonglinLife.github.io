@@ -8,7 +8,56 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2021-12-23T11:52:03.000Z</updated>
+    <updated>2021-12-29T02:33:16.000Z</updated>
+    <entry>
+        <id>https://songlinlife.top/2021/Loyalty-in-Online-Communities%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</id>
+        <title>Loyalty in Online Communities论文阅读</title>
+        <link rel="alternate" href="https://songlinlife.top/2021/Loyalty-in-Online-Communities%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+        <content type="html">&lt;h3 id=&#34;概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h3&gt;
+&lt;p&gt;这篇 paper 主要考察了社交网络中 loyalty 这种属性，包括用户的 loyalty 和高 loyalty 用户数的 communities 他们之间的共同属性。&lt;/p&gt;
+&lt;h3 id=&#34;定义loyalty&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#定义loyalty&#34;&gt;#&lt;/a&gt; 定义 loyalty&lt;/h3&gt;
+&lt;p&gt;使用的数据集为 Reddit。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;loyal users&lt;/strong&gt;&lt;/strong&gt;：说白了就是热衷于某一社区的用户，并且这个热衷度是要高于其他社区的。原文中说如果用户 X 在 t 月对 A 社区有超过 50% 的评论即说明 A &lt;em&gt;prefer&lt;/em&gt; A。如果用户 X 同时在 t 和 t+1 月 prefer A，即 X loyal to A。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;vagrant users&lt;/strong&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We define a vagrant of A as a user who comments between 1 and 3 times in A at t, and, while still active on Reddit at time t + 1, does not contribute to A in t + 1.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说白了就是三个月还在社区，但下个月就不在了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Loyal communities&lt;/strong&gt;：即高 loyalty rate 的社区，原文原则 top-25% 的社区作为 Loyal communities，底部 25% 的设为为 non-Loyalty communities。&lt;/p&gt;
+&lt;h3 id=&#34;数据集构建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据集构建&#34;&gt;#&lt;/a&gt; 数据集构建&lt;/h3&gt;
+&lt;p&gt;这是我最关注的部分：&lt;/p&gt;
+&lt;h5 id=&#34;基于chain的构图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基于chain的构图&#34;&gt;#&lt;/a&gt; 基于 chain 的构图&lt;/h5&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211229111451330.png&#34; alt=&#34;image-20211229111451330&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Reddit 的特色，回复会形成一个 chain，这个构图方式会使用直接回复者和间接回复者作为 link。&lt;/p&gt;
+&lt;h5 id=&#34;replied-base&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#replied-base&#34;&gt;#&lt;/a&gt; replied base&lt;/h5&gt;
+&lt;p&gt;这个就是直接基于回复进行构图：&lt;/p&gt;
+&lt;p&gt;数据集：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespicturesimage-20211229111703044.png&#34; alt=&#34;image-20211229111703044&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211229111758539.png&#34; alt=&#34;image-20211229111758539&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;communities-level-loyalty&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#communities-level-loyalty&#34;&gt;#&lt;/a&gt; Communities-level Loyalty&lt;/h3&gt;
+&lt;p&gt;这个虽然也很重要，但不是我感兴趣的。&lt;/p&gt;
+&lt;p&gt;就是 loyalty 社区具有的共同属性。&lt;/p&gt;
+&lt;h3 id=&#34;user-level-loyalty&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#user-level-loyalty&#34;&gt;#&lt;/a&gt; User-level Loyalty&lt;/h3&gt;
+&lt;p&gt;文章提出了一个重要的概念：loyal user 通常在进入社区后就会成了 loyal user，也就是这具有内在性。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Post popularity&lt;/strong&gt;：loyal user 会选择更低点赞或评论数的 post。&lt;/p&gt;
+&lt;h5 id=&#34;linguistic-style-of-comments&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linguistic-style-of-comments&#34;&gt;#&lt;/a&gt; &lt;strong&gt;Linguistic style of comments&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;作者用了 LIWC and computerized text analysis methods. 提到的一些语言学特性。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211229113238930.png&#34; alt=&#34;image-20211229113238930&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;predicting-loyalty-from-first-contributions&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#predicting-loyalty-from-first-contributions&#34;&gt;#&lt;/a&gt; Predicting loyalty from first contributions&lt;/h5&gt;
+&lt;p&gt;作者还使用了最初开始了 3 个评论来预测，使用上了语言学特性和 post score 作为预测，效果很好。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211229113404227.png&#34; alt=&#34;image-20211229113404227&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;这篇论文给我最大的启发，我觉得可以去整一篇 ——viewer to contributiors to prefer to loyal 这么一个演变过程。&lt;/p&gt;
+&lt;p&gt;github 用户在成为 contributor 之前经历了什么？star、fork、issue？&lt;/p&gt;
+&lt;p&gt;issue 的语言学相关性质是否会对用户成为 contributor 有影响？&lt;/p&gt;
+&lt;p&gt;在成为 contributor 之前 repo 是否有 co-contributor？&lt;/p&gt;
+&lt;p&gt;loyal 的流失是否会有长期较大影响？&lt;/p&gt;
+&lt;p&gt;loyal 与长期贡献是否有相关性？&lt;/p&gt;
+</content>
+        <category term="论文" scheme="https://songlinlife.top/categories/%E8%AE%BA%E6%96%87/" />
+        <category term="communities" scheme="https://songlinlife.top/tags/communities/" />
+        <updated>2021-12-29T02:33:16.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.top/2021/HetGNN%EF%BC%9A%E7%AE%97%E6%B3%95%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/</id>
         <title>HetGNN：算法简单分析</title>
@@ -88,7 +137,7 @@ c-10 4-16 7.7-18 11 0 8.7 6 14.3 18 17 47.3 18.7 87.8 47 121.5 85S196 441.3 208
     </entry>
     <entry>
         <id>https://songlinlife.top/2021/%E8%AF%BB%E5%90%8E%E6%84%9F%EF%BC%9AAre-we-really-making-much-progress-Revisiting-benchmarking-and-refining-heterogeneous-graph-neural-networks/</id>
-        <title>读后感：Are we really making much progress? Revisiting, benchmarking, and refining (详解) heterogeneous graph neural networks</title>
+        <title>读后感：Are we really making much progress? Revisiting, benchmarking, and refining  heterogeneous graph neural networks(详解)</title>
         <link rel="alternate" href="https://songlinlife.top/2021/%E8%AF%BB%E5%90%8E%E6%84%9F%EF%BC%9AAre-we-really-making-much-progress-Revisiting-benchmarking-and-refining-heterogeneous-graph-neural-networks/"/>
         <content type="html">&lt;h3 id=&#34;读后感&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#读后感&#34;&gt;#&lt;/a&gt; 读后感&lt;/h3&gt;
 &lt;p&gt;最近被师兄推荐了一篇异构图综述性质的文章。感觉看了之后挺有收获的，就把自己的理解写下来。&lt;/p&gt;
