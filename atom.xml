@@ -8,7 +8,16 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2022-01-05T09:28:34.000Z</updated>
+    <updated>2022-01-06T01:59:31.000Z</updated>
+    <entry>
+        <id>https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</id>
+        <title>docker01: docker的基本用法</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;先开个坑，把 docker 容器虚拟化给学一下。&lt;/p&gt;
+</content>
+        <category term="docker" scheme="https://songlinlife.top/categories/docker/" />
+        <updated>2022-01-06T01:59:31.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.top/2022/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</id>
         <title>寒假学习计划</title>
@@ -952,35 +961,5 @@ r = \beta Mr +\frac{1-\beta}{N} 1
         <category term="mttu" scheme="https://songlinlife.top/tags/mttu/" />
         <category term="指标" scheme="https://songlinlife.top/tags/%E6%8C%87%E6%A0%87/" />
         <updated>2021-12-05T04:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2021/ss/zsh%E7%BE%8E%E5%8C%96/</id>
-        <title>zsh美化</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/ss/zsh%E7%BE%8E%E5%8C%96/"/>
-        <content type="html">&lt;p&gt;最近得空一点，给我的 terminal 进行了一点装修。&lt;/p&gt;
-&lt;p&gt;主要还是按照了 zsh，配置了主题和插件。&lt;/p&gt;
-&lt;h2 id=&#34;zsh配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#zsh配置&#34;&gt;#&lt;/a&gt; zsh 配置&lt;/h2&gt;
-&lt;h4 id=&#34;安装zsh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装zsh&#34;&gt;#&lt;/a&gt; 安装 zsh：&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;zsh&lt;/code&gt; ： &lt;code&gt;apt install zsh -y&lt;/code&gt;   安装 zsh&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;chsh -s /bin/zsh&lt;/code&gt;  设置 zsh 为默认 sh&lt;/p&gt;
-&lt;h4 id=&#34;安装oh-my-zsh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装oh-my-zsh&#34;&gt;#&lt;/a&gt; 安装 oh-my-zsh：&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;oh-my-zsh&lt;/code&gt; ： &lt;code&gt;sh -c &amp;quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;这里有个问题，如果不会翻墙是会被卡死的。。。。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;export all_proxy=&#39;socks://127.0.0.1&#39;&lt;/code&gt;  先配置一下代理&lt;/p&gt;
-&lt;p&gt;再 &lt;code&gt;sh -c &amp;quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;我的本地机采用了  &lt;code&gt;ys&lt;/code&gt;  主题，remote 机采用了  &lt;code&gt;powerlevel10k&lt;/code&gt;  主题，这样就不会搞混了。nice！&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3pzaC11c2Vycy96c2gtc3ludGF4LWhpZ2hsaWdodGluZy9ibG9iL21hc3Rlci9JTlNUQUxMLm1k&#34;&gt;powerlevel10k 安装&lt;/span&gt; 遇到乱码就是字体问题。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;其他插件&lt;/strong&gt;：  &lt;code&gt;plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump)&lt;/code&gt;  这些都可以在 github 上找到，而且用 oh-my-zsh 安装很方便！&lt;/p&gt;
-&lt;h4 id=&#34;本地机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本地机&#34;&gt;#&lt;/a&gt; 本地机：&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211205110432622.png&#34; alt=&#34;image-20211205110432622&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;远程机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#远程机&#34;&gt;#&lt;/a&gt; 远程机：&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20211205110501278.png&#34; alt=&#34;image-20211205110501278&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;​	ok，成功搞定！&lt;/p&gt;
-</content>
-        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
-        <category term="zsh" scheme="https://songlinlife.top/tags/zsh/" />
-        <category term="wsl" scheme="https://songlinlife.top/tags/wsl/" />
-        <category term="theme" scheme="https://songlinlife.top/tags/theme/" />
-        <updated>2021-12-05T02:27:47.000Z</updated>
     </entry>
 </feed>
