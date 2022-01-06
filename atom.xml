@@ -8,7 +8,60 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2022-01-04T06:03:46.000Z</updated>
+    <updated>2022-01-05T09:28:34.000Z</updated>
+    <entry>
+        <id>https://songlinlife.top/2022/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</id>
+        <title>寒假学习计划</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/"/>
+        <content type="html">&lt;p&gt;哎，说实话，经过上半年对算法的学习，越学越感觉自己在数学上的力不从心，如果不是数学的制约可能自己真的能做出一番事。也有自己家庭的原因，因为我是工薪家庭，让父母供养我出国读书，可能不是一个现实的事情。。。再者我所在的实验室也没有认可学术上的追求，要想做学术，凭自己感觉很难。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;于是&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我决定了！！！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;做开发吧。&lt;/p&gt;
+&lt;p&gt;☝️ 真的甘霖娘，兜兜转转还是逃不了做开发。。。&lt;/p&gt;
+&lt;p&gt;为了准备明年的实习（实际上是今年）&lt;/p&gt;
+&lt;p&gt;没办法，只好捡起以前丢下的 C&lt;ins&gt; 了，我觉得我的 C&lt;/ins&gt; 基础还是可以的。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 学会 docker 的使用&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 学会 vim 的使用&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 重新温习一遍 408&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 重新捡起 C++&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_4&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_4&#34;&gt; 刷够 100 道 LeetCode 题目&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_5&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_5&#34;&gt; 学完 C++ primer&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_6&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_6&#34;&gt; 学到 C++ effect&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_7&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_7&#34;&gt; 完成开发者预测实验&lt;/label&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="记事" scheme="https://songlinlife.top/categories/js/" />
+        <updated>2022-01-05T09:28:34.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</id>
+        <title>vim01: Vim基本用法</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;好早就想把这个坑给天热，一直拖着没去搞，现在终于有时间了&lt;/p&gt;
+</content>
+        <category term="Vim" scheme="https://songlinlife.top/categories/Vim/" />
+        <category term="vim" scheme="https://songlinlife.top/tags/vim/" />
+        <updated>2022-01-05T09:26:14.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.top/2022/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%90%84%E4%B8%AA%E6%8C%87%E6%A0%87/</id>
         <title>机器学习中各个指标accuracy、precision、recall、F1、MCC</title>
@@ -82,27 +135,9 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
 &lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
 &lt;p&gt;这篇文章最大的贡献就是使用了机器学习来预测 LTC。&lt;/p&gt;
 </content>
-        <category term="xlab" scheme="https://songlinlife.top/categories/xlab/" />
+        <category term="Xlab" scheme="https://songlinlife.top/categories/xlab/" />
         <category term="contributors" scheme="https://songlinlife.top/tags/contributors/" />
         <updated>2022-01-04T05:54:07.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2021/KG-why-we-need-KG/</id>
-        <title>KG: why we need KG</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/KG-why-we-need-KG/"/>
-        <content type="html">&lt;h3 id=&#34;what-is-the-knowledge-in-knowledge-grpah&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#what-is-the-knowledge-in-knowledge-grpah&#34;&gt;#&lt;/a&gt; what is the “knowledge”  in knowledge grpah？&lt;/h3&gt;
-</content>
-        <category term="KG" scheme="https://songlinlife.top/categories/KG/" />
-        <category term="KG" scheme="https://songlinlife.top/tags/KG/" />
-        <updated>2021-12-31T04:19:27.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2021/KG-Data-Model/</id>
-        <title>KG: Data Model</title>
-        <link rel="alternate" href="https://songlinlife.top/2021/KG-Data-Model/"/>
-        <content type="html">&lt;p&gt;RDF Data Model&lt;/p&gt;
-</content>
-        <updated>2021-12-30T13:43:03.000Z</updated>
     </entry>
     <entry>
         <id>https://songlinlife.top/2021/Loyalty-in-Online-Communities%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</id>

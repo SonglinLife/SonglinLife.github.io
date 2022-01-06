@@ -7,6 +7,27 @@
     "home_page_url": "https://songlinlife.top",
     "items": [
         {
+            "id": "https://songlinlife.top/2022/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/",
+            "url": "https://songlinlife.top/2022/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/",
+            "title": "寒假学习计划",
+            "date_published": "2022-01-05T09:28:34.000Z",
+            "content_html": "<p>哎，说实话，经过上半年对算法的学习，越学越感觉自己在数学上的力不从心，如果不是数学的制约可能自己真的能做出一番事。也有自己家庭的原因，因为我是工薪家庭，让父母供养我出国读书，可能不是一个现实的事情。。。再者我所在的实验室也没有认可学术上的追求，要想做学术，凭自己感觉很难。</p>\n<p><strong>于是</strong></p>\n<p>我决定了！！！</p>\n<hr />\n<p>做开发吧。</p>\n<p>☝️ 真的甘霖娘，兜兜转转还是逃不了做开发。。。</p>\n<p>为了准备明年的实习（实际上是今年）</p>\n<p>没办法，只好捡起以前丢下的 C<ins> 了，我觉得我的 C</ins> 基础还是可以的。</p>\n<p>目标：</p>\n<ul class=\"task-list\">\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_0\" disabled=\"true\" /><label for=\"cbx_0\"> 学会 docker 的使用</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_1\" disabled=\"true\" /><label for=\"cbx_1\"> 学会 vim 的使用</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_2\" disabled=\"true\" /><label for=\"cbx_2\"> 重新温习一遍 408</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_3\" disabled=\"true\" /><label for=\"cbx_3\"> 重新捡起 C++</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_4\" disabled=\"true\" /><label for=\"cbx_4\"> 刷够 100 道 LeetCode 题目</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_5\" disabled=\"true\" /><label for=\"cbx_5\"> 学完 C++ primer</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_6\" disabled=\"true\" /><label for=\"cbx_6\"> 学到 C++ effect</label></p>\n</li>\n<li class=\"task-list-item\">\n<p><input type=\"checkbox\" id=\"cbx_7\" disabled=\"true\" /><label for=\"cbx_7\"> 完成开发者预测实验</label></p>\n</li>\n</ul>\n",
+            "tags": [
+                "记事"
+            ]
+        },
+        {
+            "id": "https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/",
+            "url": "https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/",
+            "title": "vim01: Vim基本用法",
+            "date_published": "2022-01-05T09:26:14.000Z",
+            "content_html": "<p>好早就想把这个坑给天热，一直拖着没去搞，现在终于有时间了</p>\n",
+            "tags": [
+                "Vim",
+                "vim"
+            ]
+        },
+        {
             "id": "https://songlinlife.top/2022/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%90%84%E4%B8%AA%E6%8C%87%E6%A0%87/",
             "url": "https://songlinlife.top/2022/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%90%84%E4%B8%AA%E6%8C%87%E6%A0%87/",
             "title": "机器学习中各个指标accuracy、precision、recall、F1、MCC",
@@ -23,28 +44,9 @@
             "date_published": "2022-01-04T05:54:07.000Z",
             "content_html": "<h3 id=\"introduction\"><a class=\"anchor\" href=\"#introduction\">#</a> Introduction</h3>\n<p>long time contributor（LTC）预测，LTC 会贡献更多的代码，所以研究 LTC 是有必要的。</p>\n<h3 id=\"dataset\"><a class=\"anchor\" href=\"#dataset\">#</a> DataSet</h3>\n<p>888 个最流行的项目，56766 个贡献者，70899 个观察值。每个观察值对应了一个贡献者。这里注意：观察值和贡献者不一致是因为有的贡献者可能参与的多个项目，这里的观察值是一个贡献者在一个项目的情况。</p>\n<p>31 个特征，包括 13 个 repo 属性和 18 个贡献者特征。</p>\n<p>随机森林方法，AUC 达到了 0.913。</p>\n<p>构建方法：从 GHTorrent 中 09/01/2017 数据抽取了 t 根据 start 排名的 top1000 的 repo，并且将没有特定语言、不使用 github 作为 issue tracker、forked 项目、重复项目排除在外，最终构建了 888 个项目。</p>\n<h3 id=\"特征\"><a class=\"anchor\" href=\"#特征\">#</a> 特征</h3>\n<h5 id=\"重要特征\"><a class=\"anchor\" href=\"#重要特征\">#</a> 重要特征</h5>\n<p>top10 重要特种中，有 4 个 contributor 特征和 6 个 repository 特征。 <code>c_History_Followers</code> （contributor 的粉丝数)） <code>c_Age</code> （contributor 加入 github 和加入 repo 之间的天数差）是 contributor 两个最重要的特征。 <code>r_age</code> （contributor 加入 repo 和 repo 创建的时间差），r_Number_Of_watches（仓库得到的 watch 数）是 repo 的两个最重要的特征。</p>\n<h5 id=\"所有特征\"><a class=\"anchor\" href=\"#所有特征\">#</a> 所有特征</h5>\n<p><img data-src=\"https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220104145833565.png\" alt=\"image-20220104145833565\" /></p>\n<h5 id=\"特征的重要表\"><a class=\"anchor\" href=\"#特征的重要表\">#</a> 特征的重要表</h5>\n<p><img data-src=\"https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220104153402886.png\" alt=\"image-20220104153402886\" /></p>\n<h3 id=\"预测模型和参数\"><a class=\"anchor\" href=\"#预测模型和参数\">#</a> 预测模型和参数</h3>\n<p>随机森林作为预测模型，100 树。</p>\n<p>这个是个二分类问题，正例是 LTC，负例是 non-LTC。</p>\n<p>预测的阈值为 0.5</p>\n<h3 id=\"预测效果\"><a class=\"anchor\" href=\"#预测效果\">#</a> 预测效果</h3>\n<blockquote>\n<p>In 10-fold cross-validation, the precision, recall, F1-score, MCC, and AUC of our best model (random forest) are 0.695, 0.079, 0.140, 0.226, and 0.913.</p>\n</blockquote>\n<p>可以看出这个它预测的 recall 还是比较低的，也就是说它并不能很好地把 LTC 给找出来。但 AUC 值很高，</p>\n<p><img data-src=\"https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220104153046914.png\" alt=\"image-20220104153046914\" /></p>\n<h3 id=\"总结\"><a class=\"anchor\" href=\"#总结\">#</a> 总结</h3>\n<p>这篇文章最大的贡献就是使用了机器学习来预测 LTC。</p>\n",
             "tags": [
-                "xlab",
+                "Xlab",
                 "contributors"
             ]
-        },
-        {
-            "id": "https://songlinlife.top/2021/KG-why-we-need-KG/",
-            "url": "https://songlinlife.top/2021/KG-why-we-need-KG/",
-            "title": "KG: why we need KG",
-            "date_published": "2021-12-31T04:19:27.000Z",
-            "content_html": "<h3 id=\"what-is-the-knowledge-in-knowledge-grpah\"><a class=\"anchor\" href=\"#what-is-the-knowledge-in-knowledge-grpah\">#</a> what is the “knowledge”  in knowledge grpah？</h3>\n",
-            "tags": [
-                "KG",
-                "KG"
-            ]
-        },
-        {
-            "id": "https://songlinlife.top/2021/KG-Data-Model/",
-            "url": "https://songlinlife.top/2021/KG-Data-Model/",
-            "title": "KG: Data Model",
-            "date_published": "2021-12-30T13:43:03.000Z",
-            "content_html": "<p>RDF Data Model</p>\n",
-            "tags": []
         },
         {
             "id": "https://songlinlife.top/2021/Loyalty-in-Online-Communities%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/",
