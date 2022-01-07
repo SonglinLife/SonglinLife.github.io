@@ -10,9 +10,9 @@
     </author>
     <updated>2022-01-06T12:22:18.000Z</updated>
     <entry>
-        <id>https://songlinlife.top/2022/linux/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/</id>
+        <id>https://songlinlife.top/2022/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/</id>
         <title>创建子进程</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/linux/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/"/>
         <content type="html">&lt;h3 id=&#34;fork&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fork&#34;&gt;#&lt;/a&gt; fork&lt;/h3&gt;
 &lt;p&gt;fork 是直接创建一个和当前进程相同的进程。通常原有的进程被称为父进程，新创建的进程是子进程。&lt;/p&gt;
 &lt;p&gt;fork 得到的子进程继承了父进程的大部分属性，但是使用不同数据段和堆栈段。&lt;/p&gt;
@@ -138,9 +138,9 @@ This is the child process, My PID is 6995. My PPID is 6994.
         <updated>2022-01-06T11:48:05.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/linux/inode%E5%AD%A6%E4%B9%A0/</id>
+        <id>https://songlinlife.top/2022/inode%E5%AD%A6%E4%B9%A0/</id>
         <title>inode学习</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/linux/inode%E5%AD%A6%E4%B9%A0/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/inode%E5%AD%A6%E4%B9%A0/"/>
         <content type="html">&lt;p&gt;inode 就是 linux 中索引的概念。&lt;/p&gt;
 &lt;p&gt;这里参考了阮一峰老师的博客：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDExLzEyL2lub2RlLmh0bWw=&#34;&gt;理解 inode&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;为什么需要inode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么需要inode&#34;&gt;#&lt;/a&gt; 为什么需要 inode&lt;/h3&gt;
