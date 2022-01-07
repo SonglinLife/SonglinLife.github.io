@@ -36,7 +36,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107112803662.png&#34; alt=&#34;image-20220107112803662&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;可以看到程序先执行子进程，再执行了父进程。&lt;/p&gt;
 </content>
-        <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+        <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
         <updated>2022-01-06T12:22:18.000Z</updated>
     </entry>
     <entry>
@@ -133,7 +133,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespicturesimage-20220106181902260.png&#34; alt=&#34;image-20220106181902260&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这一块可以参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9jMTAxNWY1ZmZhNzQ=&#34;&gt;进程间通信 IPC (InterProcess Communication)&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+        <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
         <category term="Linux" scheme="https://songlinlife.top/tags/Linux/" />
         <updated>2022-01-06T11:48:05.000Z</updated>
     </entry>
@@ -210,7 +210,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;也就是说 mv 实际上只是当前目录文件和目的目录文件中的信息。并没有发生真的移动。&lt;/p&gt;
 &lt;p&gt;而软件升级因为用的用 inode 不是文件名，这就使得，更新不会影响运行中的软件（因为软件还是再用旧的 inode）。&lt;/p&gt;
 </content>
-        <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+        <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
         <updated>2022-01-06T10:48:33.000Z</updated>
     </entry>
     <entry>
@@ -243,7 +243,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;容器需要的六种 namespace。&lt;/p&gt;
 &lt;h5 id=&#34;cgroup&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cgroup&#34;&gt;#&lt;/a&gt; Cgroup&lt;/h5&gt;
 </content>
-        <category term="容器" scheme="https://songlinlife.top/categories/%E5%AE%B9%E5%99%A8/" />
+        <category term="容器" scheme="https://songlinlife.top/categories/docker/" />
         <updated>2022-01-06T01:59:31.000Z</updated>
     </entry>
     <entry>
@@ -295,7 +295,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
         <link rel="alternate" href="https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/"/>
         <content type="html">&lt;p&gt;好早就想把这个坑给天热，一直拖着没去搞，现在终于有时间了&lt;/p&gt;
 </content>
-        <category term="Vim" scheme="https://songlinlife.top/categories/Vim/" />
+        <category term="Vim" scheme="https://songlinlife.top/categories/vim/" />
         <category term="vim" scheme="https://songlinlife.top/tags/vim/" />
         <updated>2022-01-05T09:26:14.000Z</updated>
     </entry>

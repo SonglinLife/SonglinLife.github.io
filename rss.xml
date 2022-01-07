@@ -16,7 +16,7 @@
             <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/</guid>
             <title>创建子进程</title>
             <link>https://songlinlife.top/2022/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/</link>
-            <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+            <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
             <pubDate>Thu, 06 Jan 2022 20:22:18 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;fork&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fork&#34;&gt;#&lt;/a&gt; fork&lt;/h3&gt;
 &lt;p&gt;fork 是直接创建一个和当前进程相同的进程。通常原有的进程被称为父进程，新创建的进程是子进程。&lt;/p&gt;
@@ -46,7 +46,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
             <guid isPermalink="true">https://songlinlife.top/2022/PIC%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</guid>
             <title>PIC：进程间通信</title>
             <link>https://songlinlife.top/2022/PIC%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</link>
-            <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+            <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
             <category term="Linux" scheme="https://songlinlife.top/tags/Linux/" />
             <pubDate>Thu, 06 Jan 2022 19:48:05 +0800</pubDate>
             <description><![CDATA[ &lt;h4 id=&#34;ipc进程间通信&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ipc进程间通信&#34;&gt;#&lt;/a&gt; IPC 进程间通信&lt;/h4&gt;
@@ -144,7 +144,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
             <guid isPermalink="true">https://songlinlife.top/2022/inode%E5%AD%A6%E4%B9%A0/</guid>
             <title>inode学习</title>
             <link>https://songlinlife.top/2022/inode%E5%AD%A6%E4%B9%A0/</link>
-            <category term="Linux" scheme="https://songlinlife.top/categories/Linux/" />
+            <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
             <pubDate>Thu, 06 Jan 2022 18:48:33 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;inode 就是 linux 中索引的概念。&lt;/p&gt;
 &lt;p&gt;这里参考了阮一峰老师的博客：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDExLzEyL2lub2RlLmh0bWw=&#34;&gt;理解 inode&lt;/span&gt;&lt;/p&gt;
@@ -220,7 +220,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
             <guid isPermalink="true">https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</guid>
             <title>docker01: docker的基本原理</title>
             <link>https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</link>
-            <category term="容器" scheme="https://songlinlife.top/categories/%E5%AE%B9%E5%99%A8/" />
+            <category term="容器" scheme="https://songlinlife.top/categories/docker/" />
             <pubDate>Thu, 06 Jan 2022 09:59:31 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;先开个坑，把 docker 容器虚拟化给学一下。&lt;/p&gt;
 &lt;p&gt;docker 其实我一直都想好好学一下，之前只是简单地略了一次，这次趁着寒假，把容器和 CI 这块好好搞一下。&lt;/p&gt;
@@ -296,7 +296,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
             <guid isPermalink="true">https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
             <title>Vim01: Vim基本用法</title>
             <link>https://songlinlife.top/2022/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
-            <category term="Vim" scheme="https://songlinlife.top/categories/Vim/" />
+            <category term="Vim" scheme="https://songlinlife.top/categories/vim/" />
             <category term="vim" scheme="https://songlinlife.top/tags/vim/" />
             <pubDate>Wed, 05 Jan 2022 17:26:14 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;好早就想把这个坑给天热，一直拖着没去搞，现在终于有时间了&lt;/p&gt;
