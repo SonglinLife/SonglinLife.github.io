@@ -217,9 +217,9 @@ This is the child process, My PID is 6995. My PPID is 6994.
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/docker/2022-1-7%20docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%20120424/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</guid>
             <title>docker01: docker的基本原理</title>
-            <link>https://songlinlife.top/2022/docker/2022-1-7%20docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%20120424/</link>
+            <link>https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</link>
             <category term="docker" scheme="https://songlinlife.top/categories/docker/" />
             <pubDate>Thu, 06 Jan 2022 09:59:31 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;先开个坑，把 docker 容器虚拟化给学一下。&lt;/p&gt;
@@ -287,7 +287,31 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107173731876.png&#34; alt=&#34;image-20220107173731876&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;对于进程来说 &lt;code&gt;pid namespace&lt;/code&gt;  应该是一个常量。&lt;/p&gt;
 &lt;h4 id=&#34;mount-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mount-隔离&#34;&gt;#&lt;/a&gt; mount 隔离&lt;/h4&gt;
+&lt;p&gt;挂载隔离就是隔离文件系统挂载点实现对隔离文件系统支持。&lt;/p&gt;
+&lt;p&gt;挂载传播：共享挂载、私有挂载。&lt;/p&gt;
+&lt;p&gt;挂载：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。&lt;/p&gt;
+&lt;p&gt;Linux 系统中 “一切皆文件”，所有文件都放置在以根目录为树根的树形目录结构中。在 inux 看来，任何硬件设备也都是文件，它们各有自己的一套文件系统（文件目录结构）。&lt;/p&gt;
+&lt;p&gt;因此产生的问题是，当在 Linux 系统中使用这些硬件设备时，只有将 Linux 本身的文件目录与硬件设备的文件目录合二为一，硬件设备才能为我们所用。合二为一的过程称为 “挂载”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDEyLzAyL2FfaGlzdG9yeV9vZl91bml4X2RpcmVjdG9yeV9zdHJ1Y3R1cmUuaHRtbA==&#34;&gt;Unix 目录结构来历&lt;/span&gt;值得一看。&lt;/p&gt;
+&lt;p&gt;这里真有点脑子不够用的感觉。。。&lt;/p&gt;
+&lt;h6 id=&#34;mount-文件or目录绑定&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mount-文件or目录绑定&#34;&gt;#&lt;/a&gt; mount 文件 or 目录绑定&lt;/h6&gt;
+&lt;p&gt;这里有一篇好文章 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc3BhcmtkZXYvcC85MDQ1NTYzLmh0bWw=&#34;&gt;mount 命令进阶&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo mount --bind [DirFile-1] [DirFile-2] &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo umount [DirFile-2]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解绑用绝对路径。&lt;/p&gt;
+&lt;p&gt;bind 不会增加 inode 的引用次数&lt;/p&gt;
+&lt;h4 id=&#34;network-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-隔离&#34;&gt;#&lt;/a&gt; network 隔离&lt;/h4&gt;
+&lt;p&gt;进行网络资源的隔离。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespic.php&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;docker 可以实现网络隔离，这部分之后再细看。&lt;/p&gt;
+&lt;p&gt;这里有一篇博客，写的很好&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veXktY3hkL3AvNjU1MzYyNC5odG1s&#34;&gt;一分钟看懂 Docker 的网络模式和跨主机通信&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;user-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#user-隔离&#34;&gt;#&lt;/a&gt; user 隔离&lt;/h4&gt;
+&lt;p&gt;通过映射可以将 container 内的用户映射为外部用户，这样就具有了外部用户的权限&lt;/p&gt;
 &lt;h3 id=&#34;cgroup&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cgroup&#34;&gt;#&lt;/a&gt; Cgroup&lt;/h3&gt;
+&lt;p&gt;待填坑&lt;/p&gt;
  ]]></description>
         </item>
         <item>
