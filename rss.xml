@@ -220,7 +220,7 @@ This is the child process, My PID is 6995. My PPID is 6994.
             <guid isPermalink="true">https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</guid>
             <title>docker01: docker的基本原理</title>
             <link>https://songlinlife.top/2022/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</link>
-            <category term="docker" scheme="https://songlinlife.top/categories/docker/" />
+            <category term="容器" scheme="https://songlinlife.top/categories/%E5%AE%B9%E5%99%A8/" />
             <pubDate>Thu, 06 Jan 2022 09:59:31 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;先开个坑，把 docker 容器虚拟化给学一下。&lt;/p&gt;
 &lt;p&gt;docker 其实我一直都想好好学一下，之前只是简单地略了一次，这次趁着寒假，把容器和 CI 这块好好搞一下。&lt;/p&gt;
