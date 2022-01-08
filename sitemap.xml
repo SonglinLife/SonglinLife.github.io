@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://songlinlife.top/2022/docker02-Run%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</loc>
     
     <lastmod>2022-01-08</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</loc>
+    <loc>https://songlinlife.top/2022/docker02-Run%E5%91%BD%E4%BB%A4/</loc>
     
-    <lastmod>2022-01-07</lastmod>
+    <lastmod>2022-01-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -564,13 +564,6 @@
   
   <url>
     <loc>https://songlinlife.top/categories/vim/</loc>
-    <lastmod>2022-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/categories/docker/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
