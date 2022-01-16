@@ -271,6 +271,8 @@
 &lt;p&gt;这里有一篇替换的文章写得很好： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oYXJ0dGxlLmxhbmQvMjAxNi8wOC8wOC92aW0tc2VhcmNoLWluLWZpbGUuaHRtbCVFMyU4MCU4MiVFOCVBNiU4MSVFNSVBRiVCOSVFNSU4RCU5NSVFOCVBRiU4RCVFNiU5QiVCRiVFNiU4RCVBMiVFRiVCQyU4QyVFNiVBRiU5NCVFNSVBNiU4MiVFNSVBNiU4MiVFNCVCOCU4QiVFRiVCQyU5QQ==&#34;&gt;https://harttle.land/2016/08/08/vim-search-in-file.html。要对单词替换，比如如下：&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220111223857770.png&#34; alt=&#34;image-20220111223857770&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;想要将 main 替换为 mea，可以  &lt;code&gt;c-V&lt;/code&gt;  进入 visual 模式，然后  &lt;code&gt;:%s/main/mea/g&lt;/code&gt; 。这样就实现了字符串的替换。如果想实现单词级别的替换，很简单，只需要改为  &lt;code&gt;:%s/ main/ mea/g&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改 Vim 中 Ctrl-c 即  &lt;code&gt;C-c&lt;/code&gt;  为  &lt;code&gt;C-A--&lt;/code&gt; ，这样就可以愉快用 Ctrl C 进行复制了，美滋滋。&lt;/p&gt;
+&lt;p&gt;没有改动  &lt;code&gt;C-v&lt;/code&gt; ，visual block 虽然我还没用过，但感觉还是一个重要功能&lt;/p&gt;
 &lt;h4 id=&#34;inset&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#inset&#34;&gt;#&lt;/a&gt; Inset&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;c-d&lt;/code&gt; : 插入新的一行&lt;/p&gt;
  ]]></description>
