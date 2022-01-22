@@ -8,7 +8,88 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2022-01-21T08:53:38.000Z</updated>
+    <updated>2022-01-22T03:46:26.000Z</updated>
+    <entry>
+        <id>https://songlinlife.top/2022/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Efrp%E5%BC%80%E5%90%AF%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</id>
+        <title>使用腾讯轻量应用服务器与frp开启内网穿透实现ssh</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Efrp%E5%BC%80%E5%90%AF%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+        <content type="html">&lt;h3 id=&#34;下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载&#34;&gt;#&lt;/a&gt; 下载&lt;/h3&gt;
+&lt;p&gt;客户端和服务器都要下载这个文件&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9yZWxlYXNlcy9kb3dubG9hZC92MC4zOC4wL2ZycF8wLjM4LjBfbGludXhfYW1kNjQudGFyLmd6&#34;&gt;frp_0.38.0_linux_amd64.tar.gz&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;解压&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解压&#34;&gt;#&lt;/a&gt; 解压&lt;/h3&gt;
+&lt;p&gt;请在客户机（也就是需要进行内网穿透的本地机）和服务器执行相同操作：&lt;/p&gt;
+&lt;p&gt;解压： &lt;code&gt;tar -xvf frp_0.38.0_linux_amd64.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;放到 local 目录下： &lt;code&gt;mv frp_0.38.0_linux_amd64 /usr/local/frp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd /usr/local/frp &lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;服务器配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#服务器配置&#34;&gt;#&lt;/a&gt; 服务器配置&lt;/h3&gt;
+&lt;p&gt;登录到腾讯云服务器，下载解压步骤。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;  查看目录：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220122115136816.png&#34; alt=&#34;image-20220122115136816&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;frps 是服务器对应的执行文件，frps.ini 是服务器配置文件。&lt;/p&gt;
+&lt;p&gt;修改 frps 配置文件： &lt;code&gt;vim frps.ini&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;common&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;bind_port &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33300&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个  &lt;code&gt;bind_port&lt;/code&gt;  就是 frps 的监听端口，可以修改为你需要制定的端口，在云服务器中，我们一般不会使用默认端口，因为这可能会导致出现病毒攻击。&lt;/p&gt;
+&lt;p&gt;腾讯云设置：找到防火墙管理规则，开放暴露端口。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你要通过 frp 进行 ssh 访问，还要开启一个 ssh 访问端口，也就是要暴露两个端口，一个  &lt;code&gt;33300&lt;/code&gt;  端口，一个  &lt;code&gt;33301&lt;/code&gt;  端口，其中 &lt;code&gt;33301&lt;/code&gt;  端口用于提供 ssh 服务。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220122121136085.png&#34; alt=&#34;image-20220122121136085&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;总结，修改配置文件，开放两个端口。&lt;/p&gt;
+&lt;p&gt;如果执行报错，可以执行  &lt;code&gt;chmod 777 frps&lt;/code&gt;  增加权限。&lt;/p&gt;
+&lt;h4 id=&#34;执行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#执行&#34;&gt;#&lt;/a&gt; 执行&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;/usr/local/frp/frps -c /usr/local/frp/frps.ini &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220122122845140.png&#34; alt=&#34;image-20220122122845140&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;注册为系统服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册为系统服务&#34;&gt;#&lt;/a&gt; 注册为系统服务&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;sudo vim /usr/lib/systemd/system/frps.service&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=frps Service
+Documentation=https://github.com/fatedier/frp
+After=network.target nss-lookup.target
+
+[Service]
+ExecStart=/usr/local/frp/frps -c /usr/local/frp/frps.ini 
+Restart=on-failure
+RestartPreventExitStatus=23
+
+[Install]
+WantedBy=multi-user.target                                
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重载服务： &lt;code&gt;systemctl daemon-reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;开启服务： &lt;code&gt;systemctl start frps&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看服务状态： &lt;code&gt;systemctl status frps&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置开机自启动： &lt;code&gt;systemctl enable frps&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;客户端&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#客户端&#34;&gt;#&lt;/a&gt; 客户端&lt;/h3&gt;
+&lt;h3 id=&#34;客户端配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#客户端配置&#34;&gt;#&lt;/a&gt; 客户端配置&lt;/h3&gt;
+&lt;p&gt;frpc 是客户端对应的执行文件，frpc.ini 是客户端配置文件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;执行之前相同的下载解压 cd 命令&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;修改客户端配置： &lt;code&gt;vim frpc.ini&lt;/code&gt; ，[ssh] 设置了 ssh 端口， &lt;code&gt;remote_port&lt;/code&gt;  指的是你的服务器应该用 &lt;code&gt;33301&lt;/code&gt;  端口来提供 ssh 服务，因为我们之前开放了服务器的 33301 端口。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;common&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;server_addr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你的服务器公网ip&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;server_port &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33300&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;ssh&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; tcp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;local_ip &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;127.0&lt;/span&gt;.0.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;local_port &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;22&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;remote_port &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33301&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;同样，注册为服务： &lt;code&gt;sudo vim /usr/lib/systemd/system/frpc.service&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=frps Service
+Documentation=https://github.com/fatedier/frp
+After=network.target nss-lookup.target
+
+[Service]
+ExecStart=/usr/local/frp/frpc -c /usr/local/frp/frpc.ini
+Restart=on-failure
+RestartPreventExitStatus=23
+
+[Install]
+WantedBy=multi-user.target
+~                                     
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重载服务： &lt;code&gt;systemctl daemon-reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;开启服务： &lt;code&gt;systemctl start frpc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看服务状态： &lt;code&gt;systemctl status frpc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置开机自启动： &lt;code&gt;systemctl enable frpc&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ssh连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ssh连接&#34;&gt;#&lt;/a&gt; ssh 连接&lt;/h3&gt;
+&lt;p&gt;ok，现在我们可以用 ssh 来连接到这个内网主机了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ssh -p 33301 内网机需要登录的用户名@服务器的公网ip&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220122124105449.png&#34; alt=&#34;image-20220122124105449&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;完美，这样我们就完成了内网穿透实现 ssh 连接了。&lt;/p&gt;
+</content>
+        <category term="琐事" scheme="https://songlinlife.top/categories/ss/" />
+        <category term="frp" scheme="https://songlinlife.top/tags/frp/" />
+        <updated>2022-01-22T03:46:26.000Z</updated>
+    </entry>
     <entry>
         <id>https://songlinlife.top/2022/Go/Golang-cookies%E4%B8%8Esessions/</id>
         <title>Golang: cookies与sessions</title>
@@ -732,103 +813,5 @@ This is the child process, My PID is 6995. My PPID is 6994.
 </content>
         <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
         <updated>2022-01-06T10:48:33.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</id>
-        <title>docker01: docker的基本原理</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
-        <content type="html">&lt;p&gt;先开个坑，把 docker 容器虚拟化给学一下。&lt;/p&gt;
-&lt;p&gt;docker 其实我一直都想好好学一下，之前只是简单地略了一次，这次趁着寒假，把容器和 CI 这块好好搞一下。&lt;/p&gt;
-&lt;p&gt;so，start dash！&lt;/p&gt;
-&lt;h3 id=&#34;what-is-docker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#what-is-docker&#34;&gt;#&lt;/a&gt; What is docker？&lt;/h3&gt;
-&lt;p&gt;docker 是一种虚拟化技术，和虚拟机不同的是，docker 是直接运行在操作系统内核上的用户控件。容器技术可以让多个独立的用户空间运行在一台宿主机。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106103908215.png&#34; alt=&#34;image-20220106103908215&#34; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;容器提供了在计算机上的隔离环境中安装和运行应用程序的方法。在容器内运行的应用程序仅可使用于为该容器分配的资源，例如：CPU，内存，磁盘，进程空间，用户，网络，卷等。在使用有限的容器资源的同时，并不与其他容器冲突。您可以将容器视为简易计算机上运行应用程序的隔离沙箱。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;说白了，就是 linux 划分出一个隔离的空间，这个空间有内存有计算资源。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Docker 技术使用&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmVkaGF0LmNvbS96aC90b3BpY3MvbGludXgvd2hhdC1pcy10aGUtbGludXgta2VybmVs&#34;&gt; Linux 内核&lt;/span&gt;和内核功能（例如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hY2Nlc3MucmVkaGF0LmNvbS9kb2N1bWVudGF0aW9uL2VuLVVTL1JlZF9IYXRfRW50ZXJwcmlzZV9MaW51eC82L2h0bWwvUmVzb3VyY2VfTWFuYWdlbWVudF9HdWlkZS9jaDAxLmh0bWw=&#34;&gt;Cgroups&lt;/span&gt; 和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sd24ubmV0L0FydGljbGVzLzUyODA3OC8=&#34;&gt;namespaces&lt;/span&gt;）来分隔进程，以便各进程相互独立运行。这种独立性正是采用容器的目的所在；它可以独立运行多种进程、多个应用，更加充分地发挥基础设施的作用，同时保持各个独立系统的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmVkaGF0LmNvbS96aC90b3BpY3Mvc2VjdXJpdHk=&#34;&gt;安全性&lt;/span&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;容器通过 &lt;code&gt;Namespace&lt;/code&gt;  进行资源隔离，通过 &lt;code&gt;Cgroup&lt;/code&gt;  进行资源控制，通过 &lt;code&gt;rootfs&lt;/code&gt;  进行文件系统隔离，容器引擎自身的特性来管理容器的生命周期。&lt;/p&gt;
-&lt;h3 id=&#34;namespace进行资源隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#namespace进行资源隔离&#34;&gt;#&lt;/a&gt; Namespace 进行资源隔离&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;chroot&lt;/code&gt;  命令: change root directory（更改 root 目录），因为系统默认目录结构是以 &lt;code&gt;/&lt;/code&gt;  开始的，即 root 目录就是  &lt;code&gt;/&lt;/code&gt; ，修改 root 目录之后，系统会通过指定的位置作为  &lt;code&gt;/&lt;/code&gt; 。比如我用 &lt;code&gt;chroot target /bin/sh&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;chroot 实现的就是一种隔离。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Namespace&lt;/code&gt;  的作用之一：实现轻量级的虚拟化服务。&lt;/p&gt;
-&lt;p&gt;Linux namespaces 是对全局系统资源的一种封装隔离，使得处于不同 namespace 的进程拥有独立的全局系统资源，改变一个 namespace 中的系统资源只会影响当前 namespace 里的进程，对其他 namespace 中的进程没有影响&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们可以从 docker 实现者的角度考虑该如何实现一个资源隔离的容器。比如是不是可以通过 chroot 命令切换根目录的挂载点，从而隔离文件系统。为了在分布式的环境下进行通信和定位，容器必须要有独立的 IP、端口和路由等，这就需要对网络进行隔离。同时容器还需要一个独立的主机名以便在网络中标识自己。接下来还需要进程间的通信、用户权限等的隔离。最后，运行在容器中的应用需要有进程号 (PID)，自然也需要与宿主机中的 PID 进行隔离。也就是说这六种隔离能力是实现一个容器的基础，让我们看看 linux 内核的 namespace 特性为我们提供了什么样的隔离能力：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106110757050.png&#34; alt=&#34;image-20220106110757050&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;容器需要的六种 namespace。&lt;/p&gt;
-&lt;h4 id=&#34;进行namespace-api操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进行namespace-api操作&#34;&gt;#&lt;/a&gt; 进行 namespace API 操作&lt;/h4&gt;
-&lt;h5 id=&#34;clone&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#clone&#34;&gt;#&lt;/a&gt; clone&lt;/h5&gt;
-&lt;p&gt;clone 就是加强版的 vfork，因为 vfork 调用生成的子进程实际上是和父进程共享内存地址空间的，而 clone 就可自定义需要共享的是啥。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;int clone (int (*child_func)(void *), void *child_stack,int flags, void *args)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;flag&lt;/code&gt;  参数可以对 namespace 进行操作。&lt;/p&gt;
-&lt;h5 id=&#34;procpidns&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#procpidns&#34;&gt;#&lt;/a&gt; /proc/[pid]/ns&lt;/h5&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107115332250.png&#34; alt=&#34;image-20220107115332250&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$$&lt;/code&gt;  指当前进程&lt;/p&gt;
-&lt;p&gt;可以看到这些文件实际上都是软连接，指向 namespace 文件的 inode。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mount --bind /proc/$$/ns/uts ~/uts&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;就是用	 &lt;code&gt;~/uts&lt;/code&gt;  来作为一个新的软连接。&lt;/p&gt;
-&lt;h5 id=&#34;setns&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setns&#34;&gt;#&lt;/a&gt; setns&lt;/h5&gt;
-&lt;p&gt;&lt;code&gt;setns&lt;/code&gt;  可以是进程加入到新的 namespace。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;int setns(int fd, int nstype)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;fd&lt;/code&gt;  是 namespace 的文件描述符，  &lt;code&gt;nstype&lt;/code&gt;  指定是否需要检查 namespace 类型是否符合实际要求。&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; O_RDONLY&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;setns&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;fd&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 调用 setns&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;execvp&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 执行命令&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;./setns ~/uts /bin/bash&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;setns&lt;/code&gt;  执行后会执行 clone 创建子进程，而原来的父进程会终止。&lt;/p&gt;
-&lt;h5 id=&#34;uts-namespace&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#uts-namespace&#34;&gt;#&lt;/a&gt; UTS namespace&lt;/h5&gt;
-&lt;p&gt;&lt;code&gt;uts&lt;/code&gt;  是域名和主机名的隔离，容器和主机应该具有不同的 &lt;code&gt;hostname&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;代码：&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;_GNU_SOURCE&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;sys/types.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;sys/wait.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;sched.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;signal.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&amp;lt;unistd.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;STACK_SIZE&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; child_stack&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;STACK_SIZE&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; child_args&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;/bin/bash&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;child_main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; args&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;在子进程中！\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;sethostname&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;NewNamespce&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;execv&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;child_args&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;child_args&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;------begin----------\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; child_pid &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;clone&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;child_main&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; child_stack &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; STACK_SIZE&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; CLONE_NEWUTS&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; SIGCHLD&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 这里设置了 CLONE_NEWUTS，表示子进程克隆了父进程的 uts。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;waitpid&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;child_pid&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;------end------------\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107170432303.png&#34; alt=&#34;image-20220107170432303&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;可以看到新的进程内，hostname 发生了改变，我说当时用 docker 的时候，怎么 hostname 是一串奇奇怪怪的数字。&lt;/p&gt;
-&lt;p&gt;现在明白了，这就是 uts 隔离。&lt;/p&gt;
-&lt;h4 id=&#34;ipc隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ipc隔离&#34;&gt;#&lt;/a&gt; IPC 隔离&lt;/h4&gt;
-&lt;p&gt;IPC 隔离就是进程间通信隔离。因为进程间通信有多种，有消息队列，共享内存、管道等方式。所以 IPC 隔离的作用的就是 docker 内的进程使用容器内的消息队列和共享内存等等，IPC namespace 下的进程彼此可以通信，不同 IPC namespace 进程不能通信。&lt;/p&gt;
-&lt;p&gt;IPC 可以看👉 &lt;a href=&#34;https://songlinlife.top/2022/PIC%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/&#34;&gt;PIC：进程间通信&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;修改语句： &lt;code&gt;int child_pid = clone(child_main, child_stack + STACK_SIZE, CLONE_NEWUTS| SIGCHLD, NULL);&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ipcmk -Q&lt;/code&gt; : 创建 &lt;code&gt;ipc&lt;/code&gt;  消息队列&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ipcs -q&lt;/code&gt; : 查看消息队列&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107171751280.png&#34; alt=&#34;image-20220107171751280&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;可以看到 &lt;code&gt;ipc namespace&lt;/code&gt;  发生了隔离。&lt;/p&gt;
-&lt;h4 id=&#34;pid隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pid隔离&#34;&gt;#&lt;/a&gt; PID 隔离&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;pid&lt;/code&gt;  就是  &lt;code&gt;process id&lt;/code&gt;  进程 id。 &lt;code&gt;pid&lt;/code&gt;  隔离就是不同 &lt;code&gt;pid namespace&lt;/code&gt;  可以允许有相同的 pid。&lt;/p&gt;
-&lt;p&gt;Linux 会维护一个 &lt;code&gt;pid namespace&lt;/code&gt;  树，最顶层的 &lt;code&gt;root&lt;/code&gt;  节点是系统初始化时创建的，原先的  &lt;code&gt;pid namespace&lt;/code&gt;  是新创建的  &lt;code&gt;pid namespace&lt;/code&gt;  的父节点。子节点不能看到父节点的进程，但父节点可以看到子节点。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;pid 1&lt;/code&gt;  是 init 进程，通常为 &lt;code&gt;bash&lt;/code&gt;  或  &lt;code&gt;zsh&lt;/code&gt;  等 &lt;code&gt;sh&lt;/code&gt; 。init 进程负责回收所有的孤儿进程（发生错误导致没有父进程）。父节点  &lt;code&gt;pid namespace&lt;/code&gt;  的进程可以强行杀死子节点  &lt;code&gt;pid namespace&lt;/code&gt;  节点的 init 进程，一旦 init 进程被杀死，该  &lt;code&gt;pid namespace&lt;/code&gt;  下的所有进程都会被终止。&lt;/p&gt;
-&lt;p&gt;问题：子节点仍然可以看到父节点进程。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107173053305.png&#34; alt=&#34;image-20220107173053305&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;解决：重新挂载 proc  &lt;code&gt;mount -t proc proc /proc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220107173731876.png&#34; alt=&#34;image-20220107173731876&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;对于进程来说 &lt;code&gt;pid namespace&lt;/code&gt;  应该是一个常量。&lt;/p&gt;
-&lt;h4 id=&#34;mount-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mount-隔离&#34;&gt;#&lt;/a&gt; mount 隔离&lt;/h4&gt;
-&lt;p&gt;挂载隔离就是隔离文件系统挂载点实现对隔离文件系统支持。&lt;/p&gt;
-&lt;p&gt;挂载传播：共享挂载、私有挂载。&lt;/p&gt;
-&lt;p&gt;挂载：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。&lt;/p&gt;
-&lt;p&gt;Linux 系统中 “一切皆文件”，所有文件都放置在以根目录为树根的树形目录结构中。在 inux 看来，任何硬件设备也都是文件，它们各有自己的一套文件系统（文件目录结构）。&lt;/p&gt;
-&lt;p&gt;因此产生的问题是，当在 Linux 系统中使用这些硬件设备时，只有将 Linux 本身的文件目录与硬件设备的文件目录合二为一，硬件设备才能为我们所用。合二为一的过程称为 “挂载”。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDEyLzAyL2FfaGlzdG9yeV9vZl91bml4X2RpcmVjdG9yeV9zdHJ1Y3R1cmUuaHRtbA==&#34;&gt;Unix 目录结构来历&lt;/span&gt;值得一看。&lt;/p&gt;
-&lt;p&gt;这里真有点脑子不够用的感觉。。。&lt;/p&gt;
-&lt;h6 id=&#34;mount-文件or目录绑定&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mount-文件or目录绑定&#34;&gt;#&lt;/a&gt; mount 文件 or 目录绑定&lt;/h6&gt;
-&lt;p&gt;这里有一篇好文章 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc3BhcmtkZXYvcC85MDQ1NTYzLmh0bWw=&#34;&gt;mount 命令进阶&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo mount --bind [DirFile-1] [DirFile-2] &lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo umount [DirFile-2]&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;解绑用绝对路径。&lt;/p&gt;
-&lt;p&gt;bind 不会增加 inode 的引用次数&lt;/p&gt;
-&lt;h4 id=&#34;network-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-隔离&#34;&gt;#&lt;/a&gt; network 隔离&lt;/h4&gt;
-&lt;p&gt;进行网络资源的隔离。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespic.php&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;docker 可以实现网络隔离，这部分之后再细看。&lt;/p&gt;
-&lt;p&gt;这里有一篇博客，写的很好&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veXktY3hkL3AvNjU1MzYyNC5odG1s&#34;&gt;一分钟看懂 Docker 的网络模式和跨主机通信&lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&#34;user-隔离&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#user-隔离&#34;&gt;#&lt;/a&gt; user 隔离&lt;/h4&gt;
-&lt;p&gt;通过映射可以将 container 内的用户映射为外部用户，这样就具有了外部用户的权限&lt;/p&gt;
-&lt;h3 id=&#34;cgroup&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cgroup&#34;&gt;#&lt;/a&gt; Cgroup&lt;/h3&gt;
-&lt;p&gt;待填坑&lt;/p&gt;
-</content>
-        <category term="容器" scheme="https://songlinlife.top/categories/docker/" />
-        <updated>2022-01-06T01:59:31.000Z</updated>
     </entry>
 </feed>
