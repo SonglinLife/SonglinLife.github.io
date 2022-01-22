@@ -10,8 +10,16 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Sat, 22 Jan 2022 11:46:26 +0800</pubDate>
-        <lastBuildDate>Sat, 22 Jan 2022 11:46:26 +0800</lastBuildDate>
+        <pubDate>Sat, 22 Jan 2022 15:31:12 +0800</pubDate>
+        <lastBuildDate>Sat, 22 Jan 2022 15:31:12 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.top/2022/Go/Golang-%E5%86%99%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+            <title>Golang: 写正则表达式</title>
+            <link>https://songlinlife.top/2022/Go/Golang-%E5%86%99%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+            <category term="Go" scheme="https://songlinlife.top/categories/Go/" />
+            <pubDate>Sat, 22 Jan 2022 15:31:12 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.top/2022/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Efrp%E5%BC%80%E5%90%AF%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
             <title>使用腾讯轻量应用服务器与frp开启内网穿透实现ssh</title>
@@ -450,7 +458,7 @@ func InitMongoSession() *mgo.Session &amp;#123;
             <guid isPermalink="true">https://songlinlife.top/2022/vim/Vscode%20+%20Vim/</guid>
             <title>Vscode+vim</title>
             <link>https://songlinlife.top/2022/vim/Vscode%20+%20Vim/</link>
-            <category term="Vim" scheme="https://songlinlife.top/categories/vim/" />
+            <category term="Vim" scheme="https://songlinlife.top/categories/Vim/" />
             <category term="vscode" scheme="https://songlinlife.top/tags/vscode/" />
             <category term="vim" scheme="https://songlinlife.top/tags/vim/" />
             <pubDate>Wed, 12 Jan 2022 12:35:15 +0800</pubDate>
@@ -739,82 +747,6 @@ This is the child process, My PID is 6995. My PPID is 6994.
 &lt;p&gt;** 三是原始套接字，** 原始套接字允许对较低层次的协议直接访问，比如 IP、 ICMP 协议，它常用于检验新的协议实现，或者访问现有服务中配置的新设备，因为 RAW SOCKET 可以自如地控制 Windows 下的多种协议，能够对网络底层的传输机制进行控制，所以可以应用原始套接字来操纵网络层和传输层应用。比如，我们可以通过 RAW SOCKET 来接收发向本机的 ICMP、IGMP 协议包，或者接收 TCP/IP 栈不能够处理的 IP 包，也可以用来发送一些自定包头或自定协议的 IP 包。网络监听技术很大程度上依赖于 SOCKET_RAW。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespicturesimage-20220106181902260.png&#34; alt=&#34;image-20220106181902260&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这一块可以参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9jMTAxNWY1ZmZhNzQ=&#34;&gt;进程间通信 IPC (InterProcess Communication)&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/linux/inode%E5%AD%A6%E4%B9%A0/</guid>
-            <title>inode学习</title>
-            <link>https://songlinlife.top/2022/linux/inode%E5%AD%A6%E4%B9%A0/</link>
-            <category term="Linux" scheme="https://songlinlife.top/categories/linux/" />
-            <pubDate>Thu, 06 Jan 2022 18:48:33 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;inode 就是 linux 中索引的概念。&lt;/p&gt;
-&lt;p&gt;这里参考了阮一峰老师的博客：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDExLzEyL2lub2RlLmh0bWw=&#34;&gt;理解 inode&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;为什么需要inode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么需要inode&#34;&gt;#&lt;/a&gt; 为什么需要 inode&lt;/h3&gt;
-&lt;p&gt;linux 中，文件存储在硬盘，每个硬盘最小存储单位为扇区，每个扇区 512 字节。一般读取文件是按  &lt;code&gt;块&lt;/code&gt; 做单位的，每个块一般有 8 个扇区（sector），也就是 4kb&lt;/p&gt;
-&lt;p&gt;文件存储在块中，那么需要记录存放在哪个块中，这个记录工作有 inode 也就是索引节点完成。&lt;/p&gt;
-&lt;h3 id=&#34;inode内容&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#inode内容&#34;&gt;#&lt;/a&gt; inode 内容&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;stat file&lt;/code&gt; : 查看文件索引&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106185612657.png&#34; alt=&#34;image-20220106185612657&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;记录有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;文件的字节数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文件拥有者的 User ID&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文件的 Group ID&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文件的读、写、执行权限&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文件的时间戳，共有三个：ctime 指 inode 上一次变动的时间，mtime 指文件内容上一次变动的时间，atime 指文件上一次打开的时间。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;链接数，即有多少文件名指向这个 inode&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文件数据 block 的位置&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;df -i&lt;/code&gt; ：查看磁盘索引。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;df -h&lt;/code&gt; ：查看磁盘大小。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo dumpe2fs -h /dev/sda4 | grep &amp;quot;Inode size&amp;quot;  &lt;/code&gt; ：查看每个 inode 节点大小&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106190454001.png&#34; alt=&#34;image-20220106190454001&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;也就是说每个 inode 节点有 256B 大小。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106191529857.png&#34; alt=&#34;image-20220106191529857&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220106191344721.png&#34; alt=&#34;image-20220106191344721&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;可以看到我的 sda4 有 13156352 个索引，每个文件需要用一个索引。&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;13156352&lt;/mn&gt;&lt;mo&gt;∗&lt;/mo&gt;&lt;mn&gt;256&lt;/mn&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;/&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mn&gt;1024&lt;/mn&gt;&lt;mo&gt;∗&lt;/mo&gt;&lt;mn&gt;1024&lt;/mn&gt;&lt;mo&gt;∗&lt;/mo&gt;&lt;mn&gt;1024&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;≈&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;13156352 * 256 /(1024 *1024 * 1024) \approx 3GB&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;∗&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;∗&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;∗&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;≈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;G&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05017em;&#34;&gt;B&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;也就是说索引大约占用了 3GB 存储空间，这和下面 sda4 的 197GB 正好，因为我分配磁盘大小的时候就是分配了 200GB。&lt;/p&gt;
-&lt;h3 id=&#34;inode号码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#inode号码&#34;&gt;#&lt;/a&gt; inode 号码&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;ls -i&lt;/code&gt; ：查看文件 inode 号码：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturespicturesimage-20220106192104755.png&#34; alt=&#34;image-20220106192104755&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;目录文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目录文件&#34;&gt;#&lt;/a&gt; 目录文件&lt;/h3&gt;
-&lt;p&gt;linux 中目录也是一个文件，打开目录实际上在打开目录文件。&lt;/p&gt;
-&lt;p&gt;目录文件的结构非常简单，就是一系列目录项（dirent）的列表。每个目录项，由两部分组成：所包含文件的文件名，以及该文件名对应的 inode 号码。&lt;/p&gt;
-&lt;p&gt;目录文件的读权限（r）和写权限（w），都是针对目录文件本身。由于目录文件内只有文件名和 inode 号码，所以如果只有读权限，只能获取文件名，无法获取其他信息，因为其他信息都储存在 inode 节点中，&lt;strong&gt;而读取 inode 节点内的信息需要目录文件的执行权限（x）。&lt;/strong&gt;（这里有点没法理解，为啥是执行权限？&lt;/p&gt;
-&lt;h3 id=&#34;硬链接和软连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#硬链接和软连接&#34;&gt;#&lt;/a&gt; 硬链接和软连接&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;ln 源文件 目的文件&lt;/code&gt; ：硬链接&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ln -s 源文件 目的文件 &lt;/code&gt; : 软连接&lt;/p&gt;
-&lt;p&gt;删除文件实际上在删除硬链接数，如果硬链接数为 0，就会被系统回收。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;反过来，删除一个文件名，就会使得 inode 节点中的 &amp;quot;链接数&amp;quot; 减 1。当这个值减到 0，表明没有文件名指向这个 inode，系统就会回收这个 inode 号码，以及其所对应 block 区域。&lt;/p&gt;
-&lt;p&gt;这里顺便说一下目录文件的 &amp;quot;链接数&amp;quot;。创建目录时，默认会生成两个目录项：&amp;quot;.&amp;quot; 和 &amp;quot;..&amp;quot;。前者的 inode 号码就是当前目录的 inode 号码，等同于当前目录的 &amp;quot;硬链接&amp;quot;；后者的 inode 号码就是当前目录的父目录的 inode 号码，等同于父目录的 &amp;quot;硬链接&amp;quot;。所以，任何一个目录的 &amp;quot;硬链接&amp;quot; 总数，总是等于 2 加上它的子目录总数（含隐藏目录）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;可能这就是删除目录要用递归方式进行删除的原因，因为子目录还保留了父目录的硬链接。&lt;/p&gt;
-&lt;p&gt;软连接就是快捷方式。&lt;/p&gt;
-&lt;h3 id=&#34;平滑升级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#平滑升级&#34;&gt;#&lt;/a&gt; 平滑升级&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1. 有时，文件名包含特殊字符，无法正常删除。这时，直接删除 inode 节点，就能起到删除文件的作用。&lt;/p&gt;
-&lt;p&gt;2. 移动文件或重命名文件，只是改变文件名，不影响 inode 号码。&lt;/p&gt;
-&lt;p&gt;3. 打开一个文件以后，系统就以 inode 号码来识别这个文件，不再考虑文件名。因此，通常来说，系统无法从 inode 号码得知文件名。&lt;/p&gt;
-&lt;p&gt;第 3 点使得软件更新变得简单，可以在不关闭软件的情况下进行更新，不需要重启。因为系统通过 inode 号码，识别运行中的文件，不通过文件名。更新的时候，新版文件以同样的文件名，生成一个新的 inode，不会影响到运行中的文件。等到下一次运行这个软件的时候，文件名就自动指向新版文件，旧版文件的 inode 则被回收。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;也就是说 mv 实际上只是当前目录文件和目的目录文件中的信息。并没有发生真的移动。&lt;/p&gt;
-&lt;p&gt;而软件升级因为用的用 inode 不是文件名，这就使得，更新不会影响运行中的软件（因为软件还是再用旧的 inode）。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
