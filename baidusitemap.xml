@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://songlinlife.top/2022/ss/golang%E5%92%8Cpython%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91MongoDB%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-mapreduce/</loc>
+    <lastmod>2022-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-GFS/</loc>
+    <lastmod>2022-02-23</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/Bot/Bot-%E8%8E%B7%E5%8F%96%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2022-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/Mysql-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
+    <lastmod>2022-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADetecting-and-Characterizing-Bots-that-Commit-Code/</loc>
+    <lastmod>2022-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%88%91%E7%9A%84node%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2022-02-17</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A601/</loc>
+    <lastmod>2022-02-16</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/HTML%EF%BC%9A%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-01-29</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/js/js%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-01-29</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/Golang%EF%BC%9Amongodb%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-01-24</lastmod>
   </url>
   <url>
-    <loc>https://songlinlife.top/2022/Golang%EF%BC%9A%E6%9F%A5%E8%AF%A2MongoDB/</loc>
+    <loc>https://songlinlife.top/2022/Go/Golang%EF%BC%9A%E6%9F%A5%E8%AF%A2MongoDB/</loc>
     <lastmod>2022-01-24</lastmod>
   </url>
   <url>
     <loc>https://songlinlife.top/2022/MongoDB-%E5%B8%B8%E7%94%A8%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2022-01-24</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/ss/golang%E5%92%8Cpython%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91MongoDB%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-01-24</lastmod>
   </url>
   <url>
@@ -41,11 +81,7 @@
     <lastmod>2022-01-18</lastmod>
   </url>
   <url>
-    <loc>https://songlinlife.top/2022/Mysql-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
-    <lastmod>2022-01-18</lastmod>
-  </url>
-  <url>
-    <loc>https://songlinlife.top/2022/git-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
+    <loc>https://songlinlife.top/2022/ss/git-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
     <lastmod>2022-01-18</lastmod>
   </url>
   <url>
@@ -85,7 +121,7 @@
     <lastmod>2022-01-08</lastmod>
   </url>
   <url>
-    <loc>https://songlinlife.top/2022/docker02-Run%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://songlinlife.top/2022/docker/docker02-Run%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2022-01-08</lastmod>
   </url>
   <url>
