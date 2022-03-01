@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2022-03-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9APredicting-long-time-contributors-for-GitHub-projects-using-machine-learning/</loc>
+    
+    <lastmod>2022-03-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://songlinlife.top/2022/MIT6-824-lab2-Raft/</loc>
     
     <lastmod>2022-03-01</lastmod>
@@ -398,15 +416,6 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2022/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9APredicting-long-time-contributors-for-GitHub-projects-using-machine-learning/</loc>
-    
-    <lastmod>2022-01-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://songlinlife.top/2022/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%90%84%E4%B8%AA%E6%8C%87%E6%A0%87/</loc>
     
     <lastmod>2022-01-04</lastmod>
@@ -534,15 +543,6 @@
   
   <url>
     <loc>https://songlinlife.top/2021/python/pymongo%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E3%80%81%E8%8C%83%E5%9B%B4%E3%80%81aggregate%EF%BC%89/</loc>
-    
-    <lastmod>2021-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2021-12-09</lastmod>
     
@@ -902,13 +902,6 @@
   
   <url>
     <loc>https://songlinlife.top/categories/ai/</loc>
-    <lastmod>2022-03-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/categories/xlab/</loc>
     <lastmod>2022-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
