@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://songlinlife.top/2022/MIT6-824-lab2-Raft/</loc>
+    <lastmod>2022-03-01</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</loc>
+    <lastmod>2022-02-28</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/grimoireLab%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
+    <lastmod>2022-02-27</lastmod>
+  </url>
+  <url>
+    <loc>https://songlinlife.top/2022/grimoireLab-%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E7%BB%84%E4%BB%B6/</loc>
+    <lastmod>2022-02-27</lastmod>
+  </url>
+  <url>
     <loc>https://songlinlife.top/2022/grimoireLab-%E6%95%B0%E6%8D%AE%E6%B6%88%E8%B4%B9%E7%BB%84%E4%BB%B6/</loc>
     <lastmod>2022-02-27</lastmod>
   </url>
@@ -9,19 +25,11 @@
     <lastmod>2022-02-27</lastmod>
   </url>
   <url>
-    <loc>https://songlinlife.top/2022/MIT6-824-lab2-Raft/</loc>
-    <lastmod>2022-02-27</lastmod>
-  </url>
-  <url>
     <loc>https://songlinlife.top/2022/Artur-%E8%B0%83%E5%BA%A6%E5%99%A8/</loc>
     <lastmod>2022-02-25</lastmod>
   </url>
   <url>
     <loc>https://songlinlife.top/2022/Graal-%E5%AD%98%E5%82%A8%E5%BA%93%E5%88%86%E6%9E%90%E5%99%A8/</loc>
-    <lastmod>2022-02-25</lastmod>
-  </url>
-  <url>
-    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</loc>
     <lastmod>2022-02-25</lastmod>
   </url>
   <url>
