@@ -10,9 +10,9 @@
     </author>
     <updated>2022-03-05T02:13:48.000Z</updated>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6-824-zookeeper/</id>
+        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</id>
         <title>MIT6.824: ZooKeeper: Wait-free coordination for Internet-scale systems</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6-824-zookeeper/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/"/>
         <content type="html">&lt;h3 id=&#34;lock-free-wait-free-以及-cas&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#lock-free-wait-free-以及-cas&#34;&gt;#&lt;/a&gt; lock-free wait-free 以及 CAS&lt;/h3&gt;
 &lt;p&gt;读这篇文章需要一点关于 wait-free、lock-free 和 CAS 的前置知识。&lt;/p&gt;
 &lt;p&gt;知乎有一篇文章写了关于 wait-free 和 lock-free 的理解：对 wait-free 和 lock-free 的理解 - 我的猪猪呢的文章 - 知乎 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNDI5MjEzMjM=&#34;&gt;https://zhuanlan.zhihu.com/p/342921323&lt;/span&gt;&lt;/p&gt;
@@ -207,9 +207,9 @@
         <updated>2022-02-27T09:39:07.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6-824-lab2-Raft/</id>
+        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</id>
         <title>MIT6.824: lab2 Raft</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6-824-lab2-Raft/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/"/>
         <content type="html">&lt;p&gt;首先我是读了论文之后再写这个 lab 的，但 raft 论文的内容太多了，只能慢慢一点点看。现在还是先把 lab 完成。&lt;/p&gt;
 &lt;p&gt;强烈安利：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvbFViVkJWenZOVnhoZ2JjSFFCYmtrUQ==&#34;&gt;https://mp.weixin.qq.com/s/lUbVBVzvNVxhgbcHQBbkkQ&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;先上图&lt;/p&gt;

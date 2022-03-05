@@ -13,9 +13,9 @@
         <pubDate>Sat, 05 Mar 2022 10:13:48 +0800</pubDate>
         <lastBuildDate>Sat, 05 Mar 2022 10:13:48 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6-824-zookeeper/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</guid>
             <title>MIT6.824: ZooKeeper: Wait-free coordination for Internet-scale systems</title>
-            <link>https://songlinlife.top/2022/MIT6-824-zookeeper/</link>
+            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</link>
             <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
             <pubDate>Sat, 05 Mar 2022 10:13:48 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;lock-free-wait-free-以及-cas&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#lock-free-wait-free-以及-cas&#34;&gt;#&lt;/a&gt; lock-free wait-free 以及 CAS&lt;/h3&gt;
@@ -210,9 +210,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6-824-lab2-Raft/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</guid>
             <title>MIT6.824: lab2 Raft</title>
-            <link>https://songlinlife.top/2022/MIT6-824-lab2-Raft/</link>
+            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</link>
             <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
             <pubDate>Sat, 26 Feb 2022 11:38:28 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;首先我是读了论文之后再写这个 lab 的，但 raft 论文的内容太多了，只能慢慢一点点看。现在还是先把 lab 完成。&lt;/p&gt;
