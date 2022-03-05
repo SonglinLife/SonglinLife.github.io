@@ -281,12 +281,12 @@ election, and it waits for that timeout to elapse before starting the next elect
 &lt;/blockquote&gt;
 &lt;p&gt;candidate 初始化后也会重新随机初始化这个 &lt;code&gt;election timeout&lt;/code&gt; 。如果在这个阶段发生了 split vote 情况，那么 &lt;code&gt;election timeout&lt;/code&gt;  最小的 candidate 就会率先超时，并且开启新的投票，于是其他 candidate 看到新的 RequestVote 中的 &lt;code&gt;current term&lt;/code&gt;  大于自身的 term number，于是这些 candidate 就会自动变成 followers 并给新的 candidate 投票。于是 splitvote 问题就可以很好地解决了！&lt;/p&gt;
 &lt;h3 id=&#34;state&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#state&#34;&gt;#&lt;/a&gt; State&lt;/h3&gt;
-&lt;h5 id=&#34;所有的server都有的状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#所有的server都有的状态&#34;&gt;#&lt;/a&gt; 所有的 server 都有的状态&lt;/h5&gt;
+&lt;h4 id=&#34;所有的server都有的状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#所有的server都有的状态&#34;&gt;#&lt;/a&gt; 所有的 server 都有的状态&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;committedIndex&lt;/code&gt; ：这就是 logs 中 committed highest log entry index，这个初始化为 0。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;log[]&lt;/code&gt; ：log 初始化中会把 index 为 0 初始化，也就是后续添加 entry 的 index 都是从 1 开始。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;lastApplied&lt;/code&gt; ：index of highes log entry applied to state machine。通过 heartbeat 发送了 entry 之后受到了 confirm，确定是 committed 之后就可以执行了。这个 lab 可能不会涉及。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;commitIndex&lt;/code&gt; ：通过 heartbeat 得到回复，leader 就可以确认 committed 了。&lt;/p&gt;
-&lt;h5 id=&#34;leader-维护的状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#leader-维护的状态&#34;&gt;#&lt;/a&gt; leader 维护的状态&lt;/h5&gt;
+&lt;h4 id=&#34;leader-维护的状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#leader-维护的状态&#34;&gt;#&lt;/a&gt; leader 维护的状态&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;matchIndex[]&lt;/code&gt; ：对于每个 server，需要复制的最高 log entry index，初始化为 0。我还没搞懂这个最高需要被复制为啥要初始化为 0。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;nextIndex[]&lt;/code&gt; : leader 会保存下一个为 server 发送了 log entry 的 index。这里的 index 我直接设定为 log 的索引。（初始化为 &lt;code&gt;len(logs)&lt;/code&gt; ）&lt;/p&gt;
 &lt;h3 id=&#34;关于54-safety&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于54-safety&#34;&gt;#&lt;/a&gt; 关于 5.4 Safety&lt;/h3&gt;
