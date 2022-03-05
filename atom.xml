@@ -8,13 +8,30 @@
     <author>
       <name>Kalice</name>
     </author>
-    <updated>2022-02-27T12:39:08.000Z</updated>
+    <updated>2022-03-05T02:13:48.000Z</updated>
     <entry>
-        <id>https://songlinlife.top/2022/grimoireLab%E5%B7%A5%E4%BD%9C%E6%B5%81/</id>
-        <title>grimoireLab工作流</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/grimoireLab%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
-        <content type="html"></content>
-        <updated>2022-02-27T12:39:08.000Z</updated>
+        <id>https://songlinlife.top/2022/MIT6-824-zookeeper/</id>
+        <title>MIT6.824: zookeeper</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/MIT6-824-zookeeper/"/>
+        <content type="html">&lt;h1 id=&#34;简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Zookeeper，a service for coordinating processes of distributed applications.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;the-zookeeper-service&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#the-zookeeper-service&#34;&gt;#&lt;/a&gt; The ZooKeeper service&lt;/h1&gt;
+&lt;h2 id=&#34;zookeeper-guarantees&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#zookeeper-guarantees&#34;&gt;#&lt;/a&gt; ZooKeeper guarantees&lt;/h2&gt;
+&lt;p&gt;zookeeper 有两个基本的 ordering guarantee：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Linearizable write&lt;/code&gt; ：zookeeper 保证所有关于 update 的 request 都是 serializabel。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;FIFO client order&lt;/code&gt; ：来自一个 client 所有的 request 执行顺序遵从 client 发送这些 request 的顺序，也就是 FIFO。&lt;/p&gt;
+&lt;h3 id=&#34;关于configuration&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于configuration&#34;&gt;#&lt;/a&gt; 关于 configuration&lt;/h3&gt;
+&lt;p&gt;zookeeper 使用 leader/worker 机制，这就意味着当 leader 改变的时候，有大量的 configuration 参数也需要改变。但是必须满足：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当 leader 开始对 configuration make change，其他 processes 不应该使用这些已经改变的 configuration。&lt;/li&gt;
+&lt;li&gt;如果 leader 在 configuration 整个 update 完了之前就 dead 了，我们不希望这个 partial configuration 被使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于第一个要求，可以使用分布式锁来控制，即 leader 写的时候其他 worker 不应该读。但是分布式锁可能导致性能下降，所以 zookeeper 提出了一个 &lt;code&gt;ready znode&lt;/code&gt;  机制。&lt;/p&gt;
+</content>
+        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <updated>2022-03-05T02:13:48.000Z</updated>
     </entry>
     <entry>
         <id>https://songlinlife.top/2022/grimoireLab-%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E7%BB%84%E4%BB%B6/</id>
@@ -167,7 +184,7 @@
 &lt;p&gt;第二情况有些复杂，如果一个 leader 或者 candidate 接受到一个 vote request，其中 rf.currentTerm &amp;lt; args.Term。这说明该 leader 或者 candidate 已经 out of date，必须强制转换为 follower，注意，强制转换为 follower 并不代表它可以重置它自身的 election timeout。只有满足严格选举要求，把自己的票投出去后才可以重置。follower 在每一个 Term 有且只有一张选票！但 server 进行 term 提升后就可以分配一张新选票。&lt;/p&gt;
 &lt;p&gt;第三种情况其实和第二种情况类似，appendEntries PRC 只能由 leader 发出，一旦当前 server 确认其自身的 currentTerm &amp;lt;= args.Term 就会把选举时间重置。&lt;/p&gt;
 &lt;p&gt;只要注意这两个问题：旧 AppendEntries 和 election timeout，就可以轻松 pass all test 了！&lt;/p&gt;
-&lt;h2 id=&#34;part-2c&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#part-2c&#34;&gt;#&lt;/a&gt; Part 2C&lt;/h2&gt;
+&lt;h3 id=&#34;part-2c&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#part-2c&#34;&gt;#&lt;/a&gt; Part 2C&lt;/h3&gt;
 &lt;p&gt;这个 lab 要求我们实现 persistence。&lt;/p&gt;
 &lt;h4 id=&#34;33更新-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#33更新-2&#34;&gt;#&lt;/a&gt; 3.3 更新&lt;/h4&gt;
 &lt;p&gt;无伤通关，就很 nice！&lt;/p&gt;
@@ -285,7 +302,7 @@ election, and it waits for that timeout to elapse before starting the next elect
 &lt;p&gt;于是 raft 规定，只有当前 term 的 log entries 才能通过计算 replicas 数的方式进行 &lt;code&gt;committed&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;这里又会有新的问题出现了！如果一个 command 对应了 log entries 是之前的 term，那么及时当前 leader 收到了 majority 的 confirm，那么 leader 也不能 apply 这个 log entry。一直到当前的 term 下来了 new command。那么这个旧 term 下的 log entry 才会得到 confirm。&lt;/p&gt;
 &lt;h4 id=&#34;safety-argument&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#safety-argument&#34;&gt;#&lt;/a&gt; Safety argument&lt;/h4&gt;
-&lt;h5 id=&#34;针对figure-9的情况&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#针对figure-9的情况&#34;&gt;#&lt;/a&gt; 针对 figure 9 的情况&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;针对 figure 9 的情况&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220228224051518.png&#34; alt=&#34;image-20220228224051518&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;我对于这张图的理解&lt;/p&gt;
 &lt;p&gt;如果 s5 可以获得大部分选票的话，那么至少会出现 s3 这种既收到了之前 leader 的 log entry。请注意，论文描述严格选举有一个前提，那就是：赢得选举的 server 必须要在 majority 中保证 up-to-date log entry。这意味着 leader 如果自己任期内的 committed entry 一直是 up-to-date。也就是说 s5 不可能通过选举！&lt;/p&gt;
@@ -378,7 +395,7 @@ ok  	6.824/raft	18.733s
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;31号更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#31号更新&#34;&gt;#&lt;/a&gt; 3.1 号更新&lt;/h4&gt;
 &lt;p&gt;raft 在 leader 当选之后会立即在 leader 的 log 中生成一条 no-hup 日志并通过 heartbeat 传递给其他 server。但是在 MIT6.824 实验中没办法实现 no-hup。&lt;/p&gt;
-&lt;h3 id=&#34;34-更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#34-更新&#34;&gt;#&lt;/a&gt; 3.4 更新&lt;/h3&gt;
+&lt;h4 id=&#34;34-更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#34-更新&#34;&gt;#&lt;/a&gt; 3.4 更新&lt;/h4&gt;
 &lt;p&gt;愉快通关！&lt;/p&gt;
 </content>
         <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
