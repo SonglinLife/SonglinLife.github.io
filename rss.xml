@@ -13,9 +13,9 @@
         <pubDate>Sat, 05 Mar 2022 10:13:48 +0800</pubDate>
         <lastBuildDate>Sat, 05 Mar 2022 10:13:48 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-zookeeper/</guid>
             <title>MIT6.824: ZooKeeper: Wait-free coordination for Internet-scale systems</title>
-            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</link>
+            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-zookeeper/</link>
             <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
             <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
             <pubDate>Sat, 05 Mar 2022 10:13:48 +0800</pubDate>
@@ -211,9 +211,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab2-Raft/</guid>
             <title>MIT6.824: lab2 Raft</title>
-            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</link>
+            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab2-Raft/</link>
             <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
             <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
             <pubDate>Sat, 26 Feb 2022 11:38:28 +0800</pubDate>
@@ -575,9 +575,9 @@ Quest completed.
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#! /usr/bin/env python3&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; graal&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;backends&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;core&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;cocom &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; CoCom&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# URL for the git repo to analyze&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;repo_uri &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ’http&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;//&lt;/span&gt;github&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;com&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chaoss&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;grimoirelab&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;perceval’&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# directory where to mirror the repo&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;repo_dir &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ’&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;tmp&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;graal&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;cocom’&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# Cocom object initialization&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; CoCom&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;uri&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;repo_uri&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; git_path&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;repo_dir&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# fetch all commits&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;commits &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;commit &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; commit &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; cc&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;fetch&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</guid>
             <title>MIT6.824: The Design of a Practical System for Fault-Tolerant Virtual Machines</title>
-            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</link>
+            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</link>
             <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
             <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
             <pubDate>Fri, 25 Feb 2022 10:18:21 +0800</pubDate>
@@ -873,9 +873,9 @@ Quest completed.
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-GFS/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</guid>
             <title>MIT6.824: GFS</title>
-            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-GFS/</link>
+            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</link>
             <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
             <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
             <pubDate>Wed, 23 Feb 2022 10:56:45 +0800</pubDate>
@@ -940,9 +940,9 @@ Quest completed.
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/MIT6.824/MIT6-824-mapreduce/</guid>
+            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</guid>
             <title>MIT6.824: mapreduce</title>
-            <link>https://songlinlife.top/2022/MIT6.824/MIT6-824-mapreduce/</link>
+            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</link>
             <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
             <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
             <pubDate>Sun, 20 Feb 2022 10:28:51 +0800</pubDate>

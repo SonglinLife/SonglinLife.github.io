@@ -10,9 +10,9 @@
     </author>
     <updated>2022-03-05T02:13:48.000Z</updated>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</id>
+        <id>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-zookeeper/</id>
         <title>MIT6.824: ZooKeeper: Wait-free coordination for Internet-scale systems</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-zookeeper/"/>
         <content type="html">&lt;h3 id=&#34;lock-free-wait-free-以及-cas&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#lock-free-wait-free-以及-cas&#34;&gt;#&lt;/a&gt; lock-free wait-free 以及 CAS&lt;/h3&gt;
 &lt;p&gt;读这篇文章需要一点关于 wait-free、lock-free 和 CAS 的前置知识。&lt;/p&gt;
 &lt;p&gt;知乎有一篇文章写了关于 wait-free 和 lock-free 的理解：对 wait-free 和 lock-free 的理解 - 我的猪猪呢的文章 - 知乎 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNDI5MjEzMjM=&#34;&gt;https://zhuanlan.zhihu.com/p/342921323&lt;/span&gt;&lt;/p&gt;
@@ -208,9 +208,9 @@
         <updated>2022-02-27T09:39:07.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</id>
+        <id>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab2-Raft/</id>
         <title>MIT6.824: lab2 Raft</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab2-Raft/"/>
         <content type="html">&lt;p&gt;首先我是读了论文之后再写这个 lab 的，但 raft 论文的内容太多了，只能慢慢一点点看。现在还是先把 lab 完成。&lt;/p&gt;
 &lt;p&gt;强烈安利：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvbFViVkJWenZOVnhoZ2JjSFFCYmtrUQ==&#34;&gt;https://mp.weixin.qq.com/s/lUbVBVzvNVxhgbcHQBbkkQ&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;先上图&lt;/p&gt;
@@ -572,9 +572,9 @@ Quest completed.
         <updated>2022-02-25T12:08:11.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</id>
+        <id>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</id>
         <title>MIT6.824: The Design of a Practical System for Fault-Tolerant Virtual Machines</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/"/>
         <content type="html">&lt;h3 id=&#34;错误容忍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#错误容忍&#34;&gt;#&lt;/a&gt; 错误容忍&lt;/h3&gt;
 &lt;h3 id=&#34;论文&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#论文&#34;&gt;#&lt;/a&gt; 论文&lt;/h3&gt;
 &lt;h4 id=&#34;primarybackup&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#primarybackup&#34;&gt;#&lt;/a&gt; primary/backup&lt;/h4&gt;
@@ -870,9 +870,9 @@ Quest completed.
         <updated>2022-02-24T13:54:45.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-GFS/</id>
+        <id>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</id>
         <title>MIT6.824: GFS</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-GFS/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/"/>
         <content type="html">&lt;h3 id=&#34;gfsgoogle-file-system&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gfsgoogle-file-system&#34;&gt;#&lt;/a&gt; GFS（Google File System）&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In this paper, we present file system interface extensions designed to support distributed applications, discuss many aspects of our design, and report measurements from both micro-benchmarks and real world use.&lt;/p&gt;
@@ -937,9 +937,9 @@ Quest completed.
         <updated>2022-02-23T02:56:45.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/MIT6.824/MIT6-824-mapreduce/</id>
+        <id>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</id>
         <title>MIT6.824: mapreduce</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/MIT6.824/MIT6-824-mapreduce/"/>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/"/>
         <content type="html">&lt;h3 id=&#34;开新坑了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开新坑了&#34;&gt;#&lt;/a&gt; 开新坑了！&lt;/h3&gt;
 &lt;p&gt;令人感叹，自己虽然开了很多个坑，但是能够完成的却很少，这次的 MIT6.824 是我确定学的一门课程，要想入门分布式绕不开的一门课，没办法，老老实实学一次，把所有的 lab 做完，这就是我的目标！&lt;/p&gt;
 &lt;h3 id=&#34;论文阅读&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#论文阅读&#34;&gt;#&lt;/a&gt; 论文阅读&lt;/h3&gt;
