@@ -99,7 +99,8 @@
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220305173809911.png&#34; alt=&#34;image-20220305173809911&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;zookeeper 并没有实现线性一致性，它允许读到 stale data。&lt;/p&gt;
 </content>
-        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+        <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
         <updated>2022-03-05T02:13:48.000Z</updated>
     </entry>
     <entry>
@@ -469,7 +470,8 @@ ok  	6.824/raft	18.733s
 &lt;h4 id=&#34;34-更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#34-更新&#34;&gt;#&lt;/a&gt; 3.4 更新&lt;/h4&gt;
 &lt;p&gt;愉快通关！&lt;/p&gt;
 </content>
-        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+        <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
         <updated>2022-02-26T03:38:28.000Z</updated>
     </entry>
     <entry>
@@ -593,7 +595,8 @@ Quest completed.
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220225113932596.png&#34; alt=&#34;image-20220225113932596&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;primary 将 output operation 传递给 backup，并推迟 output，知道 backup 返回确认。但是这也有一个问题，如果 primary 发送 output operation 后立即挂了，那么 output 也会被发送 2 次。但是 tcp 协议可以处理这些重复包。&lt;/p&gt;
 </content>
-        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+        <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
         <updated>2022-02-25T02:18:21.000Z</updated>
     </entry>
     <entry>
@@ -929,7 +932,8 @@ Quest completed.
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223184155101.png&#34; alt=&#34;image-20220223184155101&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223185145057.png&#34; alt=&#34;image-20220223185145057&#34; /&gt;&lt;/p&gt;
 </content>
-        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+        <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
         <updated>2022-02-23T02:56:45.000Z</updated>
     </entry>
     <entry>
@@ -1012,7 +1016,8 @@ Quest completed.
 &lt;p&gt;完成了所有测试点：&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220224114038738.png&#34; alt=&#34;image-20220224114038738&#34; /&gt;&lt;/p&gt;
 </content>
-        <category term="MIT6.824" scheme="https://songlinlife.top/categories/MIT6-824/" />
+        <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+        <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
         <updated>2022-02-20T02:28:51.000Z</updated>
     </entry>
     <entry>
