@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</loc>
-    <lastmod>2022-03-05</lastmod>
+    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</loc>
+    <lastmod>2022-03-06</lastmod>
   </url>
   <url>
-    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-lab2-Raft/</loc>
+    <loc>https://songlinlife.top/2022/MIT6.824/MIT6-824-zookeeper/</loc>
     <lastmod>2022-03-05</lastmod>
   </url>
   <url>

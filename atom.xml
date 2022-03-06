@@ -287,7 +287,7 @@
 &lt;p&gt;需要实现 &lt;code&gt;Snapshot(index int, snapshot []byte)&lt;/code&gt; ，tester 来定期调用。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220303200330913.png&#34; alt=&#34;image-20220303200330913&#34; /&gt;&lt;/p&gt;
 &lt;h4 id=&#34;无伤通关34更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无伤通关34更新&#34;&gt;#&lt;/a&gt; 无伤通关！！！！！（3.4 更新）&lt;/h4&gt;
-&lt;p&gt;终于无伤通关了 lab2 了，真的服了我自己了，只用了一个礼拜就搞懂了 raft，现在我可以说我是懂一些分布式知识了，真的舒服啊。我就是天才！yes！happy！&lt;/p&gt;
+&lt;p&gt;终于无伤通关了 lab2 了，真的服了我自己了。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220304214412025.png&#34; alt=&#34;image-20220304214412025&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;批量测试还在跑，但是问题不大，嘿嘿。&lt;/p&gt;
 &lt;p&gt;2D 其实很简单，就是需要将原来的索引进行替换，我的选择是写两个转换函数：&lt;/p&gt;
