@@ -43,20 +43,29 @@
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315163719498.png&#34; alt=&#34;image-20220315163719498&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;当有多个 actions 同时并发，如果这些 actions 是 before-or-after 并且执行之前是 correct，那么新状态也是 correct。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315164015861.png&#34; alt=&#34;image-20220315164015861&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;这里就引出了线性一致性：&lt;/p&gt;
+&lt;p&gt;这里就引出了可串行性：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;serializable: there exists some serial order of those concurrent transactions that would, if followed, lead to the same ending state.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;没有怎么看懂。。。&lt;/p&gt;
+&lt;p&gt;这里的可串行性一般指的是冲突可串行性也就是 CSR。冲突操作可以被定义为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;两个数据操作 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;o_j&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.716668em;vertical-align:-0.286108em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.311664em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.05724em;&#34;&gt;j&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.286108em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 和 $ o_i$ 是一对 &lt;em&gt;冲突操作（conflicting operations)&lt;/em&gt;，如果它们满足： 它们属于不同的 transaction；以及 其中至少一个操作是写操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只要我们满足冲突操作的排序顺序和某个串行事务 schedule 一致，那么就是满足了冲突可串行性。&lt;/p&gt;
 &lt;h3 id=&#34;听课&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#听课&#34;&gt;#&lt;/a&gt; 听课&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315194427991.png&#34; alt=&#34;image-20220315194427991&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这里老师讲了 &lt;code&gt;serializable&lt;/code&gt; ，算是明白了到底是啥。如果一系列事务（这里就是线性）执行可以得到相同结果（这里的结果指的是外部观测得到的结果）&lt;/p&gt;
-&lt;p&gt;就像上面的图中所示，T1 和 T2 两个事务执行结果只有两种情况，所以其他观察到的结果就是非线性一致性。&lt;/p&gt;
+&lt;p&gt;就像上面的图中所示，T1 和 T2 两个事务执行结果只有两种情况，所以其他观察到的结果就是非可串行性。&lt;/p&gt;
 &lt;h4 id=&#34;消极锁&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#消极锁&#34;&gt;#&lt;/a&gt; 消极锁&lt;/h4&gt;
 &lt;h5 id=&#34;simple-lock&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#simple-lock&#34;&gt;#&lt;/a&gt; simple Lock&lt;/h5&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315200327884.png&#34; alt=&#34;image-20220315200327884&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;简单锁就是在使用 record 之前进行加锁，知道事务结束后才会释放锁，这样有一个好处就是保证了 serializable，但是缺点也很明显，因为不能并发这就意味着其性能很差。&lt;/p&gt;
 &lt;h5 id=&#34;two-phase-locking&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#two-phase-locking&#34;&gt;#&lt;/a&gt; Two-Phase Locking&lt;/h5&gt;
+&lt;p&gt;2PL 很简单，它就是把加锁和解锁分为了两个阶段，一个阶段只能加锁，一个阶段只能释放锁。在 2PL 协议下，每个 transaction 都会经过两个阶段：在第一个阶段里，transaction 根据需要不断地获取锁，叫做 &lt;strong&gt;growing phase (expanding phase)&lt;/strong&gt;；在第二个阶段里，transaction 开始释放其持有的锁，根据 2PL 的规则，这个 transaction 不能再获得新的锁，所以它所持有的锁逐渐减少，叫做 &lt;strong&gt;shrinking phase (contracting phase)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;2PL 可以满足 CRS 冲突一致性，这位博主给出了 2PC 一定可以满足 CRS 的证明：&lt;/p&gt;
+&lt;p&gt;Transaction management：两阶段锁（two-phase locking） - 王子旭的文章 - 知乎 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81OTUzNTMzNw==&#34;&gt;https://zhuanlan.zhihu.com/p/59535337&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315220608819.png&#34; alt=&#34;image-20220315220608819&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;2PL 虽然允许一定程度的并发，但是 2PL 会导致死锁。&lt;/p&gt;
 &lt;h4 id=&#34;分布式事务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分布式事务&#34;&gt;#&lt;/a&gt; 分布式事务&lt;/h4&gt;
 &lt;h5 id=&#34;2pc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2pc&#34;&gt;#&lt;/a&gt; 2PC&lt;/h5&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220315203835328.png&#34; alt=&#34;image-20220315203835328&#34; /&gt;&lt;/p&gt;
@@ -71,6 +80,8 @@
 &lt;/ol&gt;
 &lt;p&gt;2PC 会导致死锁，在 prepare 阶段后如果 coordinate fail 或者 crash 之后，participate 并不会超时释放锁，它只会一直持有锁，这就导致 time-block。&lt;/p&gt;
 &lt;p&gt;2PC 性能很差，一方面由于它需要很多网络，另一方面由于 participate 返回 prepare 之前必须写 LOG，同时 coordinate 发 commit 之前也必须写 LOG。&lt;/p&gt;
+&lt;h3 id=&#34;留下的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#留下的问题&#34;&gt;#&lt;/a&gt; 留下的问题&lt;/h3&gt;
+&lt;p&gt;如何将 raft 和 2PC 结合起来，使得其既可以满足事务又可以有 availability？&lt;/p&gt;
  ]]></description>
         </item>
         <item>
