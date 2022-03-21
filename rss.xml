@@ -10,8 +10,93 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 20 Mar 2022 19:25:01 +0800</pubDate>
-        <lastBuildDate>Sun, 20 Mar 2022 19:25:01 +0800</lastBuildDate>
+        <pubDate>Mon, 21 Mar 2022 17:40:42 +0800</pubDate>
+        <lastBuildDate>Mon, 21 Mar 2022 17:40:42 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.top/2022/github-action-%E5%AE%9E%E7%8E%B0%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2blog/</guid>
+            <title>github action 实现持续部署blog</title>
+            <link>https://songlinlife.top/2022/github-action-%E5%AE%9E%E7%8E%B0%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2blog/</link>
+            <category term="blog" scheme="https://songlinlife.top/categories/blog/" />
+            <pubDate>Mon, 21 Mar 2022 17:40:42 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;nginx反向代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nginx反向代理&#34;&gt;#&lt;/a&gt; Nginx 反向代理&lt;/h3&gt;
+&lt;h4 id=&#34;安装nginx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装nginx&#34;&gt;#&lt;/a&gt; 安装 Nginx&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get install nginx       #这里使debian系统的命令安装nginx
+whereis nginx                    #查找nginx目录，一般在/etc/nginx
+cd /etc/nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321194453373.png&#34; alt=&#34;image-20220321194453373&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;修改配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改配置&#34;&gt;#&lt;/a&gt; 修改配置&lt;/h4&gt;
+&lt;p&gt;修改配置  &lt;code&gt;nginx.conf&lt;/code&gt; ，把下面这段代码添加到 &lt;code&gt;http&lt;/code&gt;  下&lt;/p&gt;
+&lt;figure class=&#34;highlight nginx&#34;&gt;&lt;figcaption data-lang=&#34;nginx&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;server&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;listen&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;server_name&lt;/span&gt; xxx.com&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 绑定的域名&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;location&lt;/span&gt; /&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                        &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;proxy_set_header&lt;/span&gt;   X-Forwarded-For &lt;span class=&#34;token variable&#34;&gt;$remote_addr&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                        &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;proxy_set_header&lt;/span&gt;   Host &lt;span class=&#34;token variable&#34;&gt;$http_host&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                        &lt;span class=&#34;token directive&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;proxy_pass&lt;/span&gt;         &lt;span class=&#34;token string&#34;&gt;&#34;http://127.0.0.1:8080&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 自定义端口号，这里转发到 8080&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;检查配置正确性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#检查配置正确性&#34;&gt;#&lt;/a&gt; 检查配置正确性&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;nginx -t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321202040167.png&#34; alt=&#34;image-20220321202040167&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;重启nginx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重启nginx&#34;&gt;#&lt;/a&gt; 重启 nginx&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo nginx -s reload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;github-action&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github-action&#34;&gt;#&lt;/a&gt; github action&lt;/h3&gt;
+&lt;p&gt;github 开一个 repo，设置权限为 private，在 github action 处创建一个新的 action：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321202742303.png&#34; alt=&#34;image-20220321202742303&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;把下面的代码添加覆盖 yaml 文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name: Deploy site files
+
+on:
+  push:
+    branches:
+      - master # 只在master上push触发部署
+    paths-ignore: # 下列文件的变更不触发部署，可以自行添加
+      - README.md
+      - LICENSE
+
+jobs:
+  deploy:
+  
+    runs-on: ubuntu-latest # 使用ubuntu系统镜像运行自动化脚本
+
+    steps: # 自动化步骤
+      - uses: actions/checkout@v2 # 第一步，下载代码仓库
+      # 使用 node:10
+      - name: use Node.js 10
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      # npm install
+      - name: npm install
+        run: |
+          npm install -g hexo-cli
+          npm install
+        env:
+          CI: true
+      # build
+      - name: hexo build
+        run: |
+          hexo clean
+          hexo generate
+        env:
+          CI: true
+      - uses: srt32/git-actions@v0.0.3
+        with:
+          args: git submodule update --init --recursive
+      - name: Deploy to Server # 第二步，rsync推文件
+        uses: AEnterprise/rsync-deploy@v1.0 # 使用别人包装好的步骤镜像
+        env:
+          DEPLOY_KEY: $&amp;#123;&amp;#123; secrets.ACCESS_TOKEN &amp;#125;&amp;#125; # 引用配置，SSH私钥
+          ARGS: -avz --delete --exclude=&#39;*.pyc&#39; # rsync参数，排除.pyc文件
+          SERVER_PORT: &amp;quot;22&amp;quot; # SSH端口
+          FOLDER: ./ # 要推送的文件夹，路径相对于代码仓库的根目录
+          SERVER_IP: $&amp;#123;&amp;#123; secrets.REMOTE_HOST &amp;#125;&amp;#125; # 引用配置，服务器的host名（IP或者域名domain.com）
+          USERNAME: $&amp;#123;&amp;#123; secrets.REMOTE_USER &amp;#125;&amp;#125; # 引用配置，服务器登录名
+          SERVER_DESTINATION: /home/ubuntu/blog/ # 部署到目标文件夹
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意对于下面这些配置，这些是这个 action 的环境变量，需要在 setting 里面自己设置：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321203437157.png&#34; alt=&#34;image-20220321203437157&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321203449583.png&#34; alt=&#34;image-20220321203449583&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;域名解析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#域名解析&#34;&gt;#&lt;/a&gt; 域名解析&lt;/h3&gt;
+&lt;p&gt;由于在国内开个服务器，因为没有域名备案导致没法用：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220321204304121.png&#34; alt=&#34;image-20220321204304121&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;有空可以搞个备案，但是现在嘛，emmmm 还是就这样吧&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.top/2022/OpenSCA%E4%BB%A3%E7%A0%81%E7%A0%94%E8%AF%BB/</guid>
             <title>OpenSCA代码研读</title>
@@ -1207,276 +1292,6 @@ Quest completed.
 &lt;h4 id=&#34;ft协议&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ft协议&#34;&gt;#&lt;/a&gt; FT 协议&lt;/h4&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220225113932596.png&#34; alt=&#34;image-20220225113932596&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;primary 将 output operation 传递给 backup，并推迟 output，知道 backup 返回确认。但是这也有一个问题，如果 primary 发送 output operation 后立即挂了，那么 output 也会被发送 2 次。但是 tcp 协议可以处理这些重复包。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/xlab/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%BB%84%E4%BB%B6%E2%80%94%E2%80%94Perceval/</guid>
-            <title>数据采集组件——Perceval</title>
-            <link>https://songlinlife.top/2022/xlab/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%BB%84%E4%BB%B6%E2%80%94%E2%80%94Perceval/</link>
-            <category term="xlab" scheme="https://songlinlife.top/categories/xlab/" />
-            <pubDate>Thu, 24 Feb 2022 21:54:45 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;数据采集组件perceval&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据采集组件perceval&#34;&gt;#&lt;/a&gt; 数据采集组件 ——Perceval&lt;/h1&gt;
-&lt;h3 id=&#34;官方文档&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#官方文档&#34;&gt;#&lt;/a&gt; 官方文档&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wZXJjZXZhbC5yZWFkdGhlZG9jcy5pby9lbi9sYXRlc3Qv&#34;&gt;https://perceval.readthedocs.io/en/latest/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#介绍&#34;&gt;#&lt;/a&gt; 介绍&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2NoYW9zcy9ncmltb2lyZWxhYi1wZXJjZXZhbA==&#34;&gt;Perceval&lt;/span&gt; is a Python module for retrieving data from repositories related to software development. It works with many data sources, from git repositories and GitHub projects to mailing lists, Gerrit or StackOverflow, In this chapter, you will learn the basics of working with Perceval, including how to use it to retrieve information from some kinds of repositories. You’re on your way to software development analysis!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;perceval&lt;/code&gt;  就是 &lt;code&gt;grimoirelab&lt;/code&gt;  的数据源采集组件，也就是最基础的组件。&lt;/p&gt;
-&lt;h3 id=&#34;安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;pip3 install perceval
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;或者也可以用 docker 方式：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;docker run -it grimoirelab/perceval
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;食用方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#食用方式&#34;&gt;#&lt;/a&gt; 食用方式&lt;/h3&gt;
-&lt;p&gt;这个工具说白了就是采集工具，它支持的后端有：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    askbot           Fetch questions and answers from Askbot site
-    bugzilla         Fetch bugs from a Bugzilla server
-    bugzillarest     Fetch bugs from a Bugzilla server (&amp;gt;=5.0) using its REST API
-    confluence       Fetch contents from a Confluence server
-    discourse        Fetch posts from Discourse site
-    dockerhub        Fetch repository data from Docker Hub site
-    gerrit           Fetch reviews from a Gerrit server
-    git              Fetch commits from Git
-    github           Fetch issues, pull requests and repository information from GitHub
-    gitlab           Fetch issues, merge requests from GitLab
-    gitter           Fetch messages from a Gitter room
-    googlehits       Fetch hits from Google API
-    groupsio         Fetch messages from Groups.io
-    hyperkitty       Fetch messages from a HyperKitty archiver
-    jenkins          Fetch builds from a Jenkins server
-    jira             Fetch issues from JIRA issue tracker
-    launchpad        Fetch issues from Launchpad issue tracker
-    mattermost       Fetch posts from a Mattermost server
-    mbox             Fetch messages from MBox files
-    mediawiki        Fetch pages and revisions from a MediaWiki site
-    meetup           Fetch events from a Meetup group
-    nntp             Fetch articles from a NNTP news group
-    pagure           Fetch issues from Pagure
-    phabricator      Fetch tasks from a Phabricator site
-    pipermail        Fetch messages from a Pipermail archiver
-    redmine          Fetch issues from a Redmine server
-    rocketchat       Fetch messages from a Rocket.Chat channel
-    rss              Fetch entries from a RSS feed server
-    slack            Fetch messages from a Slack channel
-    stackexchange    Fetch questions from StackExchange sites
-    supybot          Fetch messages from Supybot log files
-    telegram         Fetch messages from the Telegram server
-    twitter          Fetch tweets from the Twitter Search API
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;有点意外，我没有想到连 Twitter 都能支持。。。。&lt;/p&gt;
-&lt;h4 id=&#34;git&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git&#34;&gt;#&lt;/a&gt; git&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;time perceval git https://github.com/grimoirelab/perceval.git \
-  --git-path /tmp/perceval.git &amp;gt; /tmp/perceval.test
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这条命令会将拉取到的 git commit 数据保存到对应了文件，格式为 json。&lt;/p&gt;
-&lt;p&gt;同时还支持 python 脚本的方式：&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#! /usr/bin/env python3&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; perceval&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;backends&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;core&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;git &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; Git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# url for the git repo to analyze&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;repo_url &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;http://github.com/grimoirelab/perceval.git&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# directory for letting Perceval clone the git repo&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;repo_dir &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;/tmp/perceval.git&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# create a Git object, pointing to repo_url, using repo_dir for cloning&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;repo &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; Git&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;uri&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;repo_url&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; gitpath&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;repo_dir&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# fetch all commits as an iterator, and iterate it printing each hash&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; commit &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; repo&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;fetch&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;commit&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;data&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;commit&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github&#34;&gt;#&lt;/a&gt; github&lt;/h4&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt; perceval github grimoirelab perceval --sleep-for-rate \
-    -t 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 &amp;gt; ~/tmp/github.json
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;通过 perceval  backend repoOwner 这种方式来获取数据&lt;/p&gt;
-&lt;p&gt;通过  &lt;code&gt;--category issue&lt;/code&gt;  来指定获取 issue 信息，值得注意的是 github 会把 pr 当做 issue 进行处理，所以也会自动得到所有 pr 信息。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-获取数据格式&#34;&gt;&amp;#123;
-    &amp;quot;backend_name&amp;quot;: &amp;quot;GitHub&amp;quot;,
-    &amp;quot;backend_version&amp;quot;: &amp;quot;0.27.0&amp;quot;,
-    &amp;quot;category&amp;quot;: &amp;quot;issue&amp;quot;,
-    &amp;quot;classified_fields_filtered&amp;quot;: null,
-    &amp;quot;data&amp;quot;: &amp;#123;
-        &amp;quot;active_lock_reason&amp;quot;: null,
-        &amp;quot;assignee&amp;quot;: null,
-        &amp;quot;assignee_data&amp;quot;: &amp;#123;&amp;#125;,
-        &amp;quot;assignees&amp;quot;: [],
-        &amp;quot;assignees_data&amp;quot;: [],
-        &amp;quot;author_association&amp;quot;: &amp;quot;CONTRIBUTOR&amp;quot;,
-        &amp;quot;body&amp;quot;: &amp;quot;Based on Sphynx, prepared for ReadTheDocs.\n\nRight now, this produces (from jgbarah/perceval repository) [this documentation in ReadTheDocs](http://perceval.readthedocs.org). Once this PR is accepted, I plan to switch ReadTheDocs to point to this repostory (master branch), so that the documentation gets rebuilt every time changes are made to the source code.\n\nThe configuration (docs/conf.py) include lines for running sphinx-apidoc, which generates automatically the docs/perceval.rst file, which is the entry point for the automatically generated documentation, produced based on the docstring comments in the source code.\n\nThe file index.rst is still a bare bones schema. It should be completed in a later patch, with more detailed information about Perceval itself.\n&amp;quot;,
-        &amp;quot;closed_at&amp;quot;: &amp;quot;2016-01-04T13:51:56Z&amp;quot;,
-        &amp;quot;comments&amp;quot;: 0,
-        &amp;quot;comments_data&amp;quot;: [],
-        &amp;quot;comments_url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3/comments&amp;quot;,
-        &amp;quot;created_at&amp;quot;: &amp;quot;2016-01-03T23:46:04Z&amp;quot;,
-        &amp;quot;draft&amp;quot;: false,
-        &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3/events&amp;quot;,
-        &amp;quot;html_url&amp;quot;: &amp;quot;https://github.com/chaoss/grimoirelab-perceval/pull/3&amp;quot;,
-        &amp;quot;id&amp;quot;: 124679251,
-        &amp;quot;labels&amp;quot;: [],
-        &amp;quot;labels_url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3/labels&amp;#123;/name&amp;#125;&amp;quot;,
-        &amp;quot;locked&amp;quot;: false,
-        &amp;quot;milestone&amp;quot;: null,
-        &amp;quot;node_id&amp;quot;: &amp;quot;MDExOlB1bGxSZXF1ZXN0NTQ5MzUxODA=&amp;quot;,
-        &amp;quot;number&amp;quot;: 3,
-        &amp;quot;performed_via_github_app&amp;quot;: null,
-        &amp;quot;pull_request&amp;quot;: &amp;#123;
-            &amp;quot;diff_url&amp;quot;: &amp;quot;https://github.com/chaoss/grimoirelab-perceval/pull/3.diff&amp;quot;,
-            &amp;quot;html_url&amp;quot;: &amp;quot;https://github.com/chaoss/grimoirelab-perceval/pull/3&amp;quot;,
-            &amp;quot;merged_at&amp;quot;: null,
-            &amp;quot;patch_url&amp;quot;: &amp;quot;https://github.com/chaoss/grimoirelab-perceval/pull/3.patch&amp;quot;,
-            &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/pulls/3&amp;quot;
-        &amp;#125;,
-        &amp;quot;reactions&amp;quot;: &amp;#123;
-            &amp;quot;+1&amp;quot;: 0,
-            &amp;quot;-1&amp;quot;: 0,
-            &amp;quot;confused&amp;quot;: 0,
-            &amp;quot;eyes&amp;quot;: 0,
-            &amp;quot;heart&amp;quot;: 0,
-            &amp;quot;hooray&amp;quot;: 0,
-            &amp;quot;laugh&amp;quot;: 0,
-            &amp;quot;rocket&amp;quot;: 0,
-            &amp;quot;total_count&amp;quot;: 0,
-            &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3/reactions&amp;quot;
-        &amp;#125;,
-        &amp;quot;reactions_data&amp;quot;: [],
-        &amp;quot;repository_url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval&amp;quot;,
-        &amp;quot;state&amp;quot;: &amp;quot;closed&amp;quot;,
-        &amp;quot;timeline_url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3/timeline&amp;quot;,
-        &amp;quot;title&amp;quot;: &amp;quot;Config files for a documentation, using Sphinx.&amp;quot;,
-        &amp;quot;updated_at&amp;quot;: &amp;quot;2016-01-04T17:42:23Z&amp;quot;,
-        &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/repos/chaoss/grimoirelab-perceval/issues/3&amp;quot;,
-        &amp;quot;user&amp;quot;: &amp;#123;
-            &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/1039693?v=4&amp;quot;,
-            &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/events&amp;#123;/privacy&amp;#125;&amp;quot;,
-            &amp;quot;followers_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/followers&amp;quot;,
-            &amp;quot;following_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/following&amp;#123;/other_user&amp;#125;&amp;quot;,
-            &amp;quot;gists_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/gists&amp;#123;/gist_id&amp;#125;&amp;quot;,
-            &amp;quot;gravatar_id&amp;quot;: &amp;quot;&amp;quot;,
-            &amp;quot;html_url&amp;quot;: &amp;quot;https://github.com/jgbarah&amp;quot;,
-            &amp;quot;id&amp;quot;: 1039693,
-            &amp;quot;login&amp;quot;: &amp;quot;jgbarah&amp;quot;,
-            &amp;quot;node_id&amp;quot;: &amp;quot;MDQ6VXNlcjEwMzk2OTM=&amp;quot;,
-            &amp;quot;organizations_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/orgs&amp;quot;,
-            &amp;quot;received_events_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/received_events&amp;quot;,
-            &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/repos&amp;quot;,
-            &amp;quot;site_admin&amp;quot;: false,
-            &amp;quot;starred_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/starred&amp;#123;/owner&amp;#125;&amp;#123;/repo&amp;#125;&amp;quot;,
-            &amp;quot;subscriptions_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/subscriptions&amp;quot;,
-            &amp;quot;type&amp;quot;: &amp;quot;User&amp;quot;,
-            &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah&amp;quot;
-        &amp;#125;,
-        &amp;quot;user_data&amp;quot;: &amp;#123;
-            &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/1039693?v=4&amp;quot;,
-            &amp;quot;bio&amp;quot;: null,
-            &amp;quot;blog&amp;quot;: &amp;quot;http://gsyc.es/~jgb&amp;quot;,
-            &amp;quot;company&amp;quot;: null,
-            &amp;quot;created_at&amp;quot;: &amp;quot;2011-09-09T21:47:40Z&amp;quot;,
-            &amp;quot;email&amp;quot;: null,
-            &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/events&amp;#123;/privacy&amp;#125;&amp;quot;,
-            &amp;quot;followers&amp;quot;: 100,
-            &amp;quot;followers_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/followers&amp;quot;,
-            &amp;quot;following&amp;quot;: 0,
-            &amp;quot;following_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/following&amp;#123;/other_user&amp;#125;&amp;quot;,
-            &amp;quot;gists_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/gists&amp;#123;/gist_id&amp;#125;&amp;quot;,
-            &amp;quot;gravatar_id&amp;quot;: &amp;quot;&amp;quot;,
-            &amp;quot;hireable&amp;quot;: null,
-            &amp;quot;html_url&amp;quot;: &amp;quot;https://github.com/jgbarah&amp;quot;,
-            &amp;quot;id&amp;quot;: 1039693,
-            &amp;quot;location&amp;quot;: null,
-            &amp;quot;login&amp;quot;: &amp;quot;jgbarah&amp;quot;,
-            &amp;quot;name&amp;quot;: &amp;quot;Jesus M. Gonzalez-Barahona&amp;quot;,
-            &amp;quot;node_id&amp;quot;: &amp;quot;MDQ6VXNlcjEwMzk2OTM=&amp;quot;,
-            &amp;quot;organizations&amp;quot;: [
-                &amp;#123;
-                    &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/1843608?v=4&amp;quot;,
-                    &amp;quot;description&amp;quot;: null,
-                    &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/events&amp;quot;,
-                    &amp;quot;hooks_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/hooks&amp;quot;,
-                    &amp;quot;id&amp;quot;: 1843608,
-                    &amp;quot;issues_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/issues&amp;quot;,
-                    &amp;quot;login&amp;quot;: &amp;quot;MetricsGrimoire&amp;quot;,
-                    &amp;quot;members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;node_id&amp;quot;: &amp;quot;MDEyOk9yZ2FuaXphdGlvbjE4NDM2MDg=&amp;quot;,
-                    &amp;quot;public_members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/public_members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire/repos&amp;quot;,
-                    &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/orgs/MetricsGrimoire&amp;quot;
-                &amp;#125;,
-                &amp;#123;
-                    &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/1918070?v=4&amp;quot;,
-                    &amp;quot;description&amp;quot;: null,
-                    &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/events&amp;quot;,
-                    &amp;quot;hooks_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/hooks&amp;quot;,
-                    &amp;quot;id&amp;quot;: 1918070,
-                    &amp;quot;issues_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/issues&amp;quot;,
-                    &amp;quot;login&amp;quot;: &amp;quot;Bitergia&amp;quot;,
-                    &amp;quot;members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;node_id&amp;quot;: &amp;quot;MDEyOk9yZ2FuaXphdGlvbjE5MTgwNzA=&amp;quot;,
-                    &amp;quot;public_members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/public_members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia/repos&amp;quot;,
-                    &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/orgs/Bitergia&amp;quot;
-                &amp;#125;,
-                &amp;#123;
-                    &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/2191340?v=4&amp;quot;,
-                    &amp;quot;description&amp;quot;: null,
-                    &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/events&amp;quot;,
-                    &amp;quot;hooks_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/hooks&amp;quot;,
-                    &amp;quot;id&amp;quot;: 2191340,
-                    &amp;quot;issues_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/issues&amp;quot;,
-                    &amp;quot;login&amp;quot;: &amp;quot;VizGrimoire&amp;quot;,
-                    &amp;quot;members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;node_id&amp;quot;: &amp;quot;MDEyOk9yZ2FuaXphdGlvbjIxOTEzNDA=&amp;quot;,
-                    &amp;quot;public_members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/public_members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire/repos&amp;quot;,
-                    &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/orgs/VizGrimoire&amp;quot;
-                &amp;#125;,
-                &amp;#123;
-                    &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/3017044?v=4&amp;quot;,
-                    &amp;quot;description&amp;quot;: null,
-                    &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/events&amp;quot;,
-                    &amp;quot;hooks_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/hooks&amp;quot;,
-                    &amp;quot;id&amp;quot;: 3017044,
-                    &amp;quot;issues_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/issues&amp;quot;,
-                    &amp;quot;login&amp;quot;: &amp;quot;AlertProject&amp;quot;,
-                    &amp;quot;members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;node_id&amp;quot;: &amp;quot;MDEyOk9yZ2FuaXphdGlvbjMwMTcwNDQ=&amp;quot;,
-                    &amp;quot;public_members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/public_members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject/repos&amp;quot;,
-                    &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/orgs/AlertProject&amp;quot;
-                &amp;#125;,
-                &amp;#123;
-                    &amp;quot;avatar_url&amp;quot;: &amp;quot;https://avatars.githubusercontent.com/u/16151805?v=4&amp;quot;,
-                    &amp;quot;description&amp;quot;: &amp;quot;&amp;quot;,
-                    &amp;quot;events_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/events&amp;quot;,
-                    &amp;quot;hooks_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/hooks&amp;quot;,
-                    &amp;quot;id&amp;quot;: 16151805,
-                    &amp;quot;issues_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/issues&amp;quot;,
-                    &amp;quot;login&amp;quot;: &amp;quot;grimoirelab&amp;quot;,
-                    &amp;quot;members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;node_id&amp;quot;: &amp;quot;MDEyOk9yZ2FuaXphdGlvbjE2MTUxODA1&amp;quot;,
-                    &amp;quot;public_members_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/public_members&amp;#123;/member&amp;#125;&amp;quot;,
-                    &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab/repos&amp;quot;,
-                    &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/orgs/grimoirelab&amp;quot;
-                &amp;#125;
-            ],
-            &amp;quot;organizations_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/orgs&amp;quot;,
-            &amp;quot;public_gists&amp;quot;: 0,
-            &amp;quot;public_repos&amp;quot;: 41,
-            &amp;quot;received_events_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/received_events&amp;quot;,
-            &amp;quot;repos_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/repos&amp;quot;,
-            &amp;quot;site_admin&amp;quot;: false,
-            &amp;quot;starred_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/starred&amp;#123;/owner&amp;#125;&amp;#123;/repo&amp;#125;&amp;quot;,
-            &amp;quot;subscriptions_url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah/subscriptions&amp;quot;,
-            &amp;quot;twitter_username&amp;quot;: null,
-            &amp;quot;type&amp;quot;: &amp;quot;User&amp;quot;,
-            &amp;quot;updated_at&amp;quot;: &amp;quot;2022-02-16T16:51:43Z&amp;quot;,
-            &amp;quot;url&amp;quot;: &amp;quot;https://api.github.com/users/jgbarah&amp;quot;
-        &amp;#125;
-    &amp;#125;,
-    &amp;quot;origin&amp;quot;: &amp;quot;https://github.com/grimoirelab/perceval&amp;quot;,
-    &amp;quot;perceval_version&amp;quot;: &amp;quot;0.17.16&amp;quot;,
-    &amp;quot;search_fields&amp;quot;: &amp;#123;
-        &amp;quot;item_id&amp;quot;: &amp;quot;124679251&amp;quot;,
-        &amp;quot;owner&amp;quot;: &amp;quot;grimoirelab&amp;quot;,
-        &amp;quot;repo&amp;quot;: &amp;quot;perceval&amp;quot;
-    &amp;#125;,
-    &amp;quot;tag&amp;quot;: &amp;quot;https://github.com/grimoirelab/perceval&amp;quot;,
-    &amp;quot;timestamp&amp;quot;: 1645709133.739694,
-    &amp;quot;updated_on&amp;quot;: 1451929343.0,
-    &amp;quot;uuid&amp;quot;: &amp;quot;c403532b196ed4020cc86d001feb091c009d3d26&amp;quot;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;获取器的架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取器的架构&#34;&gt;#&lt;/a&gt; 获取器的架构&lt;/h3&gt;
-&lt;p&gt;Client: interacts directly with the data source.&lt;/p&gt;
-&lt;p&gt;Backend: orchestrates the fetching process by using the Client.&lt;/p&gt;
-&lt;p&gt;CommandLine: defines the arguments to initialize and run the Backend from the command line.&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
