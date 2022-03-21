@@ -10,8 +10,119 @@
         </author>
         <description>Life is not about lifestyle, it means Lithium and Ferrum.</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 16 Mar 2022 09:05:47 +0800</pubDate>
-        <lastBuildDate>Wed, 16 Mar 2022 09:05:47 +0800</lastBuildDate>
+        <pubDate>Sun, 20 Mar 2022 19:25:01 +0800</pubDate>
+        <lastBuildDate>Sun, 20 Mar 2022 19:25:01 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://songlinlife.top/2022/OpenSCA%E4%BB%A3%E7%A0%81%E7%A0%94%E8%AF%BB/</guid>
+            <title>OpenSCA代码研读</title>
+            <link>https://songlinlife.top/2022/OpenSCA%E4%BB%A3%E7%A0%81%E7%A0%94%E8%AF%BB/</link>
+            <pubDate>Sun, 20 Mar 2022 19:25:01 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://songlinlife.top/2022/MIT6-824-Lab4/</guid>
+            <title>MIT6.824:Lab4</title>
+            <link>https://songlinlife.top/2022/MIT6-824-Lab4/</link>
+            <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
+            <pubDate>Thu, 17 Mar 2022 11:59:19 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;终于到了这个 Lab4，不容易啊。。。&lt;/p&gt;
+&lt;h3 id=&#34;4a&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4a&#34;&gt;#&lt;/a&gt; 4A&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;a set of replica groups&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每一个 replica group 负责一系列 shards。每个 group 就是一个 raft 组&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shard master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;shard master 负责 shard key 由哪个 group 负责。&lt;/p&gt;
+&lt;p&gt;shard controller 也必须是 F.T，所以需要使用 Raft。&lt;/p&gt;
+&lt;p&gt;shardctrler 必须管理一系列 configuration，每一个 configuration 都表述了一组 replica groups 已经将 shard 到 replica 的 assignment。每当 assignment 需要改变的时候，这个 shard controller 就创建一个新的 configuration 进行新的 assignment。KV clients 和 servers 都和 shardctrler 进行沟通，当他们想要新的 configuration（或者旧的 configuration？这里为什么需要旧的）&lt;/p&gt;
+&lt;p&gt;首先我们需要实现 4 个 RPC，这些列出用于控制 shardctrler，加入新的 replica group 或者清除 replica groups。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Join&lt;/strong&gt;：用于 replica 的组的加入，参数是 groupID 到 servername 的映射。如果 shardctrler 救助站了这个新的组，那么需要做一个新的 configuration。shardctrler 需要将 shard 切分得尽量均匀 assign 给 replica group。并且需要 move 尽量少的 shard 来到达目标。并且 GID 可以被重用，也就是 GID 允许加入、退出、重新加入。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Leave&lt;/strong&gt;：leave 就是一些 GIDs。shardCtrler 需要重新创建新的 configuration。这个新的 configuration 需要同样 shards 被 divide 尽量均匀&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Move&lt;/strong&gt;：Move 就是把一个 shard 分配到一个 GID，这个 Move RPC 用于测试。Move 操作之后的 Join 和 Leave 实际上是在对 Move 进行 Undo，因为这两个操作都会重新分配 shard。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Query&lt;/strong&gt;：query 查询的是一个 configuration number，如果这个 configuration number 不存在，那就返回最大的一直 configuration number 的 configuration。&lt;/p&gt;
+&lt;p&gt;最开始的 configuration number 为 0，并且不包含任何的 group，所有的 shard 都 assign 给 GID 0.&lt;/p&gt;
+&lt;p&gt;Hints：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以 copy 之前的 kvraft server。&lt;/li&gt;
+&lt;li&gt;需要过滤重复的 rpc。&lt;/li&gt;
+&lt;li&gt;状态机的 shard rebalancing 需要确定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;直接套用 Lab3 带代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Test: Basic leave/join ...
+  ... Passed
+Test: Historical queries ...
+  ... Passed
+Test: Move ...
+  ... Passed
+Test: Concurrent leave/join ...
+  ... Passed
+Test: Minimal transfers after joins ...
+  ... Passed
+Test: Minimal transfers after leaves ...
+  ... Passed
+Test: Multi-group join/leave ...
+  ... Passed
+Test: Concurrent multi leave/join ...
+  ... Passed
+Test: Minimal transfers after multijoins ...
+  ... Passed
+Test: Minimal transfers after multileaves ...
+  ... Passed
+Test: Check Same config on servers ...
+  ... Passed
+PASS
+ok  	6.824/shardctrler	2.389s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;简单 pass 一个。&lt;/p&gt;
+&lt;h3 id=&#34;4b&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4b&#34;&gt;#&lt;/a&gt; 4B&lt;/h3&gt;
+&lt;p&gt;需要修改：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;shardkv/client.go&lt;/code&gt; ,  &lt;code&gt;shardkv/common.go&lt;/code&gt; , and  &lt;code&gt;shardkv/server.go&lt;/code&gt;  这三个文件。&lt;/p&gt;
+&lt;p&gt;replica groups have to hand off shards to each other&lt;/p&gt;
+&lt;p&gt;可能需要重新设计 4A 的代码，尽量少移动 shard。问题来了，怎么在不同的 raft 组之间移动数据？&lt;/p&gt;
+&lt;p&gt;必须实现线性一致性，这个可以仿照之前 lab3 来做。&lt;/p&gt;
+&lt;p&gt;This must be true even when  &lt;code&gt;Get&lt;/code&gt; s and  &lt;code&gt;Put&lt;/code&gt; s arrive at about the same time as configuration changes.&lt;/p&gt;
+&lt;p&gt;这说明 configuration change 完毕的时候，必须是相同的副本，可以简单设计 reconfiguration 时候不处理任何 get 和 put 请求？这个之后再考虑。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Think about how the shardkv client and server should deal with  &lt;code&gt;ErrWrongGroup&lt;/code&gt; . Should the client change the sequence number if it receives  &lt;code&gt;ErrWrongGroup&lt;/code&gt; ? Should the server update the client state if it returns  &lt;code&gt;ErrWrongGroup&lt;/code&gt;  when executing a  &lt;code&gt;Get&lt;/code&gt; / &lt;code&gt;Put&lt;/code&gt;  request?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我的设计，当查询到配置变更信息后，立刻加锁进行迁移数据，这样就可以拒绝接受请求和 apply log。完成迁移数据之后再释放锁。对于此后再次 apply 上的 log index，如果此时 server 不负责这个 shard，那么直接丢弃就可以了，也不更新查重表。对于此后如果旧的请求再次到来，如果是 put/append，直接查查重表，即使不负责这个 shard 如果之前做过这个请求，也可以返回 OK。但是之后的之后的请求就会发送 &lt;code&gt;ErrWrongGroup&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;对于新的迁移过去的 shard，查重表初始为 0，对应着任务没有完成，因为这个新的 server 并不会去服务旧的 rpc，所以此时也是可以正常工作的。&lt;/p&gt;
+&lt;p&gt;（所以 client 的逻辑就是，只有接受到 ErrWrongGroup 的请求才会查询新的配置，防止重复 apply）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After a server has moved to a new configuration, it is acceptable for it to continue to store shards that it no longer owns&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;即使迁移了一个新的配置，也可以保留原来的数据。&lt;/p&gt;
+&lt;h3 id=&#34;320-更新&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#320-更新&#34;&gt;#&lt;/a&gt; 3.20 更新&lt;/h3&gt;
+&lt;p&gt;Lab4 + 2Challenge 完美通过，并发测试没有搞，我的电脑配置不支持这个 lab 的批量测试。。。而且我也不想搞了，太心累了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Test: static shards ...
+  ... Passed
+Test: join then leave ...
+  ... Passed
+Test: snapshots, join, and leave ...
+  ... Passed
+Test: servers miss configuration changes...
+  ... Passed
+Test: concurrent puts and configuration changes...
+  ... Passed
+Test: more concurrent puts and configuration changes...
+  ... Passed
+Test: concurrent configuration change and restart...
+  ... Passed
+Test: unreliable 1...
+  ... Passed
+Test: unreliable 2...
+  ... Passed
+Test: unreliable 3...
+  ... Passed
+Test: shard deletion (challenge 1) ...
+  ... Passed
+Test: unaffected shard access (challenge 2) ...
+  ... Passed
+Test: partial migration shard access (challenge 2) ...
+  ... Passed
+PASS
+ok  	6.824/shardkv	
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://songlinlife.top/2022/MIT6-824%EF%BC%9ASpaner/</guid>
             <title>MIT6.824：Spaner</title>
@@ -25,6 +136,22 @@
 &lt;/blockquote&gt;
 &lt;p&gt;啧啧啧，开篇第一句就这么牛逼 ？是一个可扩展、全球化分布式、和同步复制的数据库。&lt;/p&gt;
 &lt;p&gt;时钟 API 是实现 Spanner 的关键所在。&lt;/p&gt;
+&lt;h3 id=&#34;paxos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#paxos&#34;&gt;#&lt;/a&gt; Paxos&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220316114813593.png&#34; alt=&#34;image-20220316114813593&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220316115125809.png&#34; alt=&#34;image-20220316115125809&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;paxos要求&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#paxos要求&#34;&gt;#&lt;/a&gt; paxos 要求&lt;/h4&gt;
+&lt;h5 id=&#34;safety&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#safety&#34;&gt;#&lt;/a&gt; safety：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;只有一个 value 可以被 chosen&lt;/li&gt;
+&lt;li&gt;只有 value 被 chosen 之后才能被 learn。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;liveness&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#liveness&#34;&gt;#&lt;/a&gt; Liveness：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;一些 proposed value 迟早能被 chosen。&lt;/li&gt;
+&lt;li&gt;如果一个 value 被 chosen，那么 server 最终都会学到。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;multi-paxos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#multi-paxos&#34;&gt;#&lt;/a&gt; Multi-Paxos&lt;/h3&gt;
+&lt;h3 id=&#34;听课&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#听课&#34;&gt;#&lt;/a&gt; 听课&lt;/h3&gt;
  ]]></description>
         </item>
         <item>
@@ -1350,157 +1477,6 @@ Quest completed.
 &lt;p&gt;Client: interacts directly with the data source.&lt;/p&gt;
 &lt;p&gt;Backend: orchestrates the fetching process by using the Client.&lt;/p&gt;
 &lt;p&gt;CommandLine: defines the arguments to initialize and run the Backend from the command line.&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</guid>
-            <title>MIT6.824: GFS</title>
-            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</link>
-            <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
-            <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
-            <pubDate>Wed, 23 Feb 2022 10:56:45 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;gfsgoogle-file-system&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gfsgoogle-file-system&#34;&gt;#&lt;/a&gt; GFS（Google File System）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In this paper, we present file system interface extensions designed to support distributed applications, discuss many aspects of our design, and report measurements from both micro-benchmarks and real world use.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这篇文章介绍旨在&lt;strong&gt;支持分布式应用程序的文件系统接口扩展&lt;/strong&gt;，讨论了我们设计的许多方面，并报告了从微基准测试和真实世界使用两方面的测量结果。&lt;/p&gt;
-&lt;h4 id=&#34;keywords&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#keywords&#34;&gt;#&lt;/a&gt; Keywords&lt;/h4&gt;
-&lt;p&gt;Fault tolerance, scalability, data storage, clustered storage&lt;/p&gt;
-&lt;h4 id=&#34;introduction&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#introduction&#34;&gt;#&lt;/a&gt; Introduction&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;constant monitoring, error detection, fault tolerance, and automatic recovery must be integral to the system.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;作者认为持续监控，错误检测，故障容忍，自动恢复是系统的关键所在。&lt;/p&gt;
-&lt;h4 id=&#34;设计理念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设计理念&#34;&gt;#&lt;/a&gt; 设计理念&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;系统由许多便宜的机器组成，所以经常会有 fail 情况，监控、检测、故障恢复是日常。&lt;/li&gt;
-&lt;li&gt;系统会存储很多 GB 级别的大文件。&lt;/li&gt;
-&lt;li&gt;读负载主要分为两种：大流式读和小的随机读。&lt;/li&gt;
-&lt;li&gt;写负载通常是 append data。也就是说文件是被 append 而不是修改。因此一个文件一旦写完之后就很少被修改。&lt;/li&gt;
-&lt;li&gt;系统实现了多客户端并发 append 同一个文件&lt;/li&gt;
-&lt;li&gt;高稳定带宽比低延迟更重要。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#架构&#34;&gt;#&lt;/a&gt; 架构&lt;/h4&gt;
-&lt;p&gt;一个 master 机（以及多个 master 机的 remote 副本），多个 chunkservers，以及多个 clients。&lt;/p&gt;
-&lt;p&gt;每一个 chunk 有 64M，并且被一个 64bit 的 chunk handle 给唯一标识。chunkhandle 是 chunk 创建时由 master 机分配的，并且如果 client 要访问 chunk 并且持有 chunk handle。&lt;/p&gt;
-&lt;h4 id=&#34;读操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#读操作&#34;&gt;#&lt;/a&gt; 读操作&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;client 将 filename 和 byte offset 转成 chunk index。&lt;/li&gt;
-&lt;li&gt;client 向 master 发送 request，包含 chunk index 和 filename&lt;/li&gt;
-&lt;li&gt;master 返回 chunk handle 和副本的 location。&lt;/li&gt;
-&lt;li&gt;client 使用 filename 和 chunk index 作为 key，将 master 返回的数据作为 value，缓存起来。这样 client 在一段时间内就可以不用再和 master 沟通了。&lt;/li&gt;
-&lt;li&gt;client 访问距离它最近的 replicas。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;metadata&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#metadata&#34;&gt;#&lt;/a&gt; MetaData&lt;/h4&gt;
-&lt;p&gt;三种主要的 MetaData：the file and chunk namespaces, the mapping from files to chunks, and the locations of each chunk’s replicas。&lt;/p&gt;
-&lt;p&gt;主要 MetaData 都是存放在 Master 机的内存中，但是 &lt;code&gt;namespace&lt;/code&gt;  和 &lt;code&gt;mapping&lt;/code&gt;  是会写到 local disk 的 log 中，并且在 remote 机中存放备份。但是 location 不会有持续存储。&lt;/p&gt;
-&lt;p&gt;因为集群经常会有机器加入、宕机、重启等情况，所以持续化存储 location 不是一个好的选择，最好还是周期性询问 chunkservers。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223133116965.png&#34; alt=&#34;image-20220223133116965&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;consistent和defined&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#consistent和defined&#34;&gt;#&lt;/a&gt; consistent 和 defined&lt;/h4&gt;
-&lt;p&gt;如果所有 client 看到相同的数据，就被认为是 consistent。&lt;/p&gt;
-&lt;p&gt;如果文件数据改动后，file region 还是 consistent 的，并且所有 client 都会看到 mutation writes 的全部内容，那么就说明 region 是_defined_。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220225093959514.png&#34; alt=&#34;image-20220225093959514&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;对于 GFS 来说，write 和 append 虽然都是 mutation 但是他们还是有不同的。&lt;/p&gt;
-&lt;h4 id=&#34;write和append&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#write和append&#34;&gt;#&lt;/a&gt; Write 和 Append&lt;/h4&gt;
-&lt;p&gt;说实话我读第一遍论文时候搞不懂为什么 write 操作是 undefined 但 consistent 而 Record Append 操作是 defined 但 inconsistent。其实这个不同点就是 GFS 设计的巧妙之处，write chunk 操作需要制定 offset，而 Append 操作则不用。&lt;/p&gt;
-&lt;p&gt;教授关于 Append 操作的这个例子讲的很好：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220225095400456.png&#34; alt=&#34;image-20220225095400456&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;对于 append 操作，如果第一次 Append 操作失败之后，那么会重新发起 append 请求，也就是 primary 再写一遍然后让其他副本也写一遍，那么问题就来了，之前的 Append 操作中，有的 replicas 成功写入了 data，有的没有。失败的操作不会要求这些 replicas 删除之前 append 失败操作写的数据，而是重新再尾部进行 Append，并且要求同一个 Records 在所有的 replicas 中具有相同的 offset。那么很显然上述的三个 replicas 中数据是不一致的，但我们可以看到每一个 append 操作写的数据，数据不会被覆盖，那么他就是一个 defined 操作。&lt;/p&gt;
-&lt;p&gt;对于 write 操作，因为所有 client 机并发写相同的 offset，那么及时失败后，有的 replicas 写了，有的没有，那么在下一次重新发起 Write 操作中，会写覆盖掉之前写的数据。因此 write 操作是一致的，并且因为写覆盖，我们没法知道到底是什么序列写的，所有是 undefined。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220225094811181.png&#34; alt=&#34;image-20220225094811181&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;snapshot&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#snapshot&#34;&gt;#&lt;/a&gt; snapshot&lt;/h4&gt;
-&lt;p&gt;说实话，我没看懂块引用。。。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223150359437.png&#34; alt=&#34;image-20220223150359437&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;上课&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#上课&#34;&gt;#&lt;/a&gt; 上课&lt;/h3&gt;
-&lt;p&gt;consistency 会导致 low performance&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223182829839.png&#34; alt=&#34;image-20220223182829839&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;不好的分布式系统：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223184155101.png&#34; alt=&#34;image-20220223184155101&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220223185145057.png&#34; alt=&#34;image-20220223185145057&#34; /&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</guid>
-            <title>MIT6.824: mapreduce</title>
-            <link>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</link>
-            <category term="分布式" scheme="https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
-            <category term="MIT6.824" scheme="https://songlinlife.top/tags/MIT6-824/" />
-            <pubDate>Sun, 20 Feb 2022 10:28:51 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;开新坑了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开新坑了&#34;&gt;#&lt;/a&gt; 开新坑了！&lt;/h3&gt;
-&lt;p&gt;令人感叹，自己虽然开了很多个坑，但是能够完成的却很少，这次的 MIT6.824 是我确定学的一门课程，要想入门分布式绕不开的一门课，没办法，老老实实学一次，把所有的 lab 做完，这就是我的目标！&lt;/p&gt;
-&lt;h3 id=&#34;论文阅读&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#论文阅读&#34;&gt;#&lt;/a&gt; 论文阅读&lt;/h3&gt;
-&lt;p&gt;因为这门课必须要看论文，所以就很痛苦。。。&lt;/p&gt;
-&lt;h4 id=&#34;问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题&#34;&gt;#&lt;/a&gt; 问题&lt;/h4&gt;
-&lt;p&gt;原有的计算是很简单的，但是因为数据很大需要做成分布式系统，所以如何 &lt;code&gt;并行化计算&lt;/code&gt; 、 &lt;code&gt;分发数据&lt;/code&gt; 和 &lt;code&gt;处理故障&lt;/code&gt; 等问题使得原本简单的计算变得晦涩难懂，需要大量复杂的代码来处理这些问题。&lt;/p&gt;
-&lt;h4 id=&#34;mapreduce函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mapreduce函数&#34;&gt;#&lt;/a&gt; MapReduce 函数&lt;/h4&gt;
-&lt;figure class=&#34;highlight go&#34;&gt;&lt;figcaption data-lang=&#34;go&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;String key&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; String value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// key: document name&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// value: document contents&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; each word w in value&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    	&lt;span class=&#34;token function&#34;&gt;EmitIntermediate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;w&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;1&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;reduce&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;String key&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; Iterator values&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// key: a word&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// values: a list of counts&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token builtin&#34;&gt;int&lt;/span&gt; result &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; each v in values&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    	result &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ParseInt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;v&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token function&#34;&gt;Emit&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;AsString&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;result&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;map 用于发射中间键值对，而 reduce 函数则负责对中间键值对中相同的 key 进行 aggregate 处理。&lt;/p&gt;
-&lt;h4 id=&#34;执行概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#执行概述&#34;&gt;#&lt;/a&gt; 执行概述&lt;/h4&gt;
-&lt;p&gt;首先明确 map 机和 reduce 机组成了一个分布式系统，所以这里有一个 master 机用于 assign 任务。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;将 raw data 切分为 M 个 splits。每一个 split 大小可以由用户进行指定。&lt;/li&gt;
-&lt;li&gt;master 机将 map 任务和 reduce 任务分别自拍给不同的 workers。&lt;/li&gt;
-&lt;li&gt;map 机读取 input split，通过 &lt;code&gt;Map&lt;/code&gt;  函数将 k/v 对进行输出。这些中间键值对缓存在 map 机的内存中。&lt;/li&gt;
-&lt;li&gt;这些缓存的键值对会定期存本地磁盘，同时会被分区函数分为 R 个 regions。可以用 hash (key) mod R。local disk 的位置会被发送给 master 即，master 机来告诉 reduce 机存储位置。&lt;/li&gt;
-&lt;li&gt;reduce 机被 master 机告知存储位置后，通过 rpc 远程调用来读取有 map 机制造的缓存 kv 中间对。当 reduce 机读取完了所有的数据后，会通过 sort 操作来将相同 key 进行 group。因为中间数据可以过大，以至于难以读入到内存中，因此 sort 操作是必须的。&lt;/li&gt;
-&lt;li&gt;reduce 即使用 &lt;code&gt;Reduce&lt;/code&gt;  函数来对这些数据进行处理，并将数据输出到最终的分区。&lt;/li&gt;
-&lt;li&gt;当 mapreduce 操作执行完毕后，master 机负责唤醒用户程序，并把 MapReduce 调用输出返回给用户程序。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220220115958846.png&#34; alt=&#34;image-20220220115958846&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;使用例子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用例子&#34;&gt;#&lt;/a&gt; 使用例子&lt;/h4&gt;
-&lt;p&gt;计算 URL 的频率，这个就和 wordcount 函数相同。&lt;/p&gt;
-&lt;p&gt;ReverseWeb-Link Graph: map 函数输出 &amp;lt;target, source&amp;gt;，target 是对应的 url，而 source 就是 target url 出现的网页 URL，而 reduce 负责将 source 进行 concat，输出 &amp;lt; target, list (source)&amp;gt;&lt;/p&gt;
-&lt;p&gt;Inverted Index: 和上面的例子类似。&lt;/p&gt;
-&lt;h3 id=&#34;分布式系统的特性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分布式系统的特性&#34;&gt;#&lt;/a&gt; 分布式系统的特性&lt;/h3&gt;
-&lt;h4 id=&#34;错误容忍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#错误容忍&#34;&gt;#&lt;/a&gt; 错误容忍&lt;/h4&gt;
-&lt;p&gt;Availability：即使一些机器发生了故障，系统依旧可以提供无误的服务，注意，如果很多机器都宕机，available system 仍然会停止运行，但得到修复后，系统可以继续正确运行。&lt;/p&gt;
-&lt;p&gt;Recoverability：系统发生故障后，经过修复仍然可以正确运行，因此 Availability 就包含了系统需要 Recoverability。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220221152942785.png&#34; alt=&#34;image-20220221152942785&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;lab1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#lab1&#34;&gt;#&lt;/a&gt; LAB1&lt;/h3&gt;
-&lt;h4 id=&#34;job&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#job&#34;&gt;#&lt;/a&gt; Job&lt;/h4&gt;
-&lt;p&gt;实现分布式 MapReduce，包含两个程序，master 和 worker。worker 和 master 之间通信通过 RPC，每个 worker process 将会向 master 询问任务，读取任务输入，执行任务，并将任务结果输出到一个或多个文件中。如果 worker 不不能在 10s 的时间内完成任务，master 需要将任务分配给另一个 worker。&lt;/p&gt;
-&lt;p&gt;执行过程：&lt;/p&gt;
-&lt;p&gt;生成插件&lt;/p&gt;
-&lt;figure class=&#34;highlight go&#34;&gt;&lt;figcaption data-lang=&#34;go&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;buildmode&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;plugin &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;mrapps&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;wc&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在 main 目录下执行：&lt;/p&gt;
-&lt;figure class=&#34;highlight go&#34;&gt;&lt;figcaption data-lang=&#34;go&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt; run mrmaster&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt; pg&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个就是 master 函数&lt;/p&gt;
-&lt;p&gt;执行 worker&lt;/p&gt;
-&lt;figure class=&#34;highlight go&#34;&gt;&lt;figcaption data-lang=&#34;go&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt; run mrworker&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;go&lt;/span&gt; wc&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;so&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;需要遵守的规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#需要遵守的规则&#34;&gt;#&lt;/a&gt; 需要遵守的规则&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;map 函数传递的中间 key 需要分配到 nReduce 个 bucket 中，而 &lt;code&gt;NReduce&lt;/code&gt;  这个参数会被 &lt;code&gt;main/mrmaster.go&lt;/code&gt;  传递给 &lt;code&gt;MakeMaster()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;结果需要保持为 &lt;code&gt;mr-out-X&lt;/code&gt;  这种格式，其中 &lt;code&gt;X&lt;/code&gt;  是 &lt;code&gt;reduce&lt;/code&gt;  的编号。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mr-out-x&lt;/code&gt;  文件中每一行记录了 reduce 的输出，并且格式为  &lt;code&gt;%v %v&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;只能改动这三个文件 &lt;code&gt;mr/worker.go&lt;/code&gt; ,  &lt;code&gt;mr/master.go&lt;/code&gt; ,  &lt;code&gt;mr/rpc.go&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;worker 需要把 map 的中间结果保存到当前目录中。&lt;/li&gt;
-&lt;li&gt;mr/master.go 中需要实现 &lt;code&gt;Done()&lt;/code&gt;  方法，如果返回 &lt;code&gt;true&lt;/code&gt;  表示 MapReduce 任务执行完成，  &lt;code&gt;mrmaster.go&lt;/code&gt;  才会退出。&lt;/li&gt;
-&lt;li&gt;worker 还需要实现 &lt;code&gt;call&lt;/code&gt;  方法，如果 worker 不能和 master 进行沟通，那么 worker 就会终止。（还可以实现一个 pseudo-task，这个任务就是”please exit&amp;quot;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;提示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#提示&#34;&gt;#&lt;/a&gt; 提示&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;mr/worker.go&lt;/code&gt;  通过 RPC 向 master 进行 task，master 发送一个还没进过 map 的文件名，然后 worker 就开始读取这个文件并调用 Map 函数。&lt;/li&gt;
-&lt;li&gt;Map 和 Reduce 函数不用自己写，已经在 plugin 保重实现了。&lt;/li&gt;
-&lt;li&gt;每次都要先 ``go build -buildmode=plugin ../mrapps/wc.go`&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mr-X-Y&lt;/code&gt;  的方式给中间文件命名，X 值 Map task， Y 指 Reduce task。&lt;/li&gt;
-&lt;li&gt;kv 键值对可以使用 json 文件格式进行存储。&lt;/li&gt;
-&lt;li&gt;The map part of your worker can use the  &lt;code&gt;ihash(key)&lt;/code&gt;  function (in  &lt;code&gt;worker.go&lt;/code&gt; ) to pick the reduce task for a given key。也就是说 &lt;code&gt;ihash&lt;/code&gt;  方式在 map 阶段就知道这个 key 该由哪个 reduce 进行处理。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mrsequential.go&lt;/code&gt;  的代码可以借鉴。&lt;strong&gt;注意 sort。&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;master 作为 RPC 服务器，它是并发的，所以到注意加锁。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;go build -race&lt;/code&gt;  可以用作检查并发。&lt;/li&gt;
-&lt;li&gt;所有的 map 执行完毕之后 reduce 才会执行，所以 reduce worker 需要等待。&lt;/li&gt;
-&lt;li&gt;对于执行超时的 worker，master 需要重新分配任务。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mrapps/crash.go&lt;/code&gt;  用于检测崩溃回复。&lt;/li&gt;
-&lt;li&gt;map 函数先用一个临时文件写中间数据，当所有的数据写完之后，在将文件名自动重命名。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;遇到的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#遇到的问题&#34;&gt;#&lt;/a&gt; 遇到的问题&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;taskstate 0 空闲 1 处理中 2 处理完毕&lt;/li&gt;
-&lt;li&gt;坑点：只有当前 worker 执行完了一个 maptask 或者 reduce task 才能再执行 map 或者 reduce task。不能在一个 worker 机上同时并发执行多个 Map 或 reduce 函数。&lt;/li&gt;
-&lt;li&gt;写中间文件需要使用 os.O_TRUNC，不然执行 sh 脚本会出错。&lt;/li&gt;
-&lt;li&gt;最后的测试点只能用 Sock 方式进行 rpc，不能用 tcp 方式。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;repo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#repo&#34;&gt;#&lt;/a&gt; Repo&lt;/h4&gt;
-&lt;p&gt;代码放在了 github 上：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1NvbmdsaW5MaWZlL01hcFJlZHVjZQ==&#34;&gt;MapReduce&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;完成了所有测试点：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220224114038738.png&#34; alt=&#34;image-20220224114038738&#34; /&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
