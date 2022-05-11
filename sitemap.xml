@@ -2,6 +2,915 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://songlinlife.top/2022/Golang%EF%BC%9Amongodb%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/MongoDB-%E5%B8%B8%E7%94%A8%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Mysql-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/NSG-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/graphEmbedding/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/test/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%88%91%E7%9A%84node%E8%AE%BE%E7%BD%AE/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang-Log%E6%97%A5%E5%BF%97/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang-bytes%E5%92%8Cerrors%E5%8C%85/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang-cookies%E4%B8%8Esessions/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang-%E5%86%99%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/Golang%EF%BC%9A%E6%9F%A5%E8%AF%A2MongoDB/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/golang-Web%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/golang-context/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/golang-%E5%B9%B6%E5%8F%91%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/golang-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E8%8E%B7%E5%BE%97%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/golang%E5%AE%9E%E7%8E%B0%E5%90%84%E7%A7%8D%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Go/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/C%E6%8C%87%E9%92%88/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081-lab3/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081%EF%BC%9Alab1/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081%EF%BC%9Alab2/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/ANNS-EFANN%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/CMU445%EF%BC%9A%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/DiskANN%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E5%BC%80%E5%A7%8B/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/Efficient-and-robust-approximate-nearest-neighbor-search-using-Hierarchical-Navigable-Small-World-graphs/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/KGraph/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%91%E6%9F%A5%E8%AF%A2%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AA-Comprehensive-Survey-and-Experimental-Comparison-of-Graph-Based-Approximate-Nearest-Neighbor-Search/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADiskANN-Fast-Accurate-Billion-point-Nearest-Neighbor-Search-on-a-Single-Node/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AFANNG/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ANSG/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-S081%EF%BC%9AIntroduction/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081-PageFault/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081-lab4Trap/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/MIT6-s081-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/PIC%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/linux/inode%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/Git-%E4%BB%A3%E7%90%86/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/HTML%EF%BC%9A%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/git-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/golang%E5%92%8Cpython%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91MongoDB%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/tmux%E7%94%A8%E6%B3%95/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E8%BD%BB%E9%87%8F%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Efrp%E5%BC%80%E5%90%AF%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ss/%E6%96%B0%E6%97%B6%E4%BB%A3/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/2011-IEEE-Transactions-on-Pattern-Analysis-and-Machine-Intelligence-Product-Quantization-for-Nearest-Neighbor-Search/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ANNS-HM-ANN%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/ANNS%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/CPP%E5%AD%A6%E4%B9%A0%EF%BC%9Aday1/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/Loyalty-in-Online-Communities%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/MIT6-s081-lab7thread/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/PPT%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%90%84%E4%B8%AA%E6%8C%87%E6%A0%87/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/%E8%AF%BB%E5%90%8E%E6%84%9F%EF%BC%9AAre-we-really-making-much-progress-Revisiting-benchmarking-and-refining-heterogeneous-graph-neural-networks/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/Bot/Bot-%E8%8E%B7%E5%8F%96%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/DGL-01-%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E8%8C%83%E5%BC%8F/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/DGL-03-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%AE%A1%E9%81%93/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/DGL-04-%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2021/ai/HetGNN%EF%BC%9A%E7%AE%97%E6%B3%95%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/blog/github-action-%E5%AE%9E%E7%8E%B0%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2blog/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/cpp/CMake%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/cpp/cpp%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%80/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/docker/docker01-docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/docker/docker02-Run%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/js/js%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/js/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/vim/Vscode%20+%20Vim/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/vim/nvim%E3%80%81terminal%E5%89%AA%E5%88%87%E6%9D%BF/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/vim/nvim%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/vim/nvim%E6%8F%92%E4%BB%B6%E5%8A%A0%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/vim/vim01-Vim%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/Artur-%E8%B0%83%E5%BA%A6%E5%99%A8/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/Graal-%E5%AD%98%E5%82%A8%E5%BA%93%E5%88%86%E6%9E%90%E5%99%A8/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/GrimoireLab%EF%BC%9A%E5%A1%AB%E5%9D%91%E8%AE%B0/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/OpenDep%E5%BC%80%E5%8F%91/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/grimoireLab-%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E7%BB%84%E4%BB%B6/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/grimoireLab-%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/grimoireLab-%E6%95%B0%E6%8D%AE%E6%B6%88%E8%B4%B9%E7%BB%84%E4%BB%B6/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%BB%84%E4%BB%B6%E2%80%94%E2%80%94Perceval/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/xlab/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9APredicting-long-time-contributors-for-GitHub-projects-using-machine-learning/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-Aurora/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-GFS/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-Lab4/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-Object-Storage-on-CRAQ-High-throughput-chain-replication-for-read-mostly-workloads/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab2-Raft/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-lab3-KV-Service/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-mapreduce/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824%EF%BC%9AFrangipani-A-Scalable-Distributed-File-System/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824%EF%BC%9ASpaner/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A601/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/MIT6-s081-lab5-COW/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/LeetCode/22-1-13%E5%88%B7%E9%A2%98/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/LeetCode/%E5%BC%80%E5%A7%8BLeetCode%E5%88%B7%E9%A2%98/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-The-Design-of-a-Practical-System-for-Fault-Tolerant-Virtual-Machines/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/2022/%E5%88%86%E5%B8%83%E5%BC%8F/MIT6-824-zookeeper/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://songlinlife.top/2021/DGL-02-%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2021-12-15</lastmod>
@@ -83,15 +992,6 @@
   </url>
   
   <url>
-    <loc>https://songlinlife.top/2021/xlab/MTTU%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</loc>
-    
-    <lastmod>2021-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://songlinlife.top/2021/python/pip%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2021-12-08</lastmod>
@@ -102,15 +1002,6 @@
   
   <url>
     <loc>https://songlinlife.top/about/index.html</loc>
-    
-    <lastmod>2021-12-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/2021/blog/Hexo-Shoka%E4%B8%BB%E9%A2%98-git%E6%89%98%E7%AE%A1%EF%BC%8C%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96ing/</loc>
     
     <lastmod>2021-12-05</lastmod>
     
@@ -148,7 +1039,7 @@
 
   <url>
     <loc>https://songlinlife.top/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -156,189 +1047,294 @@
   
   <url>
     <loc>https://songlinlife.top/tags/v2ray/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/kuharo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/hexo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/typora/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/github/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/shoka/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/sh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/zsh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/wsl/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/theme/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E5%9B%BE%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/PageRank/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/mttu/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E6%8C%87%E6%A0%87/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/pymongo/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/MongoDB/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/xlab/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/npm/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/python/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/pip/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/vscode/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/ssh/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/GNN/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/tags/DGL/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/ANNS/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/communities/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/MIT/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/mongodb/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/ppt/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/Web/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/go/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/%E5%BC%82%E6%9E%84%E5%9B%BE/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/cmake/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/docker/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/Linux/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/frp/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/vim/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/contributors/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/tags/MIT6-824/</loc>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -347,42 +1343,140 @@
   
   <url>
     <loc>https://songlinlife.top/categories/ss/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/blog/</loc>
-    <lastmod>2021-12-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/categories/python/</loc>
-    <lastmod>2021-12-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://songlinlife.top/categories/ai/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/xlab/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://songlinlife.top/categories/js/</loc>
-    <lastmod>2021-12-16</lastmod>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/python/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/ai/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/js/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/cpp/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/Go/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/linux/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/Bot/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/golang/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/LeetCode/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/docker/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/Vim/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/vim/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
+    <lastmod>2022-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://songlinlife.top/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
