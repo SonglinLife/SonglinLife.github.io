@@ -129,15 +129,6 @@ thread_switch:
         <updated>2022-04-29T02:27:19.000Z</updated>
     </entry>
     <entry>
-        <id>https://songlinlife.top/2022/ANNS-HM-ANN%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</id>
-        <title>ANNS: HM-ANN论文阅读</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/ANNS-HM-ANN%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-        <content type="html"></content>
-        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
-        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
-        <updated>2022-04-28T13:16:23.000Z</updated>
-    </entry>
-    <entry>
         <id>https://songlinlife.top/2022/NSG-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</id>
         <title>NSG 源码阅读</title>
         <link rel="alternate" href="https://songlinlife.top/2022/NSG-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
@@ -380,15 +371,6 @@ u:就是指以多少个字节作为一个内存单元-unit,默认为4。u还可�
         <category term="linux" scheme="https://songlinlife.top/categories/linux/" />
         <category term="MIT" scheme="https://songlinlife.top/tags/MIT/" />
         <updated>2022-04-25T12:42:38.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/DiskANN%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E5%BC%80%E5%A7%8B/</id>
-        <title>DiskANN（一）：代码阅读开始</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/DiskANN%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E5%BC%80%E5%A7%8B/"/>
-        <content type="html"></content>
-        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
-        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
-        <updated>2022-04-25T09:09:26.000Z</updated>
     </entry>
     <entry>
         <id>https://songlinlife.top/2022/cpp/CMake%E5%AD%A6%E4%B9%A0/</id>
@@ -752,5 +734,119 @@ u:就是指以多少个字节作为一个内存单元-unit,默认为4。u还可�
         <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
         <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
         <updated>2022-04-19T11:25:07.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADiskANN-Fast-Accurate-Billion-point-Nearest-Neighbor-Search-on-a-Single-Node/</id>
+        <title>论文阅读：DiskANN: Fast Accurate Billion-point Nearest Neighbor Search on a Single Node</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADiskANN-Fast-Accurate-Billion-point-Nearest-Neighbor-Search-on-a-Single-Node/"/>
+        <content type="html">&lt;p&gt;diskann 是我看的第一篇关于 disk 上的 ANNS 算法，收获确实很大。有时间确实得好好读一读 diskann 的实现源码。&lt;/p&gt;
+&lt;h3 id=&#34;作者的动机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#作者的动机&#34;&gt;#&lt;/a&gt; 作者的动机&lt;/h3&gt;
+&lt;p&gt;作者其实很简单，之前大部分 ANNS 算法都是基于内存来构建索引。如果把索引放到 disk，即使是 SSD，那么查询的延迟也会大幅度提升。所以需要提出一种基于 SSD 的 ANNS 算法，这种算法必须尽可能的降低 disk 的随机存取次数。&lt;/p&gt;
+&lt;p&gt;这里我感觉挺吃力的，有必要补全这块 io 相关的知识。&lt;/p&gt;
+&lt;p&gt;基于 SSD 索引方法必须实现 1）降低 SSD 随机访问的次数。2）round trip 的 request 数应该低于 10，最好 5。&lt;/p&gt;
+&lt;h3 id=&#34;作者的贡献&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#作者的贡献&#34;&gt;#&lt;/a&gt; 作者的贡献&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DiskANN 能够只是用 64GB RAM 就 serve 1 亿的数据集，并且每个向量的维度超过的 100。95%+ 的 1-recall@1 的延迟低于 5  millisecond。&lt;/li&gt;
+&lt;li&gt;Vanama 算法能够生成比 NSG 和 HNSW 更少的索引。（存疑&lt;/li&gt;
+&lt;li&gt;使用 Vanama 方法的纯内存方案，也可以达到和 NSG 和 HNSW 相似的性能（能不相似吗？你们都是类 RNG 图）&lt;/li&gt;
+&lt;li&gt;拆分然后 merge 的构建索引的效果和一次性读入效果差不多。&lt;/li&gt;
+&lt;li&gt;使用向量压缩的方法，这样压缩的向量可以读入内存中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vanama算法拆解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vanama算法拆解&#34;&gt;#&lt;/a&gt; Vanama 算法拆解&lt;/h3&gt;
+&lt;h4 id=&#34;贪心检索&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#贪心检索&#34;&gt;#&lt;/a&gt; 贪心检索&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220424193910676.png&#34; alt=&#34;image-20220424193910676&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个真的看腻了，就那一套。&lt;/p&gt;
+&lt;h4 id=&#34;邻居选择算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#邻居选择算法&#34;&gt;#&lt;/a&gt; 邻居选择算法&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220424194259571.png&#34; alt=&#34;image-20220424194259571&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;你们能不能不要天天嗯编算法名啊，没活可以咬打火机。这就是一个 RNG 算法不过就是加上了一个 α 参数，这个参数起到了 relax 的作用。就这么简单。。。呵呵还长篇大论的，差点被你们唬到。&lt;/p&gt;
+&lt;h4 id=&#34;索引构建算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#索引构建算法&#34;&gt;#&lt;/a&gt; 索引构建算法&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220424194520406.png&#34; alt=&#34;image-20220424194520406&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Vanama 算法很简单，随机化一个 R 度的有向图 G，这里需要注意一个 medoid 的概念，最近接近所有节点的点：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220424194859932.png&#34; alt=&#34;image-20220424194859932&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;每次查询都是从 s 开始查起，FANNG 论文也说从中心开始查比随机查的效果更好。然后用 RobustPrune 来做邻居选择。&lt;/p&gt;
+&lt;p&gt;其实这个算法完全可以就是 HNSW 的微小修改版。只是换了一种描述方式，砍掉了多层索引，然后加了一个 relax 的参数 α。&lt;/p&gt;
+&lt;p&gt;注意算法需要跑两次，一次 α=1，第二次 α&amp;gt;=1。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220424200142933.png&#34; alt=&#34;image-20220424200142933&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;diskann&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#diskann&#34;&gt;#&lt;/a&gt; DiskANN&lt;/h3&gt;
+&lt;p&gt;DiskANN 的实现很简单:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The high-level idea is simple: run Vamana on a dataset P and store the resulting graph on an SSD.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里有两个问题需要解决，1）如何用一亿个点进行构图。2）如果使用贪心算法对查询节点和候选列表节点进行比较。&lt;/p&gt;
+&lt;p&gt;第一个问题的解决办法，就是先使用 kmeans 把这一亿个点分为 k 个 cluster（k 取 40），然后每个点就是 assign 到 l-closest centers（l=2）。然后每次导入内存一个 cluster 并且，总共有 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mfrac&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;N \frac{l}{k}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.2251079999999999em;vertical-align:-0.345em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mopen nulldelimiter&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mfrac&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8801079999999999em;&#34;&gt;&lt;span style=&#34;top:-2.6550000000000002em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.23em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;frac-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.394em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.345em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mclose nulldelimiter&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 个数据点。最后我们把得到的图索引 merge 到一块，简单地把他们相连就行了。&lt;/p&gt;
+&lt;p&gt;解决第二个问题的方法就是使用压缩向量。使用 Product Quantization 的方法，将压线进行压缩。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;构图用全精度数据，查询用压缩后的数据&lt;/strong&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;diskann-index-layout&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#diskann-index-layout&#34;&gt;#&lt;/a&gt; DiskANN Index Layout&lt;/h4&gt;
+&lt;p&gt;压缩后的数据全部存放到内存中，然后全精度数据和邻居索引就存放到 R 中。如果邻居个数小于 R，那么就 padding 0，保证我们可以直接使用索引号得到 offset。&lt;/p&gt;
+&lt;h4 id=&#34;beam-search&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#beam-search&#34;&gt;#&lt;/a&gt; Beam Search&lt;/h4&gt;
+</content>
+        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
+        <updated>2022-04-19T01:31:37.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AA-Comprehensive-Survey-and-Experimental-Comparison-of-Graph-Based-Approximate-Nearest-Neighbor-Search/</id>
+        <title>论文阅读：A Comprehensive Survey and Experimental Comparison of Graph-Based Approximate Nearest Neighbor Search</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AA-Comprehensive-Survey-and-Experimental-Comparison-of-Graph-Based-Approximate-Nearest-Neighbor-Search/"/>
+        <content type="html">&lt;p&gt;开始我的阅读论文之旅了，第一篇论文挑了综述来看，目前来看，这玩意比 6.824 课上读的论文要简单多了。。。至少我能看个大概。&lt;/p&gt;
+&lt;h3 id=&#34;absintro&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#absintro&#34;&gt;#&lt;/a&gt; abs+intro&lt;/h3&gt;
+&lt;p&gt;这篇文章对于 13 种基于图的 ANNS 算法进行研究，使用了 8 个真实世界的数据集和 12 个人工数据集。ANNS 就是  &lt;code&gt;Approximate nearest neighbor search&lt;/code&gt;  ，关于为啥要研究这玩意，作者给出理由，因为：NNS 在很多领域比如信息检索、数据挖掘、机器学习巴拉巴拉很有用，然后因为高维数据的 NNS 太难搞了，于是大伙就整出了 ANNS，牺牲一点精度换取更高的效率。&lt;/p&gt;
+&lt;p&gt;基于图的 ANNS 大致运行逻辑：&lt;/p&gt;
+&lt;p&gt;给定一个查询 q 和图索引。第一步，初始化一个 seed vertex 作为 result vertex r。第二步，比较这个节点自身以及它的邻居节点与 q 之间距离，如果  &lt;code&gt;dis(q, n) &amp;lt; dis(r, q)&lt;/code&gt; ，那么说明邻居节点离 q 更近，于是我们用 &lt;code&gt;n&lt;/code&gt;  来替换 &lt;code&gt;r&lt;/code&gt; 。第三步，循环迭代，知道满足节点 &lt;code&gt;r&lt;/code&gt;  与 q 的距离没法再减少了，也就是 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∀&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\forall n, dis(r,q) \leq  dis(n, q)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∀&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;≤&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;基本算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本算法&#34;&gt;#&lt;/a&gt; 基本算法&lt;/h3&gt;
+&lt;h4 id=&#34;navigable-small-world-graph-nsw&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#navigable-small-world-graph-nsw&#34;&gt;#&lt;/a&gt; Navigable Small World graph (NSW)&lt;/h4&gt;
+&lt;p&gt;参考链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzI4NzA0OTc3L2FydGljbGUvZGV0YWlscy84NjYwNTMzMQ==&#34;&gt;https://blog.csdn.net/sinat_28704977/article/details/86605331&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZW92YW4ubWUvY24vMjAyMC8wOC9uZWFyZXN0LW5laWdoYm9yLXNlYXJjaC8=&#34;&gt;https://leovan.me/cn/2020/08/nearest-neighbor-search/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;一句话总结：朴素插入 + 高速公路&lt;/p&gt;
+&lt;p&gt;有时间可以看看原文，我怀疑 tmp 是否真的有需要？&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418163029393.png&#34; alt=&#34;image-20220418163029393&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;hierarchical-navigable-small-world-graphs-hnsw&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hierarchical-navigable-small-world-graphs-hnsw&#34;&gt;#&lt;/a&gt; Hierarchical Navigable Small World graphs (HNSW)&lt;/h4&gt;
+&lt;p&gt;类似于跳表进行多层查询：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418163116658.png&#34; alt=&#34;image-20220418163116658&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Fast Approximate Nearest Neighbor Graph (FANNG)&lt;/p&gt;
+&lt;p&gt;Neighborhood Graph and Tree (NGT)&lt;/p&gt;
+&lt;p&gt;我本来想一一看完这些算法的，但是感觉太浪费时间了，而且我不觉得我一次性就可以把这些算法理解透彻。。。一边看一边补这方面的知识吧，感觉太吃亏了。&lt;/p&gt;
+&lt;h3 id=&#34;anns大致流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#anns大致流程&#34;&gt;#&lt;/a&gt; ANNS 大致流程&lt;/h3&gt;
+&lt;p&gt;作者将 13 种 ANNS 算法拆散为 7 个不同的组件，并且对这些部分分别进行评价：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418200300283.png&#34; alt=&#34;image-20220418200300283&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;c1initialization&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c1initialization&#34;&gt;#&lt;/a&gt; C1：Initialization&lt;/h4&gt;
+&lt;p&gt;作者根据构建索引的方式将 ANNS 算法划分为 3 种： &lt;code&gt;Divide-and-conquer&lt;/code&gt; 、 &lt;code&gt;Refinement&lt;/code&gt;  以及 &lt;code&gt;Increment&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分治法&lt;/strong&gt;就是将数据集进行拆分，通过合并子图来得到最终的索引。&lt;strong&gt;优化法&lt;/strong&gt;就是通过 Neighbor 初始化来初始化图，然后对初始化得到的图进行优化。而&lt;strong&gt;增长法&lt;/strong&gt;就是通过不断插入节点，也就是把每一次的插入当做一次 ANNS 查询来对待。&lt;/p&gt;
+&lt;h4 id=&#34;c2-candidate-neighbor-acquisition&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c2-candidate-neighbor-acquisition&#34;&gt;#&lt;/a&gt; C2: Candidate neighbor acquisition&lt;/h4&gt;
+&lt;p&gt;这一步我们需要抽取合适的候选邻居。对于分治法，由于它做了数据集的切分，所以直接用切分得到的子集 S_i \textbackslash {p} 作为候选邻居，而优化法和增长法则使用 ANNS 查询的方式来获得候选邻居，作者的原话&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;they consider 𝑝 as a query and execute ANNS on 𝐺𝑠𝑢𝑏 or 𝐺𝑖𝑛𝑖𝑡, and finally return the query result as candidate neighbors of 𝑝.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;c3-neighbor-selection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c3-neighbor-selection&#34;&gt;#&lt;/a&gt; C3: Neighbor selection&lt;/h4&gt;
+&lt;p&gt;邻居的选择有点讲究，需要兼顾距离和空间分布。HNSW、FANNG、SPTAG 和 NSG 等算法通过考虑邻居之间的距离来实现邻居尽量分布。对于 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;∈&lt;/mo&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∀&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;∈&lt;/mo&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;x \in C, \forall y \in N(p)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.5782em;vertical-align:-0.0391em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;∈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∀&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;∈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，如果满足 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;dis(x,y) &amp;gt; dis(y, p)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，那么我们把节点 x 也加入到 p 的邻居节点集合中。（启发式选边）&lt;/p&gt;
+&lt;p&gt;还有一些算法通过设置角度阈值来强制实现邻居分散。&lt;/p&gt;
+&lt;p&gt;为什么要实现分散？我的理解是：如果邻居节点聚集一块也就是邻居节点都很类似，那么通过相似的邻居节点进行的查询通常会导向相同的目的地。&lt;/p&gt;
+&lt;h4 id=&#34;c4-seed-preprocessing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c4-seed-preprocessing&#34;&gt;#&lt;/a&gt; C4: Seed preprocessing&lt;/h4&gt;
+&lt;p&gt;Seed 的预处理也是比较重要的一环。对于 HNSW 来说，它构造的多层结构实际上就是实现了 seed 的预测力，每次我们都是去最上层的节点。NSG 和 Vamana 使用了近似质心当做 seed，NSSG 则是直接 randomly 选取。&lt;/p&gt;
+&lt;p&gt;而对于某些算法，它的 seed 是动态的。SPTAG、EFANNA、HCNNG 和 NGT 使用了额外的树，比如 KD 树、k-means 树、VP 树等，通过这些额外的索引来获得接近查询点 q 的 seed。&lt;/p&gt;
+&lt;h4 id=&#34;c5-connectivity&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c5-connectivity&#34;&gt;#&lt;/a&gt; C5: Connectivity&lt;/h4&gt;
+&lt;p&gt;增长法天然具有强连通性，而优化法通过 DFS 来实现，分治法则是通过多次执行数据集的切分和子图的构建来保证连通性。&lt;/p&gt;
+&lt;h4 id=&#34;c6-seed-acquisition&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c6-seed-acquisition&#34;&gt;#&lt;/a&gt; C6: Seed acquisition&lt;/h4&gt;
+&lt;p&gt;现有的 SOTA 算法都使用了 seed 预处理方法也就 C4，作者在文章后续也说了对节点的预处理并不会显著地增加构建索引的开销。&lt;/p&gt;
+&lt;h4 id=&#34;c7-routing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c7-routing&#34;&gt;#&lt;/a&gt; C7: Routing&lt;/h4&gt;
+&lt;p&gt;这里需要理解一个贪心算法也就是 BFS（Best First Search），论文是这样描述的：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418205449085.png&#34; alt=&#34;image-20220418205449085&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;其实这玩意就是 NSW 的查询。这种查询方式有两种缺点，1）容易陷入局部最佳。2）路由效率低。&lt;/p&gt;
+&lt;p&gt;解决问题一的方法可以是将距离比较变成搜索半径比较，或者从多个 seed 开始。&lt;/p&gt;
+&lt;p&gt;解决问题而的方法是用 &lt;code&gt;guided search&lt;/code&gt;  虽然我不清楚这是什么东西。&lt;/p&gt;
+&lt;h3 id=&#34;实验&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实验&#34;&gt;#&lt;/a&gt; 实验&lt;/h3&gt;
+&lt;p&gt;实验部分就是从这 7 个角度一一比较这 13 种算法的性能，说实话，我看了确实有收获，但是真的很难写出来，对这些东西没有啥实感。&lt;/p&gt;
+&lt;p&gt;关于这种 performance-recall 图：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220420194538828.png&#34; alt=&#34;image-20220420194538828&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;刚开始我真的搞不懂，这种不同 recall 是怎么实现的，后来跟小萌哥聊了一会搞懂了。原来并不是我们在调节 recall，而是通过改变不同的参数获得不同 recall 下对应的查询时间。比如对于 HNSW 算法，我们知道 M 和 ef 均会导致影响查询的性能，如果 M 和 ef 增大，那么毫无疑问可以提高 recall，而这种 recall-performance 图就是通过改变算法的参数，这样就可以得到不同的 recall 已经这个 recall 下对应的查询时间。我们通过比较不同的曲线，哪个更靠右，越靠右说明算法的性能越好。&lt;/p&gt;
+&lt;p&gt;所以，并不是通过固定相同的 recall 比较查询时间，而是比较这个曲线图。&lt;/p&gt;
+&lt;h3 id=&#34;思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考&#34;&gt;#&lt;/a&gt; 思考&lt;/h3&gt;
+&lt;p&gt;作者用 L2 距离来做实验，但是没法考虑其他距离度量的方法？L1 的比较劣势在哪里？&lt;/p&gt;
+&lt;p&gt;有没有必要去看 hash、量化、树等方法？&lt;/p&gt;
+&lt;p&gt;什么消耗的内存最少？&lt;/p&gt;
+</content>
+        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
+        <updated>2022-04-18T03:36:47.000Z</updated>
     </entry>
 </feed>
