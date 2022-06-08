@@ -373,6 +373,286 @@ u:就是指以多少个字节作为一个内存单元-unit,默认为4。u还可�
         <updated>2022-04-25T12:42:38.000Z</updated>
     </entry>
     <entry>
+        <id>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/DiskANN%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E5%BC%80%E5%A7%8B/</id>
+        <title>DiskANN（一）：代码阅读开始</title>
+        <link rel="alternate" href="https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/DiskANN%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E5%BC%80%E5%A7%8B/"/>
+        <content type="html">&lt;h3 id=&#34;编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译&#34;&gt;#&lt;/a&gt; 编译&lt;/h3&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake -DCMAKE_BUILD_TYPE=Debug -B build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake --build build -j &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;出现报错 &lt;code&gt;[CMake is not able to find BOOST libraries](https://stackoverflow.com/questions/24173330/cmake-is-not-able-to-find-boost-libraries)&lt;/code&gt; , 解决 &lt;code&gt;sudo apt-get install cmake libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev&lt;/code&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;基于内存方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基于内存方案&#34;&gt;#&lt;/a&gt; 基于内存方案&lt;/h3&gt;
+&lt;p&gt;构建索引的参数：&lt;/p&gt;
+&lt;p&gt;1data_type、2dist_fn、3data_file、4index_path_prefix、5max_degree、6size_of_build_search_list、7search_DRAM_budget、8build_DRAM_budget、9 num_thread、10PQ_disk_bytes&lt;/p&gt;
+&lt;h4 id=&#34;index构建函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#index构建函数&#34;&gt;#&lt;/a&gt; Index 构建函数&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;   template&amp;lt;typename T, typename TagT&amp;gt;
+  Index&amp;lt;T, TagT&amp;gt;::Index(Metric m, const size_t dim, const size_t max_points,
+                        const bool        dynamic_index,
+                        const Parameters &amp;amp;indexParams,
+                        const Parameters &amp;amp;searchParams, const bool enable_tags,
+                        const bool support_eager_delete)
+      : Index(m, dim, max_points, dynamic_index, enable_tags, support_eager_delete) &amp;#123;  // Thank you C++ 11!
+    _indexingQueueSize = indexParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;L&amp;quot;);
+    _indexingRange = indexParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;R&amp;quot;);
+    _indexingMaxC = indexParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;C&amp;quot;);
+    _indexingAlpha = indexParams.Get&amp;lt;float&amp;gt;(&amp;quot;alpha&amp;quot;);
+
+    uint32_t num_threads_srch = searchParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;num_threads&amp;quot;);
+    uint32_t num_threads_indx = indexParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;num_threads&amp;quot;);
+    uint32_t num_threads = diskann_max(num_threads_srch, num_threads_indx);
+    uint32_t search_l = searchParams.Get&amp;lt;uint32_t&amp;gt;(&amp;quot;L&amp;quot;);
+
+    initialize_query_scratch(num_threads, search_l, _indexingQueueSize,
+                             _indexingRange, dim);
+  &amp;#125;
+
+  template&amp;lt;typename T, typename TagT&amp;gt;
+  Index&amp;lt;T, TagT&amp;gt;::Index(Metric m, const size_t dim, const size_t max_points,
+                        const bool dynamic_index,
+                        const bool enable_tags, const bool support_eager_delete)
+      : _dist_metric(m), _dim(dim), _max_points(max_points),
+        _dynamic_index(dynamic_index), _enable_tags(enable_tags),
+        _support_eager_delete(support_eager_delete) &amp;#123;
+    if (dynamic_index &amp;amp;&amp;amp; !enable_tags) &amp;#123;
+      throw diskann::ANNException(
+          &amp;quot;ERROR: Eager Deletes must have Dynamic Indexing enabled.&amp;quot;, -1,
+          __FUNCSIG__, __FILE__, __LINE__);
+      diskann::cerr
+          &amp;lt;&amp;lt; &amp;quot;WARNING: Dynamic Indices must have tags enabled. Auto-enabling.&amp;quot;
+          &amp;lt;&amp;lt; std::endl;
+      _enable_tags = true;
+    &amp;#125;
+    if (support_eager_delete &amp;amp;&amp;amp; !dynamic_index) &amp;#123;
+      diskann::cerr &amp;lt;&amp;lt; &amp;quot;ERROR: Eager Deletes must have Dynamic Indexing &amp;quot;
+                       &amp;quot;enabled. Exitting.&amp;quot;
+                    &amp;lt;&amp;lt; std::endl;
+      throw diskann::ANNException(
+          &amp;quot;ERROR: Eager deletes are possible only if dynamic indexing is &amp;quot;
+          &amp;quot;enabled. Exiting.&amp;quot;,
+          -1, __FUNCSIG__, __FILE__, __LINE__);
+    &amp;#125;
+    // data is stored to _nd * aligned_dim matrix with necessary
+    // zero-padding
+    _aligned_dim = ROUND_UP(_dim, 8);
+
+    if (dynamic_index) &amp;#123;
+      _num_frozen_pts = 1;
+    &amp;#125;
+    // Sanity check. While logically it is correct, max_points ==0 causes
+    // downstream problems.
+    if (_max_points == 0) &amp;#123;
+      _max_points = 1;
+    &amp;#125;
+
+    alloc_aligned(((void **) &amp;amp;_data),
+                  (_max_points + _num_frozen_pts) * _aligned_dim * sizeof(T),
+                  8 * sizeof(T));
+    std::memset(_data, 0,
+                (_max_points + _num_frozen_pts) * _aligned_dim * sizeof(T));
+
+    _ep = (unsigned) _max_points;
+
+    //_final_graph.reserve(_max_points + _num_frozen_pts);
+    _final_graph.resize(_max_points + _num_frozen_pts);
+
+    if (_support_eager_delete) &amp;#123;
+      _in_graph.reserve(_max_points + _num_frozen_pts);
+      _in_graph.resize(_max_points + _num_frozen_pts);
+    &amp;#125;
+
+    if (m == diskann::Metric::COSINE &amp;amp;&amp;amp; std::is_floating_point&amp;lt;T&amp;gt;::value) &amp;#123;
+      // This is safe because T is float inside the if block.
+            this-&amp;gt;_distance = (Distance&amp;lt;T&amp;gt; *) new AVXNormalizedCosineDistanceFloat(); 
+            this-&amp;gt;_normalize_vecs = true;
+            std::cout&amp;lt;&amp;lt;&amp;quot;Normalizing vectors and using L2 for cosine AVXNormalizedCosineDistanceFloat().&amp;quot; &amp;lt;&amp;lt; std::endl;
+      // std::cout &amp;lt;&amp;lt; &amp;quot;Need to add functionality for COSINE metric&amp;quot; &amp;lt;&amp;lt; std::endl;
+    &amp;#125; else &amp;#123;
+      this-&amp;gt;_distance = get_distance_function&amp;lt;T&amp;gt;(m);
+    &amp;#125;
+
+    _locks = std::vector&amp;lt;std::mutex&amp;gt;(_max_points + _num_frozen_pts);
+
+    if (_support_eager_delete)
+      _locks_in = std::vector&amp;lt;std::mutex&amp;gt;(_max_points + _num_frozen_pts);
+
+    _width = 0;
+  &amp;#125;
+
+  template&amp;lt;typename T, typename TagT&amp;gt;
+  Index&amp;lt;T, TagT&amp;gt;::~Index() &amp;#123;
+    // Ensure that no other activity is happening before dtor()
+    std::unique_lock&amp;lt;std::shared_timed_mutex&amp;gt; ul(_update_lock);
+    std::unique_lock&amp;lt;std::shared_timed_mutex&amp;gt; tul(_tag_lock);
+    std::unique_lock&amp;lt;std::shared_timed_mutex&amp;gt; tdl(_delete_lock);
+
+    for (auto &amp;amp;lock : _locks) &amp;#123;
+      LockGuard lg(lock);
+    &amp;#125;
+    for (auto &amp;amp;lock : _locks_in) &amp;#123;
+      LockGuard lg(lock);
+    &amp;#125;
+
+    if (this-&amp;gt;_distance != nullptr) &amp;#123;
+      delete this-&amp;gt;_distance;
+      this-&amp;gt;_distance = nullptr;
+    &amp;#125;
+    if (this-&amp;gt;_data != nullptr) &amp;#123;
+      aligned_free(this-&amp;gt;_data);
+      this-&amp;gt;_data = nullptr;
+    &amp;#125;
+
+    while (!_query_scratch.empty()) &amp;#123;
+      auto val = _query_scratch.pop();
+      while (val.indices == nullptr) &amp;#123;
+        _query_scratch.wait_for_push_notify();
+        val = _query_scratch.pop();
+      &amp;#125;
+      val.destroy();
+    &amp;#125;
+  &amp;#125;
+
+    _locks = std::vector&amp;lt;std::mutex&amp;gt;(_max_points + _num_frozen_pts);
+
+    if (_support_eager_delete)
+      _locks_in = std::vector&amp;lt;std::mutex&amp;gt;(_max_points + _num_frozen_pts);
+
+    _width = 0;
+  &amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;in case we add &#39;&#39;frozen&#39;&#39; auxiliary points to the dataset, these are not visible to external world, we generate them here and update our dataset&lt;/p&gt;
+&lt;p&gt;search_invocation 是什么？_dynamic_index 是什么？&lt;/p&gt;
+&lt;p&gt;选边策略：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;  template&amp;lt;typename T, typename TagT&amp;gt;
+  void Index&amp;lt;T, TagT&amp;gt;::occlude_list(std::vector&amp;lt;Neighbor&amp;gt; &amp;amp;pool,
+                                    const float alpha, const unsigned degree,
+                                    const unsigned         maxc,
+                                    std::vector&amp;lt;Neighbor&amp;gt; &amp;amp;result,
+                                    std::vector&amp;lt;float&amp;gt; &amp;amp;   occlude_factor) &amp;#123;
+    if (pool.empty())
+      return;
+    assert(std::is_sorted(pool.begin(), pool.end()));
+    assert(!pool.empty());
+
+    float cur_alpha = 1;
+    while (cur_alpha &amp;lt;= alpha &amp;amp;&amp;amp; result.size() &amp;lt; degree) &amp;#123;
+      unsigned start = 0;
+      float eps = cur_alpha + 0.01f;  // used for MIPS, where we store a value
+                                      // of eps in cur_alpha to
+      // denote pruned out entries which we can skip in later rounds.
+      while (result.size() &amp;lt; degree &amp;amp;&amp;amp; (start) &amp;lt; pool.size() &amp;amp;&amp;amp; start &amp;lt; maxc) &amp;#123;
+        auto &amp;amp;p = pool[start];
+        if (occlude_factor[start] &amp;gt; cur_alpha) &amp;#123;
+          start++;
+          continue;
+        &amp;#125;
+        occlude_factor[start] = std::numeric_limits&amp;lt;float&amp;gt;::max();
+        result.push_back(p);
+        for (unsigned t = start + 1; t &amp;lt; pool.size() &amp;amp;&amp;amp; t &amp;lt; maxc; t++) &amp;#123;
+          if (occlude_factor[t] &amp;gt; alpha)
+            continue;
+          float djk = _distance-&amp;gt;compare(
+              _data + _aligned_dim * (size_t) pool[t].id,
+              _data + _aligned_dim * (size_t) p.id, (unsigned) _aligned_dim);
+          if (_dist_metric == diskann::Metric::L2 ||
+              _dist_metric == diskann::Metric::COSINE) &amp;#123;
+            occlude_factor[t] =
+                //(std::max)(occlude_factor[t], pool[t].distance / djk);
+                diskann_max(occlude_factor[t], pool[t].distance / djk);
+          &amp;#125; else if (_dist_metric ==
+                     diskann::Metric::INNER_PRODUCT) &amp;#123;  // stylized rules for
+                                                        // inner product since
+                                                        // we want max instead
+                                                        // of min distance
+            float x = -pool[t].distance;
+            float y = -djk;
+            if (y &amp;gt; cur_alpha * x) &amp;#123;
+              occlude_factor[t] =
+                  /* (std::max)*/ diskann_max(occlude_factor[t], eps);
+            &amp;#125;
+          &amp;#125;
+        &amp;#125;
+        start++;
+      &amp;#125;
+      cur_alpha *= 1.2;
+    &amp;#125;
+  &amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里有一个很有意思的点，cur_alpha 从 1 开始递增迭代来计算。&lt;/p&gt;
+&lt;h3 id=&#34;build_disk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#build_disk&#34;&gt;#&lt;/a&gt; build_disk&lt;/h3&gt;
+&lt;p&gt;建立索引入口：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int build_disk_index(const char *dataFilePath, const char *indexFilePath,
+                        const char *    indexBuildParameters,
+                        diskann::Metric compareMetric) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dataFilePath: base_bin；indexFilePath: 保存索引路径；indexBuildParameter：构建索引的参数；compareMetric：一般为 l2。&lt;/p&gt;
+&lt;p&gt;这里有一系列的路径，我先记录下来：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;std::string base_file(dataFilePath); // base
+std::string data_file_to_use = base_file; // base
+std::string index_prefix_path(indexFilePath); // index 前缀
+std::string pq_pivots_path = index_prefix_path + &amp;quot;_pq_pivots.bin&amp;quot;; // 保存pivots
+std::string pq_compressed_vectors_path =
+    index_prefix_path + &amp;quot;_pq_compressed.bin&amp;quot;; // 保存压缩的pq
+std::string mem_index_path = index_prefix_path + &amp;quot;_mem.index&amp;quot;; // 保存内存索引
+std::string disk_index_path = index_prefix_path + &amp;quot;_disk.index&amp;quot;; 
+std::string medoids_path = disk_index_path + &amp;quot;_medoids.bin&amp;quot;;
+std::string centroids_path = disk_index_path + &amp;quot;_centroids.bin&amp;quot;;
+std::string sample_base_prefix = index_prefix_path + &amp;quot;_sample&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;划分 pq 块：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;double final_index_ram_limit = get_memory_budget(param_list[2]);
+ size_t num_pq_chunks =
+        (size_t)(std::floor)(_u64(final_index_ram_limit / points_num));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;随机采样训练数据（0,1）分布：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;double p_val = ((double) MAX_PQ_TRAINING_SET_SIZE / (double) points_num); // 这里max是256000L，也就是说最多训练这么多数据
+gen_random_slice&amp;lt;T&amp;gt;(data_file_to_use.c_str(), p_val, train_data, train_size,
+                        train_dim); // 按照p_val进行采样，因为这里只是使用了10000个数据，所以p&amp;gt;1直接取全部数据进行训练
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;PQ 训练&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;generate_pq_pivots(train_data, train_size, (uint32_t) dim, 256,
+                       (uint32_t) num_pq_chunks, NUM_KMEANS_REPS,
+                       pq_pivots_path, make_zero_mean); //l2 make_zero_mean 为true
+int generate_pq_pivots(const float *passed_train_data, size_t num_train,
+                       unsigned dim, unsigned num_centers,
+                       unsigned num_pq_chunks, unsigned max_k_means_reps,
+                       std::string pq_pivots_path, bool make_zero_mean) // 固定center为256，max_k_means_reps为12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果 pq_pivots_path 文件存在，那么直接读入，反之则需要进行训练。&lt;/p&gt;
+&lt;p&gt;l2 计算预处理，可以将 traindata 数据更加集中与 center，由于 sift 数据集向量为 128 维，使用 32 个 pq_chunks，可以被等分，每一个 chunks 负责 4 个维度，又因为 pq center 为 256，所以 8 位 1byte 就可以表示，4 维度会降维到 1 维，并且有 float 变为 uint8。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;size_t cur_chunk_size = chunk_offsets[i + 1] - chunk_offsets[i]; // 这个直接为4
+std::unique_ptr&amp;lt;float[]&amp;gt; cur_pivot_data =
+        std::make_unique&amp;lt;float[]&amp;gt;(num_centers * cur_chunk_size);
+std::unique_ptr&amp;lt;float[]&amp;gt; cur_data =
+        std::make_unique&amp;lt;float[]&amp;gt;(num_train * cur_chunk_size);
+std::unique_ptr&amp;lt;uint32_t[]&amp;gt; closest_center =
+        std::make_unique&amp;lt;uint32_t[]&amp;gt;(num_train);
+// 从traindata中导入对应维度的数据到cur_data，也就是4维的数据
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;keams 选择 pivots：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;kmeans::kmeanspp_selecting_pivots(cur_data.get(), num_train, cur_chunk_size,
+                                      cur_pivot_data.get(), num_centers);
+void kmeanspp_selecting_pivots(float* data, size_t num_points, size_t dim,
+                                 float* pivot_data, size_t num_centers)                                     
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;首先随机选择一个初始的点；&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;roll init_id
+picked.push_back(init_id);
+std::memcpy(pivot_data, data + init_id * dim, dim * sizeof(float)); // 拷贝到cur_pivot_data中，dim这里是4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;计算所有点与该点的距离，然后用一个随机的迭代的方式获取其他 256 个随机点，说实话，这里我不是很明白，他为什么这么做。。。。&lt;/p&gt;
+&lt;p&gt;选择了 256 个 center 并保存在 cur_pivot_data 中之后，用 lloyds 算法进行训练：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;kmeans::run_lloyds(cur_data.get(), num_train, cur_chunk_size,
+                       cur_pivot_data.get(), num_centers, max_k_means_reps,
+                       NULL, closest_center.get());
+float run_lloyds(float* data, size_t num_points, size_t dim, float* centers,
+                   const size_t num_centers, const size_t max_reps,
+                   std::vector&amp;lt;size_t&amp;gt;* closest_docs,
+                   uint32_t*            closest_center) 
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
+        <updated>2022-04-25T09:09:26.000Z</updated>
+    </entry>
+    <entry>
         <id>https://songlinlife.top/2022/cpp/CMake%E5%AD%A6%E4%B9%A0/</id>
         <title>CMake学习</title>
         <link rel="alternate" href="https://songlinlife.top/2022/cpp/CMake%E5%AD%A6%E4%B9%A0/"/>
@@ -783,70 +1063,5 @@ u:就是指以多少个字节作为一个内存单元-unit,默认为4。u还可�
         <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
         <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
         <updated>2022-04-19T01:31:37.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AA-Comprehensive-Survey-and-Experimental-Comparison-of-Graph-Based-Approximate-Nearest-Neighbor-Search/</id>
-        <title>论文阅读：A Comprehensive Survey and Experimental Comparison of Graph-Based Approximate Nearest Neighbor Search</title>
-        <link rel="alternate" href="https://songlinlife.top/2022/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AA-Comprehensive-Survey-and-Experimental-Comparison-of-Graph-Based-Approximate-Nearest-Neighbor-Search/"/>
-        <content type="html">&lt;p&gt;开始我的阅读论文之旅了，第一篇论文挑了综述来看，目前来看，这玩意比 6.824 课上读的论文要简单多了。。。至少我能看个大概。&lt;/p&gt;
-&lt;h3 id=&#34;absintro&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#absintro&#34;&gt;#&lt;/a&gt; abs+intro&lt;/h3&gt;
-&lt;p&gt;这篇文章对于 13 种基于图的 ANNS 算法进行研究，使用了 8 个真实世界的数据集和 12 个人工数据集。ANNS 就是  &lt;code&gt;Approximate nearest neighbor search&lt;/code&gt;  ，关于为啥要研究这玩意，作者给出理由，因为：NNS 在很多领域比如信息检索、数据挖掘、机器学习巴拉巴拉很有用，然后因为高维数据的 NNS 太难搞了，于是大伙就整出了 ANNS，牺牲一点精度换取更高的效率。&lt;/p&gt;
-&lt;p&gt;基于图的 ANNS 大致运行逻辑：&lt;/p&gt;
-&lt;p&gt;给定一个查询 q 和图索引。第一步，初始化一个 seed vertex 作为 result vertex r。第二步，比较这个节点自身以及它的邻居节点与 q 之间距离，如果  &lt;code&gt;dis(q, n) &amp;lt; dis(r, q)&lt;/code&gt; ，那么说明邻居节点离 q 更近，于是我们用 &lt;code&gt;n&lt;/code&gt;  来替换 &lt;code&gt;r&lt;/code&gt; 。第三步，循环迭代，知道满足节点 &lt;code&gt;r&lt;/code&gt;  与 q 的距离没法再减少了，也就是 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∀&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\forall n, dis(r,q) \leq  dis(n, q)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∀&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;≤&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;基本算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本算法&#34;&gt;#&lt;/a&gt; 基本算法&lt;/h3&gt;
-&lt;h4 id=&#34;navigable-small-world-graph-nsw&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#navigable-small-world-graph-nsw&#34;&gt;#&lt;/a&gt; Navigable Small World graph (NSW)&lt;/h4&gt;
-&lt;p&gt;参考链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzI4NzA0OTc3L2FydGljbGUvZGV0YWlscy84NjYwNTMzMQ==&#34;&gt;https://blog.csdn.net/sinat_28704977/article/details/86605331&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZW92YW4ubWUvY24vMjAyMC8wOC9uZWFyZXN0LW5laWdoYm9yLXNlYXJjaC8=&#34;&gt;https://leovan.me/cn/2020/08/nearest-neighbor-search/&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;一句话总结：朴素插入 + 高速公路&lt;/p&gt;
-&lt;p&gt;有时间可以看看原文，我怀疑 tmp 是否真的有需要？&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418163029393.png&#34; alt=&#34;image-20220418163029393&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;hierarchical-navigable-small-world-graphs-hnsw&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hierarchical-navigable-small-world-graphs-hnsw&#34;&gt;#&lt;/a&gt; Hierarchical Navigable Small World graphs (HNSW)&lt;/h4&gt;
-&lt;p&gt;类似于跳表进行多层查询：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418163116658.png&#34; alt=&#34;image-20220418163116658&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Fast Approximate Nearest Neighbor Graph (FANNG)&lt;/p&gt;
-&lt;p&gt;Neighborhood Graph and Tree (NGT)&lt;/p&gt;
-&lt;p&gt;我本来想一一看完这些算法的，但是感觉太浪费时间了，而且我不觉得我一次性就可以把这些算法理解透彻。。。一边看一边补这方面的知识吧，感觉太吃亏了。&lt;/p&gt;
-&lt;h3 id=&#34;anns大致流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#anns大致流程&#34;&gt;#&lt;/a&gt; ANNS 大致流程&lt;/h3&gt;
-&lt;p&gt;作者将 13 种 ANNS 算法拆散为 7 个不同的组件，并且对这些部分分别进行评价：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418200300283.png&#34; alt=&#34;image-20220418200300283&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;c1initialization&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c1initialization&#34;&gt;#&lt;/a&gt; C1：Initialization&lt;/h4&gt;
-&lt;p&gt;作者根据构建索引的方式将 ANNS 算法划分为 3 种： &lt;code&gt;Divide-and-conquer&lt;/code&gt; 、 &lt;code&gt;Refinement&lt;/code&gt;  以及 &lt;code&gt;Increment&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;分治法&lt;/strong&gt;就是将数据集进行拆分，通过合并子图来得到最终的索引。&lt;strong&gt;优化法&lt;/strong&gt;就是通过 Neighbor 初始化来初始化图，然后对初始化得到的图进行优化。而&lt;strong&gt;增长法&lt;/strong&gt;就是通过不断插入节点，也就是把每一次的插入当做一次 ANNS 查询来对待。&lt;/p&gt;
-&lt;h4 id=&#34;c2-candidate-neighbor-acquisition&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c2-candidate-neighbor-acquisition&#34;&gt;#&lt;/a&gt; C2: Candidate neighbor acquisition&lt;/h4&gt;
-&lt;p&gt;这一步我们需要抽取合适的候选邻居。对于分治法，由于它做了数据集的切分，所以直接用切分得到的子集 S_i \textbackslash {p} 作为候选邻居，而优化法和增长法则使用 ANNS 查询的方式来获得候选邻居，作者的原话&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;they consider 𝑝 as a query and execute ANNS on 𝐺𝑠𝑢𝑏 or 𝐺𝑖𝑛𝑖𝑡, and finally return the query result as candidate neighbors of 𝑝.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;c3-neighbor-selection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c3-neighbor-selection&#34;&gt;#&lt;/a&gt; C3: Neighbor selection&lt;/h4&gt;
-&lt;p&gt;邻居的选择有点讲究，需要兼顾距离和空间分布。HNSW、FANNG、SPTAG 和 NSG 等算法通过考虑邻居之间的距离来实现邻居尽量分布。对于 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;∈&lt;/mo&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∀&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;∈&lt;/mo&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;x \in C, \forall y \in N(p)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.5782em;vertical-align:-0.0391em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;∈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∀&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;∈&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，如果满足 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;dis(x,y) &amp;gt; dis(y, p)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，那么我们把节点 x 也加入到 p 的邻居节点集合中。（启发式选边）&lt;/p&gt;
-&lt;p&gt;还有一些算法通过设置角度阈值来强制实现邻居分散。&lt;/p&gt;
-&lt;p&gt;为什么要实现分散？我的理解是：如果邻居节点聚集一块也就是邻居节点都很类似，那么通过相似的邻居节点进行的查询通常会导向相同的目的地。&lt;/p&gt;
-&lt;h4 id=&#34;c4-seed-preprocessing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c4-seed-preprocessing&#34;&gt;#&lt;/a&gt; C4: Seed preprocessing&lt;/h4&gt;
-&lt;p&gt;Seed 的预处理也是比较重要的一环。对于 HNSW 来说，它构造的多层结构实际上就是实现了 seed 的预测力，每次我们都是去最上层的节点。NSG 和 Vamana 使用了近似质心当做 seed，NSSG 则是直接 randomly 选取。&lt;/p&gt;
-&lt;p&gt;而对于某些算法，它的 seed 是动态的。SPTAG、EFANNA、HCNNG 和 NGT 使用了额外的树，比如 KD 树、k-means 树、VP 树等，通过这些额外的索引来获得接近查询点 q 的 seed。&lt;/p&gt;
-&lt;h4 id=&#34;c5-connectivity&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c5-connectivity&#34;&gt;#&lt;/a&gt; C5: Connectivity&lt;/h4&gt;
-&lt;p&gt;增长法天然具有强连通性，而优化法通过 DFS 来实现，分治法则是通过多次执行数据集的切分和子图的构建来保证连通性。&lt;/p&gt;
-&lt;h4 id=&#34;c6-seed-acquisition&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c6-seed-acquisition&#34;&gt;#&lt;/a&gt; C6: Seed acquisition&lt;/h4&gt;
-&lt;p&gt;现有的 SOTA 算法都使用了 seed 预处理方法也就 C4，作者在文章后续也说了对节点的预处理并不会显著地增加构建索引的开销。&lt;/p&gt;
-&lt;h4 id=&#34;c7-routing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c7-routing&#34;&gt;#&lt;/a&gt; C7: Routing&lt;/h4&gt;
-&lt;p&gt;这里需要理解一个贪心算法也就是 BFS（Best First Search），论文是这样描述的：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220418205449085.png&#34; alt=&#34;image-20220418205449085&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;其实这玩意就是 NSW 的查询。这种查询方式有两种缺点，1）容易陷入局部最佳。2）路由效率低。&lt;/p&gt;
-&lt;p&gt;解决问题一的方法可以是将距离比较变成搜索半径比较，或者从多个 seed 开始。&lt;/p&gt;
-&lt;p&gt;解决问题而的方法是用 &lt;code&gt;guided search&lt;/code&gt;  虽然我不清楚这是什么东西。&lt;/p&gt;
-&lt;h3 id=&#34;实验&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实验&#34;&gt;#&lt;/a&gt; 实验&lt;/h3&gt;
-&lt;p&gt;实验部分就是从这 7 个角度一一比较这 13 种算法的性能，说实话，我看了确实有收获，但是真的很难写出来，对这些东西没有啥实感。&lt;/p&gt;
-&lt;p&gt;关于这种 performance-recall 图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://image-2021-wu.oss-cn-beijing.aliyuncs.com/blogs/picturesimage-20220420194538828.png&#34; alt=&#34;image-20220420194538828&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;刚开始我真的搞不懂，这种不同 recall 是怎么实现的，后来跟小萌哥聊了一会搞懂了。原来并不是我们在调节 recall，而是通过改变不同的参数获得不同 recall 下对应的查询时间。比如对于 HNSW 算法，我们知道 M 和 ef 均会导致影响查询的性能，如果 M 和 ef 增大，那么毫无疑问可以提高 recall，而这种 recall-performance 图就是通过改变算法的参数，这样就可以得到不同的 recall 已经这个 recall 下对应的查询时间。我们通过比较不同的曲线，哪个更靠右，越靠右说明算法的性能越好。&lt;/p&gt;
-&lt;p&gt;所以，并不是通过固定相同的 recall 比较查询时间，而是比较这个曲线图。&lt;/p&gt;
-&lt;h3 id=&#34;思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考&#34;&gt;#&lt;/a&gt; 思考&lt;/h3&gt;
-&lt;p&gt;作者用 L2 距离来做实验，但是没法考虑其他距离度量的方法？L1 的比较劣势在哪里？&lt;/p&gt;
-&lt;p&gt;有没有必要去看 hash、量化、树等方法？&lt;/p&gt;
-&lt;p&gt;什么消耗的内存最少？&lt;/p&gt;
-</content>
-        <category term="数据库" scheme="https://songlinlife.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
-        <category term="ANNS" scheme="https://songlinlife.top/tags/ANNS/" />
-        <updated>2022-04-18T03:36:47.000Z</updated>
     </entry>
 </feed>
